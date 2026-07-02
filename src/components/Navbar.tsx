@@ -57,7 +57,7 @@ export default function Navbar() {
             className={`text-[21px] sm:text-[24px] tracking-tight transition-colors duration-300 select-none ${logoTextClass}`}
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-           M H
+            M H
           </span>
           <span
             className={`text-[24px] sm:text-[28px] transition-transform duration-500 group-hover:rotate-[180deg] select-none ${logoTextClass}`}
@@ -89,7 +89,7 @@ export default function Navbar() {
 
         {/* Desktop CTA (hidden below md) */}
         <a
-          href="mailto:adolfhitlerr26@gmail.com"
+          href="mailto:shreyasmholeyache@gmail.com"
           className={`hidden md:block text-[16px] lg:text-[17px] underline underline-offset-4 hover:opacity-60 transition-opacity duration-200 ${textClass}`}
           id="nav-cta-desktop"
         >
@@ -141,7 +141,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="mailto:adolfhitlerr26@gmail.com"
+          href="mailto:shreyasmholeyache@gmail.com"
           className="text-[26px] font-semibold text-white underline underline-offset-4 hover:text-indigo-400 transition-colors duration-200 mt-2"
           onClick={() => setMenuOpen(false)}
           id="mobile-nav-cta"
