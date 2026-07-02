@@ -49,22 +49,41 @@ export default function About() {
   Hi, I'm Shreyas MH. Building intelligent systems and student-first brands.
 </h2>
 
-          <div className="space-y-6 text-zinc-300 text-[16px] sm:text-[18px] leading-relaxed">
-           <p>
-  I'm Shreyas MH, a Computer Science Engineering student...
-</p>
+          <div className="space-y-6 text-zinc-300 text-[16px] sm:text-[18px] leading-relaxed mt-8">
+            <p>
+              I'm Shreyas MH, a Computer Science Engineering student with a strong passion for building
+              things that matter — from intelligent software systems to student-first brands. I work at
+              the intersection of technology, creativity, and entrepreneurship.
+            </p>
 
-<p>
-  I enjoy building projects that combine creativity with technology...
-</p>
+            <p>
+              I enjoy building projects that combine creativity with technology — whether it's crafting
+              clean web interfaces, experimenting with machine learning models, or building IoT systems
+              that interact with the physical world.
+            </p>
 
-<p>
-  Beyond software development, I am also the Co-Founder of XTICH, where I work on building a student-focused apparel and branding company that helps communities express their identity through premium merchandise and custom branding solutions.
-</p>
+            <p className="flex flex-wrap items-center gap-2">
+              Beyond software, I am the{' '}
+              <a
+                href="https://xtich.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 gradient-text font-bold hover:opacity-80 transition-opacity duration-200"
+              >
+                Co-Founder of XTICH
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-bold normal-case tracking-normal" style={{ background: 'none' }}>
+                  ↗
+                </span>
+              </a>
+              — a student-focused apparel and branding company helping communities express their identity
+              through premium merchandise and custom branding solutions.
+            </p>
 
-<p>
-  Currently, I am focused on improving my skills in React, TypeScript, Python...
-</p>
+            <p>
+              Currently, I am focused on deepening my skills in React, TypeScript, Python, and AI/ML
+              frameworks — with the long-term goal of building intelligent, impactful products that bridge
+              technology and real-world needs.
+            </p>
           </div>
         </div>
 

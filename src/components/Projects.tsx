@@ -13,11 +13,19 @@ const projects = [
     "Website & digital presence"
   ],
   tech: ["React", "Branding", "Business Strategy", "Startup"],
-  gradient: 'from-zinc-500 to-zinc-300',
-demoUrl: 'https://xtich.in',
-githubUrl: 'https://xtich.in',
+  gradient: 'from-zinc-400 to-zinc-200',
+  demoUrl: 'https://xtich.in',
+  githubUrl: 'https://xtich.in',
   link: "https://xtich.in",
   featured: true,
+  icon: (
+    <span
+      className="text-zinc-200 font-extrabold select-none leading-none"
+      style={{ fontSize: '22px', letterSpacing: '-0.04em', fontFamily: 'var(--font-heading)' }}
+    >
+      X
+    </span>
+  ),
 },
 {
     title: 'Doubt System',

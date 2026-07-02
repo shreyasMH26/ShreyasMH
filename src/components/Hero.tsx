@@ -48,6 +48,27 @@ export default function Hero() {
           Hi, I’m Shreyas MH.
         </h1>
 
+        {/* Subtle Co-Founder Achievement Badge */}
+        <div
+          className="mb-4"
+          style={{
+            opacity: pillsVisible ? 1 : 0,
+            transform: pillsVisible ? 'translateY(0)' : 'translateY(6px)',
+            transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
+          }}
+        >
+          <a
+            href="https://xtich.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-black/6 border border-black/12 text-black/75 rounded-full text-[12px] px-4 py-1.5 font-semibold hover:bg-black/10 hover:text-black transition-all duration-200 select-none"
+            id="hero-xtich-badge"
+          >
+            <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            Co-Founder @ XTICH ↗
+          </a>
+        </div>
+
         {/* 1. Blurred intro label / Subheading */}
         <div
           className="pointer-events-none select-none mb-5 sm:mb-6"
