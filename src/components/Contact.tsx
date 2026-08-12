@@ -74,8 +74,8 @@ export default function Contact() {
     },
     {
       label: 'Portfolio',
-      value: 'shreyasmh-portfolio-1.onrender.com',
-      href: 'https://shreyasmh-portfolio-1.onrender.com',
+      value: 'shreyasmh.onrender.com',
+      href: 'https://shreyasmh.onrender.com',
       icon: (
         <svg
           className="w-4 h-4"
@@ -152,15 +152,11 @@ export default function Contact() {
           opportunities, hackathons, and conversations about technology.
         </p>
 
-        {/* Main Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-          {/* =========================
-              LEFT: ACTION BUTTONS
-          ========================== */}
+          {/* Action Buttons */}
           <div className="flex flex-col gap-4">
-
-            {/* Email Copy */}
+            {/* Email */}
             <button
               onClick={handleCopyEmail}
               className="group inline-flex items-center justify-between w-full sm:max-w-sm bg-white text-black border border-white rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-black hover:text-white transition-all duration-300 cursor-pointer gap-3"
@@ -259,7 +255,7 @@ export default function Contact() {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                     clipRule="evenodd"
                   />
                 </svg>
@@ -281,12 +277,9 @@ export default function Contact() {
                 />
               </svg>
             </a>
-
           </div>
 
-          {/* =========================
-              RIGHT: CONTACT INFO
-          ========================== */}
+          {/* Contact Info Cards */}
           <div className="flex flex-col gap-4">
             {contactInfo.map((item) => (
               <div
@@ -320,14 +313,12 @@ export default function Contact() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
 
       {/* Footer */}
       <div className="w-full border-t border-white/5 pt-10 mt-20">
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-
           <span
             className="font-bold text-zinc-300 text-sm"
             style={{ fontFamily: 'var(--font-heading)' }}
@@ -339,10 +330,7 @@ export default function Contact() {
             Co-Founder @ XTICH | CSE Student | AI/ML Enthusiast
           </span>
 
-          <span>
-            © 2026 Shreyas MH. All rights reserved.
-          </span>
-
+          <span>© 2026 Shreyas MH. All rights reserved.</span>
         </div>
       </div>
     </section>
