@@ -27,9 +27,9 @@ export default function Contact() {
       ),
     },
     {
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/shreyas-m-h',
-      href: 'https://www.linkedin.com/in/shreyas-m-h',
+  label: 'LinkedIn',
+  value: 'linkedin.com/in/shreyasmh',
+  href: 'https://www.linkedin.com/in/shreyasmh',
       icon: (
         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
           <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
@@ -142,26 +142,36 @@ export default function Contact() {
             </a>
 
             {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/shreyas-m-h"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-between w-full sm:max-w-sm bg-white/[0.02] text-white border border-white/10 rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-white hover:text-black hover:border-white/20 transition-all duration-300 cursor-pointer gap-3"
-              id="contact-linkedin-link"
-            >
-              <span className="flex items-center gap-3">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
-                </svg>
-                <span>linkedin.com/in/shreyas-m-h</span>
-              </span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
+            {/* LinkedIn */}
+<a
+  href="https://www.linkedin.com/in/shreyasmh"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center justify-between w-full sm:max-w-sm bg-white/[0.02] text-white border border-white/10 rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-white hover:text-black hover:border-white/20 transition-all duration-300 cursor-pointer gap-3"
+  id="contact-linkedin-link"
+>
+  <span className="flex items-center gap-3">
+    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        fillRule="evenodd"
+        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+        clipRule="evenodd"
+      />
+    </svg>
 
-          {/* Contact Info Cards */}
+    <span>linkedin.com/in/shreyasmh</span>
+  </span>
+
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M14 5l7 7m0 0l-7 7m7-7H3"
+    />
+  </svg>
+</a>
+       {/* Contact Info Cards */}
           <div className="flex flex-col gap-4">
             {contactInfo.map((item) => (
               <div
