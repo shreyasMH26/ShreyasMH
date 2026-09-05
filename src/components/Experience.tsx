@@ -3,6 +3,7 @@ import { useInView } from '../hooks/useInView';
 interface ExperienceEntry {
   id: string;
   logoLetter: string;
+  logoImage?: string;
   logoFrom: string;
   logoTo: string;
   role: string;
@@ -20,6 +21,7 @@ const experiences: ExperienceEntry[] = [
   {
     id: 'xtich',
     logoLetter: 'X',
+    logoImage: '/xtich-logo.png',
     logoFrom: 'from-zinc-700',
     logoTo: 'to-zinc-900',
     role: 'Co-Founder',
@@ -106,18 +108,26 @@ export default function Experience() {
                 <div className="flex items-center gap-4">
                   {/* Logotype icon */}
                   <div
-                    className={`relative flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${exp.logoFrom} ${exp.logoTo} border border-white/10 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300`}
+                    className={`relative flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${exp.logoFrom} ${exp.logoTo} border border-white/10 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden`}
                   >
-                    <span
-                      className="text-white font-extrabold select-none leading-none"
-                      style={{
-                        fontSize: '20px',
-                        letterSpacing: '-0.04em',
-                        fontFamily: 'var(--font-heading)',
-                      }}
-                    >
-                      {exp.logoLetter}
-                    </span>
+                    {exp.logoImage ? (
+                      <img
+                        src={exp.logoImage}
+                        alt={`${exp.company} logo`}
+                        className="w-full h-full object-cover select-none"
+                      />
+                    ) : (
+                      <span
+                        className="text-white font-extrabold select-none leading-none"
+                        style={{
+                          fontSize: '20px',
+                          letterSpacing: '-0.04em',
+                          fontFamily: 'var(--font-heading)',
+                        }}
+                      >
+                        {exp.logoLetter}
+                      </span>
+                    )}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 

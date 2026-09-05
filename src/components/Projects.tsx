@@ -19,12 +19,11 @@ const projects = [
   link: "https://xtich.in",
   featured: true,
   icon: (
-    <span
-      className="text-zinc-200 font-extrabold select-none leading-none"
-      style={{ fontSize: '22px', letterSpacing: '-0.04em', fontFamily: 'var(--font-heading)' }}
-    >
-      X
-    </span>
+    <img
+      src="/xtich-logo.png"
+      alt="XTICH logo"
+      className="w-6 h-6 object-cover rounded-md select-none"
+    />
   ),
 },
 {
