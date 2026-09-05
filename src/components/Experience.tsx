@@ -43,6 +43,7 @@ const experiences: ExperienceEntry[] = [
   {
     id: 'versity',
     logoLetter: 'V',
+    logoImage: '/versity-logo.png',
     logoFrom: 'from-zinc-600',
     logoTo: 'to-zinc-800',
     role: 'Co-Founder & COO',
