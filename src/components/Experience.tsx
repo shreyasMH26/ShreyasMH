@@ -22,7 +22,7 @@ const experiences: ExperienceEntry[] = [
     logoLetter: 'X',
     logoFrom: 'from-zinc-700',
     logoTo: 'to-zinc-900',
-    role: 'Co-Founder & COO',
+    role: 'Co-Founder',
     company: 'XTICH',
     date: '2025 — Present',
     websiteUrl: 'https://xtich.in',
