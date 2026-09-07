@@ -57,13 +57,28 @@ const projects = [
     ),
   },
   {
+    title: 'EchoVerse — AI Memory OS',
+    category: 'Full-Stack / AI System',
+    status: 'Featured Project',
+    description: 'An AI-powered memory operating system designed to manage, organize, and retrieve contextual information using modern web technologies and OpenAI services.',
+    features: ['Contextual memory retrieval', 'AI-assisted organization', 'RESTful API architecture', 'Responsive dashboard', 'Secure data persistence'],
+    tech: ['Next.js', 'Express', 'MongoDB', 'OpenAI API'],
+    gradient: 'from-blue-500 to-cyan-400',
+    githubUrl: 'https://github.com/shreyasMH26',
+    icon: (
+      <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+  },
+  {
     title: 'Personal Portfolio Website',
     category: 'Web Dev / UI Design',
     description: 'A premium interactive portfolio inspired by modern creative agencies. Features cinematic video interactions, smooth animations, responsive layouts, and a professional presentation of projects and skills.',
     features: ['Interactive hero section', 'Responsive design', 'Cinematic video background', 'Smooth animations', 'Modern UI/UX'],
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
     gradient: 'from-violet-500 to-purple-400',
-    demoUrl: 'https://shreyasmh-portfolio-1.onrender.com',
+    demoUrl: 'https://shreyasmh.onrender.com',
     githubUrl: 'https://github.com/shreyasMH26',
     icon: (
       <svg className="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

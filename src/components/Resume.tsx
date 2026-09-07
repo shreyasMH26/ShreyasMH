@@ -31,7 +31,7 @@ export default function Resume() {
           A comprehensive overview of my education, technical skills, projects, and entrepreneurial experience.
         </p>
         <p className="text-zinc-600 text-sm max-w-lg mx-auto mb-12">
-          Covering Computer Science Engineering · Web Development · AI/ML · IoT · Co-Founder @ XTICH
+          Covering Full Stack Development · AI/ML · IoT · Co-Founder &amp; COO @ XTICH &amp; Versity
         </p>
 
         {/* Action Buttons */}
