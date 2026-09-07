@@ -51,7 +51,7 @@ export default function About() {
 
           <div className="space-y-6 text-zinc-300 text-[16px] sm:text-[18px] leading-relaxed mt-8">
             <p>
-              I'm Shreyas MH, a Computer Science Engineering student with a strong passion for building
+              I'm Shreyas M Holeyache (Shreyas MH), a Computer Science Engineering student with a strong passion for building
               things that matter — from intelligent software systems to student-first brands. I work at
               the intersection of technology, creativity, and entrepreneurship.
             </p>
@@ -70,13 +70,13 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 gradient-text font-bold hover:opacity-80 transition-opacity duration-200"
               >
-                Co-Founder of XTICH
+                Co-Founder &amp; COO of XTICH
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-bold normal-case tracking-normal" style={{ background: 'none' }}>
                   ↗
                 </span>
               </a>
-              — a student-focused apparel and branding company helping communities express their identity
-              through premium merchandise and custom branding solutions.
+              — a contemporary clothing brand helping students and young communities express their identity
+              through modern apparel, merchandise, and custom branding solutions.
             </p>
 
             <p>

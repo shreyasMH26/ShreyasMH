@@ -353,14 +353,14 @@ export default function Contact() {
             className="font-bold text-zinc-300 text-sm"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Shreyas MH
+            Shreyas M Holeyache (Shreyas MH)
           </span>
 
           <span className="text-center">
-            Co-Founder @ XTICH | CSE Student | AI/ML Enthusiast
+            Co-Founder &amp; COO @ XTICH | CSE Student | Full Stack Developer
           </span>
 
-          <span>© 2026 Shreyas MH. All rights reserved.</span>
+          <span>© 2026 Shreyas M Holeyache. All rights reserved.</span>
         </div>
       </div>
     </section>
