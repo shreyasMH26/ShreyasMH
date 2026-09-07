@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTypewriter } from '../hooks/useTypewriter';
 
 const TYPEWRITER_TEXT =
-
-
-'Computer Science Engineering Student • Co-Founder at XTICH • Building the Future of Student Merchandise • AI/ML Enthusiast'
+  'Full Stack Developer & AI/ML Enthusiast • Co-Founder & COO at XTICH • Building Modern Apparel & Software • CSE Student';
 
 export default function Hero() {
   const { displayed, done } = useTypewriter({
@@ -65,7 +63,7 @@ export default function Hero() {
             id="hero-xtich-badge"
           >
             <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            Co-Founder @ XTICH ↗
+            Co-Founder &amp; COO @ XTICH ↗
           </a>
         </div>
 
@@ -81,7 +79,7 @@ export default function Hero() {
           }}
           aria-hidden="true"
         >
-          Computer Science Engineering Student • Co-Founder at XTICH • AI/ML Enthusiast • Software Developer
+          Shreyas M Holeyache • Full Stack Developer • Co-Founder &amp; COO at XTICH • AI/ML Enthusiast
         </div>
 
         {/* 2. Typewriter text */}

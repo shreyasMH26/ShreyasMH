@@ -76,13 +76,14 @@ export default function About() {
                 </span>
               </a>
               — a contemporary clothing brand helping students and young communities express their identity
-              through modern apparel, merchandise, and custom branding solutions.
+              through modern apparel and merchandise. Under XTICH, we also develop <strong>Versity</strong>,
+              a dedicated sub-brand focused on modernizing traditional college uniform solutions through student-centric design.
             </p>
 
             <p>
               Currently, I am focused on deepening my skills in React, TypeScript, Python, and AI/ML
               frameworks — with the long-term goal of building intelligent, impactful products that bridge
-              technology and real-world needs.
+              technology, engineering, and real-world needs.
             </p>
           </div>
         </div>
