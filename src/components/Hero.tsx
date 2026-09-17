@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { useTypewriter } from '../hooks/useTypewriter';
 
 const TYPEWRITER_TEXT =
-  'Full Stack Developer & AI/ML Enthusiast • Co-Founder & COO at XTICH • Building Modern Apparel & Software • CSE Student';
+  'I build products, experiment with technology, and turn ideas into real-world ventures.';
 
 export default function Hero() {
   const { displayed, done } = useTypewriter({
     text: TYPEWRITER_TEXT,
-    speed: 24,
+    speed: 26,
     startDelay: 600,
   });
 
@@ -43,46 +43,37 @@ export default function Hero() {
             fontWeight: 800,
           }}
         >
-          Hi, I’m Shreyas MH.
+          Hi, I'm Shreyas MH.
         </h1>
 
-        {/* Subtle Co-Founder Achievement Badge */}
+        {/* Blurred identity lines */}
         <div
-          className="mb-4"
+          className="pointer-events-none select-none mb-5 sm:mb-6 space-y-1"
           style={{
-            opacity: pillsVisible ? 1 : 0,
-            transform: pillsVisible ? 'translateY(0)' : 'translateY(6px)',
-            transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
-          }}
-        >
-          <a
-            href="https://xtich.in"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-black/6 border border-black/12 text-black/75 rounded-full text-[12px] px-4 py-1.5 font-semibold hover:bg-black/10 hover:text-black transition-all duration-200 select-none"
-            id="hero-xtich-badge"
-          >
-            <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            Co-Founder &amp; COO @ XTICH ↗
-          </a>
-        </div>
-
-        {/* 1. Blurred intro label / Subheading */}
-        <div
-          className="pointer-events-none select-none mb-5 sm:mb-6"
-          style={{
-            fontSize: 'clamp(14px, 2.5vw, 18px)',
-            lineHeight: 1.35,
+            fontSize: 'clamp(13px, 2.2vw, 17px)',
+            lineHeight: 1.4,
             fontWeight: 500,
-            color: '#000',
             filter: 'blur(4px)',
           }}
           aria-hidden="true"
         >
-          Shreyas M Holeyache • Full Stack Developer • Co-Founder &amp; COO at XTICH • AI/ML Enthusiast
+          <div className="text-black">Founder · Builder · Computer Science Engineer</div>
+          {/* XTICH highlight — visible even through blur */}
+          <div
+            style={{
+              background: 'linear-gradient(135deg, #818cf8 0%, #34d399 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontWeight: 700,
+              fontSize: 'clamp(14px, 2.5vw, 19px)',
+            }}
+          >
+            Co-Founder & COO @ XTICH
+          </div>
         </div>
 
-        {/* 2. Typewriter text */}
+        {/* Typewriter text */}
         <p
           className="text-black mb-6 sm:mb-8 font-medium"
           style={{
@@ -102,7 +93,7 @@ export default function Hero() {
           )}
         </p>
 
-        {/* 3. Action pill buttons */}
+        {/* Action pill buttons */}
         <div
           className="flex flex-wrap gap-2 items-center"
           style={{
@@ -111,14 +102,13 @@ export default function Hero() {
             transition: 'opacity 0.4s ease, transform 0.4s ease',
           }}
         >
-          {/* Scroll Pills */}
           <button
             onClick={() => handleScrollTo('projects')}
             className="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[14px] px-5 py-2 whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200 cursor-pointer shadow-sm font-semibold"
           >
             View Projects
           </button>
-          
+
           <button
             onClick={() => handleScrollTo('resume')}
             className="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[14px] px-5 py-2 whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200 cursor-pointer shadow-sm font-semibold"
@@ -139,13 +129,13 @@ export default function Hero() {
             onClick={() => handleScrollTo('contact')}
             className="inline-flex items-center justify-center text-white bg-black/85 border border-black/15 rounded-full text-[13px] sm:text-[14px] px-5 py-2 whitespace-nowrap hover:bg-white hover:text-black hover:border-black/20 transition-all duration-200 cursor-pointer shadow-md font-semibold"
           >
-            Contact Me
+            Let's Build
           </button>
         </div>
       </div>
 
-      {/* Fade overlay at the bottom to transition to #080808 */}
-      <div 
+      {/* Fade overlay → dark sections */}
+      <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none bg-gradient-to-t from-[#080808] to-transparent z-10"
       />
     </section>

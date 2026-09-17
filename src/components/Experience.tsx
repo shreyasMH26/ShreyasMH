@@ -1,223 +1,337 @@
 import { useInView } from '../hooks/useInView';
 
-interface ExperienceEntry {
-  id: string;
-  logoLetter: string;
-  logoImage?: string;
-  logoFrom: string;
-  logoTo: string;
-  role: string;
-  company: string;
-  companyNote?: string;
-  date: string;
-  websiteUrl?: string;
-  websiteLabel?: string;
-  description: string;
-  responsibilities: string[];
-  tags: string[];
-}
-
-const experiences: ExperienceEntry[] = [
-  {
-    id: 'xtich',
-    logoLetter: 'X',
-    logoImage: '/xtich-logo.png',
-    logoFrom: 'from-zinc-700',
-    logoTo: 'to-zinc-900',
-    role: 'Co-Founder',
-    company: 'XTICH',
-    date: '2025 — Present',
-    websiteUrl: 'https://xtich.in',
-    websiteLabel: 'xtich.in ↗',
-    description:
-      'XTICH is a clothing brand focused on contemporary apparel for students and young communities. As Co-Founder & COO, I contribute to product development, brand strategy, digital presence, and overall business growth.',
-    responsibilities: [
-      'Co-founded XTICH',
-      'Product planning and development',
-      'Brand strategy and identity',
-      'Website and digital presence',
-      'Student-focused apparel and community engagement',
-    ],
-    tags: ['Entrepreneurship', 'Brand Strategy', 'Product Design', 'Web Development', 'Apparel'],
-  },
-  {
-    id: 'versity',
-    logoLetter: 'V',
-    logoImage: '/versity-logo.png',
-    logoFrom: 'from-zinc-600',
-    logoTo: 'to-zinc-800',
-    role: 'Co-Founder & COO',
-    company: 'Versity',
-    companyNote: 'Sub-brand of XTICH',
-    date: '2025 — Present',
-    description:
-      'Versity is a sub-brand of XTICH focused on modernizing traditional college uniforms through contemporary design, functionality, and student-centric apparel. As Co-Founder & COO, I lead the development of Versity, from product design to brand strategy, while ensuring it aligns with XTICH\'s vision.',
-    responsibilities: [
-      'Co-leading the development of Versity under XTICH',
-      'Modernizing traditional college uniforms',
-      'Product planning and apparel development',
-      'Brand and product strategy',
-      'Digital product and website development',
-      'Student-focused design and community engagement',
-    ],
-    tags: ['Product Design', 'Apparel', 'Brand Strategy', 'Web Development', 'Student Commerce'],
-  },
+/* ─── XTICH data ─────────────────────────────────────────────── */
+const xticResponsibilities = [
+  'Co-founded XTICH from the ground up',
+  'Product development and planning',
+  'Brand strategy and creative direction',
+  'Website and digital experiences',
+  'Business experimentation and operations',
+  'Student-focused product development',
 ];
 
+const xtichSkills = [
+  'Product Development',
+  'Brand Strategy',
+  'Creative Direction',
+  'Web Development',
+  'Business Development',
+  'Entrepreneurship',
+];
+
+/* ─── Versity data ───────────────────────────────────────────── */
+const versityResponsibilities = [
+  'Co-leading Versity — a student-wear direction under XTICH',
+  'Reimagining traditional college uniforms through contemporary product design',
+  'Product planning and apparel development',
+  'Brand and product strategy',
+  'Digital product and website development',
+  'Student-focused design and community engagement',
+];
+
+const versitySkills = [
+  'Product Design',
+  'Apparel',
+  'Brand Strategy',
+  'Web Development',
+  'Student Commerce',
+];
+
+/* ─── Shared card component ──────────────────────────────────── */
+interface ExperienceCardProps {
+  emoji: string;
+  badge: string;
+  role: string;
+  company: string;
+  companyHref?: string;
+  subtitle: string;
+  period: string;
+  siteLabel?: string;
+  siteHref?: string;
+  description: string;
+  responsibilities: string[];
+  skills: string[];
+  ctaLabel: string;
+  ctaHref?: string;
+  onCtaClick?: () => void;
+  onContactClick: () => void;
+}
+
+function ExperienceCard({
+  emoji,
+  badge,
+  role,
+  company,
+  companyHref,
+  subtitle,
+  period,
+  siteLabel,
+  siteHref,
+  description,
+  responsibilities,
+  skills,
+  ctaLabel,
+  ctaHref,
+  onCtaClick,
+  onContactClick,
+}: ExperienceCardProps) {
+  return (
+    <div
+      className="relative rounded-3xl overflow-hidden group transition-all duration-500 hover:-translate-y-1"
+      style={{
+        background: 'linear-gradient(135deg, rgba(129,140,248,0.06) 0%, rgba(52,211,153,0.04) 100%)',
+        border: '1px solid rgba(129,140,248,0.25)',
+        boxShadow: '0 0 60px -15px rgba(129,140,248,0.2)',
+      }}
+    >
+      {/* Gradient top border accent */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px]"
+        style={{ background: 'linear-gradient(90deg, #818cf8 0%, #34d399 100%)' }}
+      />
+
+      {/* Ambient glow on hover */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-3xl"
+        style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(129,140,248,0.08) 0%, transparent 60%)' }}
+      />
+
+      <div className="relative p-8 sm:p-10 lg:p-12">
+
+        {/* Header row */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10">
+          <div className="flex items-start gap-5">
+            {/* Icon */}
+            <div
+              className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(129,140,248,0.15) 0%, rgba(52,211,153,0.15) 100%)',
+                border: '1px solid rgba(129,140,248,0.25)',
+              }}
+            >
+              {emoji}
+            </div>
+
+            <div>
+              {/* Badge */}
+              <span
+                className="inline-block text-[9px] font-black tracking-[0.18em] uppercase px-3 py-1 rounded-full mb-3"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(129,140,248,0.2), rgba(52,211,153,0.2))',
+                  border: '1px solid rgba(129,140,248,0.35)',
+                  color: '#a5b4fc',
+                }}
+              >
+                {badge}
+              </span>
+
+              {/* Role @ Company */}
+              <h3
+                className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight mb-1"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                {role} @{' '}
+                {companyHref ? (
+                  <a
+                    href={companyHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="gradient-text hover:opacity-80 transition-opacity"
+                  >
+                    {company}
+                  </a>
+                ) : (
+                  <span className="gradient-text">{company}</span>
+                )}
+              </h3>
+
+              <p className="text-zinc-400 text-[15px]">{subtitle}</p>
+            </div>
+          </div>
+
+          {/* Period + site link */}
+          <div className="flex flex-col items-start lg:items-end gap-2 lg:flex-shrink-0">
+            <span
+              className="text-[11px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-lg"
+              style={{
+                background: 'rgba(52,211,153,0.08)',
+                border: '1px solid rgba(52,211,153,0.2)',
+                color: '#34d399',
+              }}
+            >
+              {period}
+            </span>
+            {siteLabel && siteHref && (
+              <a
+                href={siteHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[13px] text-zinc-500 hover:text-indigo-400 transition-colors underline underline-offset-2"
+              >
+                {siteLabel} ↗
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-zinc-300 text-[15px] sm:text-[16px] leading-relaxed mb-10 max-w-3xl">
+          {description}
+        </p>
+
+        {/* Two-column: Responsibilities + Skills */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+
+          {/* Responsibilities */}
+          <div>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-500 mb-4">
+              Responsibilities
+            </h4>
+            <ul className="space-y-2.5">
+              {responsibilities.map((r) => (
+                <li key={r} className="flex items-center gap-2.5 text-[14px] text-zinc-300">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    style={{ background: 'linear-gradient(135deg, #818cf8, #34d399)' }}
+                  />
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Skills */}
+          <div>
+            <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-zinc-500 mb-4">
+              Skills
+            </h4>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((s) => (
+                <span
+                  key={s}
+                  className="text-[12px] font-semibold px-3 py-1.5 rounded-md transition-all duration-200 select-none"
+                  style={{
+                    background: 'rgba(129,140,248,0.08)',
+                    border: '1px solid rgba(129,140,248,0.2)',
+                    color: '#a5b4fc',
+                  }}
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CTA buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          {ctaHref ? (
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[14px] font-semibold text-black bg-white hover:bg-zinc-100 transition-all duration-200 shadow-md"
+            >
+              {ctaLabel}
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          ) : (
+            <button
+              onClick={onCtaClick}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[14px] font-semibold text-black bg-white hover:bg-zinc-100 transition-all duration-200 shadow-md"
+            >
+              {ctaLabel}
+            </button>
+          )}
+
+          <button
+            onClick={onContactClick}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-[14px] font-semibold text-white transition-all duration-200"
+            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.08)'; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.03)'; }}
+          >
+            Contact Me
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Section ────────────────────────────────────────────────── */
 export default function Experience() {
   const [ref, isInView] = useInView();
+
+  const handleScrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section
       ref={ref}
       id="experience"
-      className={`relative z-20 bg-[#080808] text-white py-24 px-5 sm:px-8 md:px-12 section-reveal ${
-        isInView ? 'visible' : ''
-      }`}
+      className={`relative z-20 bg-[#080808] text-white py-24 px-5 sm:px-8 md:px-12 section-reveal ${isInView ? 'visible' : ''}`}
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto w-full">
 
-        {/* Section Label */}
+        {/* Section label */}
         <div
           className="text-zinc-500 font-medium tracking-widest text-xs uppercase mb-4"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
-          02 // Experience
+          06 // Featured Experience
         </div>
 
         <h2
           className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-16"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
-          Professional <span className="gradient-text">Experience</span>.
+          Where Building <span className="gradient-text">Became Real</span>.
         </h2>
 
-        {/* Experience Cards — stacked vertically */}
-        <div className="flex flex-col gap-6">
-          {experiences.map((exp) => (
-            <div
-              key={exp.id}
-              className="group relative rounded-3xl border border-white/[0.07] bg-white/[0.018] p-7 sm:p-9 transition-all duration-500 hover:bg-white/[0.028] hover:border-emerald-500/20 hover:-translate-y-0.5 overflow-hidden"
-            >
-              {/* Ambient hover glow */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-emerald-500/[0.04] via-transparent to-transparent" />
+        {/* Cards stacked vertically */}
+        <div className="flex flex-col gap-8">
 
-              {/* ── Header Row ── */}
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-5 mb-6">
+          {/* Card 1 — XTICH */}
+          <ExperienceCard
+            emoji="🚀"
+            badge="★ Primary Venture · Active"
+            role="Co-Founder & COO"
+            company="XTICH"
+            companyHref="https://xtich.in"
+            subtitle="Student-focused apparel and branding · 2025 – Present"
+            period="2025 – Present"
+            siteLabel="xtich.in"
+            siteHref="https://xtich.in"
+            description="XTICH is where product, brand, technology and business first intersected for me. I co-founded it, and it became the place where building stopped being theoretical. My work spans product development, brand strategy, digital experiences, creative direction and business operations — while pursuing my Computer Science Engineering degree."
+            responsibilities={xticResponsibilities}
+            skills={xtichSkills}
+            ctaLabel="Visit XTICH"
+            ctaHref="https://xtich.in"
+            onContactClick={() => handleScrollTo('contact')}
+          />
 
-                {/* Left: Logo + Role + Company + Date */}
-                <div className="flex items-center gap-4">
-                  {/* Logotype icon */}
-                  <div
-                    className={`relative flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${exp.logoFrom} ${exp.logoTo} border border-white/10 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300 overflow-hidden`}
-                  >
-                    {exp.logoImage ? (
-                      <img
-                        src={exp.logoImage}
-                        alt={`${exp.company} logo`}
-                        className="w-full h-full object-cover select-none"
-                      />
-                    ) : (
-                      <span
-                        className="text-white font-extrabold select-none leading-none"
-                        style={{
-                          fontSize: '20px',
-                          letterSpacing: '-0.04em',
-                          fontFamily: 'var(--font-heading)',
-                        }}
-                      >
-                        {exp.logoLetter}
-                      </span>
-                    )}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
+          {/* Card 2 — Versity by XTICH */}
+          <ExperienceCard
+            emoji="🎓"
+            badge="★ Active · Under XTICH"
+            role="Co-Founder & COO"
+            company="Versity by XTICH"
+            subtitle="A student-wear direction under XTICH · Contemporary College Uniforms"
+            period="2025 – Present"
+            description="Versity is a student-wear direction under XTICH, focused on reimagining traditional college uniforms through contemporary design, product thinking, and student-centric apparel. As Co-Founder & COO, I co-lead product strategy, brand development, and digital execution for Versity."
+            responsibilities={versityResponsibilities}
+            skills={versitySkills}
+            ctaLabel="Learn About Versity"
+            onCtaClick={() => handleScrollTo('contact')}
+            onContactClick={() => handleScrollTo('contact')}
+          />
 
-                  <div>
-                    <h3
-                      className="text-lg sm:text-xl font-bold leading-tight"
-                      style={{ fontFamily: 'var(--font-heading)' }}
-                    >
-                      {exp.role}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-1.5 mt-0.5">
-                      <p className="text-zinc-200 text-[14px] font-semibold">{exp.company}</p>
-                      {exp.companyNote && (
-                        <span className="text-zinc-500 text-[11px] font-medium px-2 py-0.5 rounded-full border border-white/[0.07] bg-white/[0.03]">
-                          {exp.companyNote}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-zinc-500 text-[12px] mt-1">{exp.date}</p>
-                  </div>
-                </div>
-
-                {/* Right: Active badge + Website link */}
-                <div className="flex flex-row sm:flex-col items-center sm:items-end gap-3 flex-shrink-0">
-                  {/* Active badge */}
-                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                    </span>
-                    Active
-                  </span>
-
-                  {/* Website button (only if URL provided) */}
-                  {exp.websiteUrl && (
-                    <a
-                      href={exp.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/[0.04] border border-white/[0.09] text-zinc-300 text-[12px] font-semibold hover:bg-white hover:text-black hover:border-white transition-all duration-200"
-                    >
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                      </svg>
-                      {exp.websiteLabel}
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* ── Divider ── */}
-              <div className="border-t border-white/[0.055] mb-6" />
-
-              {/* ── Description ── */}
-              <p className="text-zinc-300 text-[14.5px] sm:text-[15px] leading-relaxed mb-7">
-                {exp.description}
-              </p>
-
-              {/* ── Responsibilities ── */}
-              <div className="mb-7">
-                <div className="text-zinc-500 text-[10.5px] uppercase tracking-widest font-bold mb-3.5">
-                  Responsibilities
-                </div>
-                <ul className="space-y-2">
-                  {exp.responsibilities.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-zinc-300 text-[13.5px]">
-                      <span className="mt-[7px] flex-shrink-0 w-1.5 h-1.5 rounded-full bg-emerald-500/70" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* ── Tags ── */}
-              <div className="flex flex-wrap gap-2">
-                {exp.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] font-semibold text-zinc-400 bg-white/[0.03] border border-white/[0.07] px-3 py-1 rounded-md hover:border-emerald-500/20 hover:text-emerald-300 transition-colors duration-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-            </div>
-          ))}
         </div>
-
       </div>
     </section>
   );

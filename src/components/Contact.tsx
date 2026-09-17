@@ -1,366 +1,462 @@
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { useInView } from '../hooks/useInView';
+import {
+  Mail,
+  MapPin,
+  Send,
+  ExternalLink,
+  ArrowUpRight,
+} from 'lucide-react';
 
+/* ─── Inline brand icons (not in this lucide-react version) ─── */
+function GithubIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+    </svg>
+  );
+}
+
+function LinkedinIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+    </svg>
+  );
+}
+
+/* ─── Types ──────────────────────────────────────────────────── */
+type FormState = 'idle' | 'sending' | 'done';
+
+/* ─── Corner accent ──────────────────────────────────────────── */
+function PlusCorner({ className }: { className: string }) {
+  return (
+    <span
+      className={`absolute w-4 h-4 pointer-events-none select-none ${className}`}
+      aria-hidden="true"
+    >
+      <span className="absolute inset-x-0 top-1/2 -translate-y-px h-px bg-zinc-600" />
+      <span className="absolute inset-y-0 left-1/2 -translate-x-px w-px bg-zinc-600" />
+    </span>
+  );
+}
+
+/* ─── Info row ───────────────────────────────────────────────── */
+function InfoRow({
+  icon: Icon,
+  label,
+  value,
+  href,
+}: {
+  icon: React.ElementType;
+  label: string;
+  value: string;
+  href?: string;
+}) {
+  const inner = (
+    <div className="flex items-center gap-3 group/row">
+      <div className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center bg-white/[0.03] border border-white/8 text-zinc-400 group-hover/row:text-indigo-400 transition-colors duration-200">
+        <Icon size={15} strokeWidth={1.8} />
+      </div>
+      <div className="min-w-0">
+        <p className="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 mb-0.5">{label}</p>
+        <p className="text-[13.5px] text-zinc-200 font-medium truncate group-hover/row:text-indigo-300 transition-colors duration-200">
+          {value}
+        </p>
+      </div>
+      {href && (
+        <ArrowUpRight
+          size={13}
+          className="ml-auto flex-shrink-0 text-zinc-700 group-hover/row:text-indigo-400 transition-colors duration-200"
+        />
+      )}
+    </div>
+  );
+
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+      {inner}
+    </a>
+  ) : (
+    <div>{inner}</div>
+  );
+}
+
+/* ─── Main component ─────────────────────────────────────────── */
 export default function Contact() {
   const [ref, isInView] = useInView();
+  const [formState, setFormState] = useState<FormState>('idle');
   const [copied, setCopied] = useState(false);
+
+  const EMAIL = 'adolfhitlerr26@gmail.com';
 
   const handleCopyEmail = async () => {
     try {
-      await navigator.clipboard.writeText('shreyasmholeyache@gmail.com');
+      await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback
+      /* fallback: do nothing */
     }
   };
 
-  const contactInfo = [
-    {
-      label: 'GitHub',
-      value: 'shreyasMH26',
-      href: 'https://github.com/shreyasMH26',
-      icon: (
-        <svg
-          className="w-4 h-4"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"
-          />
-        </svg>
-      ),
-    },
-    {
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/shreyasmh',
-      href: 'https://www.linkedin.com/in/shreyasmh',
-      icon: (
-        <svg
-          className="w-4 h-4"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fillRule="evenodd"
-            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
-    {
-      label: 'XTICH',
-      value: 'xtich.in',
-      href: 'https://xtich.in',
-      icon: (
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-          />
-        </svg>
-      ),
-    },
-    {
-      label: 'Portfolio',
-      value: 'shreyasmh.onrender.com',
-      href: 'https://shreyasmh.onrender.com',
-      icon: (
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-          />
-        </svg>
-      ),
-    },
-    {
-      label: 'Instagram',
-      value: '@shreyasm.h',
-      href: 'https://www.instagram.com/shreyasm.h',
-      icon: (
-        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-        </svg>
-      ),
-    },
-    {
-      label: 'Location',
-      value: 'Davanagere, Karnataka, India',
-      href: null,
-      icon: (
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-      ),
-    },
-  ];
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
+
+    if (!name || !email || !message) return;
+
+    // Open mailto — no fake backend
+    const subject = encodeURIComponent(`Hey Shreyas — from ${name}`);
+    const body = encodeURIComponent(`Hi Shreyas,\n\n${message}\n\n— ${name}\n${email}`);
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+
+    setFormState('sending');
+    setTimeout(() => {
+      setFormState('done');
+      form.reset();
+    }, 600);
+  };
 
   return (
     <section
       ref={ref}
       id="contact"
-      className={`relative z-20 bg-[#080808] text-white py-32 px-5 sm:px-8 md:px-12 flex flex-col justify-between min-h-[80vh] section-reveal ${
+      className={`relative z-20 bg-[#080808] text-white py-24 px-5 sm:px-8 md:px-12 section-reveal ${
         isInView ? 'visible' : ''
       }`}
     >
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-      {/* Main Content */}
-      <div className="max-w-5xl mx-auto w-full flex-grow flex flex-col justify-center">
+      <div className="max-w-5xl mx-auto w-full relative">
+
+        {/* Section label */}
         <div
           className="text-zinc-500 font-medium tracking-widest text-xs uppercase mb-4"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
-          06 // Contact
+          08 // Contact
         </div>
 
         <h2
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 leading-none"
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 leading-none"
           style={{ fontFamily: 'var(--font-heading)' }}
         >
-          <span className="gradient-text">Let's Connect</span>.
+          Let's <span className="gradient-text">Build</span>.
         </h2>
 
-        <p className="text-zinc-400 text-base sm:text-lg max-w-lg mb-12 leading-relaxed">
-          I'm always open to internships, collaborations, project
-          opportunities, hackathons, and conversations about technology.
+        <p className="text-zinc-400 text-base sm:text-lg mb-14 max-w-xl leading-relaxed">
+          Have an idea, project, collab, or just want to talk tech, startups, or building things?
+          I'm always open to interesting conversations.
         </p>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {/* Action Buttons */}
-          <div className="flex flex-col gap-4">
-            {/* Email */}
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
+
+          {/* ── Left: Identity + Info ───────────────────────── */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
+
+            {/* Identity card */}
+            <div
+              className="relative rounded-2xl p-6 overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(129,140,248,0.06) 0%, rgba(52,211,153,0.04) 100%)',
+                border: '1px solid rgba(129,140,248,0.2)',
+              }}
+            >
+              {/* Gradient top accent */}
+              <div
+                className="absolute top-0 left-0 right-0 h-[2px]"
+                style={{ background: 'linear-gradient(90deg, #818cf8, #34d399)' }}
+              />
+
+              {/* Corner plus marks */}
+              <PlusCorner className="-top-2 -left-2" />
+              <PlusCorner className="-top-2 -right-2" />
+              <PlusCorner className="-bottom-2 -left-2" />
+              <PlusCorner className="-bottom-2 -right-2" />
+
+              <p className="text-[11px] font-black tracking-[0.18em] uppercase mb-4"
+                style={{ color: '#a5b4fc' }}>
+                ★ Open to connecting
+              </p>
+
+              <p
+                className="text-2xl font-extrabold leading-tight mb-1"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >
+                Shreyas MH
+              </p>
+              <p className="text-zinc-400 text-[14px] mb-4 leading-snug">
+                CSE Student · Founder · Builder
+              </p>
+
+              <div className="space-y-1 text-[13px] text-zinc-400 leading-relaxed">
+                <p>
+                  🚀{' '}
+                  <a
+                    href="https://xtich.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="gradient-text font-semibold hover:opacity-80 transition-opacity"
+                  >
+                    Co-Founder @ XTICH
+                  </a>
+                  {' '}— premium student apparel
+                </p>
+                <p className="text-zinc-500 text-[12px] pl-5">
+                  Versity by XTICH — modernising college uniform solutions
+                </p>
+              </div>
+            </div>
+
+            {/* Contact info rows */}
+            <div
+              className="rounded-2xl p-5 flex flex-col gap-4"
+              style={{
+                background: 'rgba(255,255,255,0.015)',
+                border: '1px solid rgba(255,255,255,0.06)',
+              }}
+            >
+              <InfoRow
+                icon={Mail}
+                label="Email"
+                value={EMAIL}
+                href={`mailto:${EMAIL}`}
+              />
+              <div className="h-px bg-white/5" />
+              <InfoRow
+                icon={GithubIcon}
+                label="GitHub"
+                value="shreyasMH26"
+                href="https://github.com/shreyasMH26"
+              />
+              <div className="h-px bg-white/5" />
+              <InfoRow
+                icon={LinkedinIcon}
+                label="LinkedIn"
+                value="Coming soon"
+              />
+              <div className="h-px bg-white/5" />
+              <InfoRow
+                icon={MapPin}
+                label="Location"
+                value="Davanagere, Karnataka, India"
+              />
+            </div>
+
+            {/* Copy email quick action */}
             <button
               onClick={handleCopyEmail}
-              className="group inline-flex items-center justify-between w-full sm:max-w-sm bg-white text-black border border-white rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-black hover:text-white transition-all duration-300 cursor-pointer gap-3"
+              type="button"
+              className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl text-[13px] font-semibold transition-all duration-200 border"
+              style={{
+                background: copied ? 'rgba(52,211,153,0.08)' : 'rgba(255,255,255,0.02)',
+                border: copied ? '1px solid rgba(52,211,153,0.25)' : '1px solid rgba(255,255,255,0.07)',
+                color: copied ? '#34d399' : '#a1a1aa',
+              }}
             >
-              <span className="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-
-                <span className="text-[13px] sm:text-[15px]">
-                  {copied
-                    ? 'Email Copied!'
-                    : 'shreyasmholeyache@gmail.com'}
-                </span>
+              <span className="flex items-center gap-2">
+                <Mail size={14} strokeWidth={2} />
+                {copied ? 'Email copied!' : 'Copy email address'}
               </span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="flex-shrink-0"
-              >
-                <rect x="9" y="9" width="13" height="13" rx="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-              </svg>
+              <ExternalLink size={12} className="opacity-40" />
             </button>
-
-            {/* GitHub */}
-            <a
-              href="https://github.com/shreyasMH26"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-between w-full sm:max-w-sm bg-white/[0.02] text-white border border-white/10 rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-white hover:text-black hover:border-white/20 transition-all duration-300 cursor-pointer gap-3"
-            >
-              <span className="flex items-center gap-3">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"
-                  />
-                </svg>
-
-                <span>github.com/shreyasMH26</span>
-              </span>
-
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/in/shreyasmh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-between w-full sm:max-w-sm bg-white/[0.02] text-white border border-white/10 rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-white hover:text-black hover:border-white/20 transition-all duration-300 cursor-pointer gap-3"
-              id="contact-linkedin-link"
-            >
-              <span className="flex items-center gap-3">
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.762 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-
-                <span>linkedin.com/in/shreyasmh</span>
-              </span>
-
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </a>
-
-
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/shreyasm.h"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-between w-full sm:max-w-sm bg-white/[0.02] text-white border border-white/10 rounded-2xl text-[15px] font-semibold px-6 py-4 hover:bg-white hover:text-black hover:border-white/20 transition-all duration-300 cursor-pointer gap-3"
-              id="contact-instagram-link"
-            >
-              <span className="flex items-center gap-3">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-                <span>@shreyasm.h</span>
-              </span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
           </div>
 
-          {/* Contact Info Cards */}
-          <div className="flex flex-col gap-4">
-            {contactInfo.map((item) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all duration-200"
-              >
-                <div className="p-2.5 rounded-lg bg-white/[0.03] text-zinc-400">
-                  {item.icon}
-                </div>
+          {/* ── Right: Contact Form ─────────────────────────── */}
+          <div
+            className="lg:col-span-3 relative rounded-2xl p-6 sm:p-8 overflow-hidden"
+            style={{
+              background: 'rgba(255,255,255,0.015)',
+              border: '1px solid rgba(255,255,255,0.07)',
+            }}
+          >
+            {/* Corner plus marks */}
+            <PlusCorner className="-top-2 -left-2" />
+            <PlusCorner className="-top-2 -right-2" />
+            <PlusCorner className="-bottom-2 -left-2" />
+            <PlusCorner className="-bottom-2 -right-2" />
 
-                <div className="flex-grow overflow-hidden">
-                  <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-semibold mb-0.5">
-                    {item.label}
-                  </p>
-
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-zinc-200 text-[14px] font-medium hover:text-indigo-400 transition-colors duration-200 truncate block"
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-zinc-200 text-[14px] font-medium truncate">
-                      {item.value}
-                    </p>
-                  )}
+            {formState === 'done' ? (
+              /* ── Success state ── */
+              <div className="flex flex-col items-center justify-center h-full min-h-[320px] text-center gap-4">
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-2"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(129,140,248,0.15), rgba(52,211,153,0.15))',
+                    border: '1px solid rgba(129,140,248,0.25)',
+                  }}
+                >
+                  <Send size={22} className="text-indigo-400" />
                 </div>
+                <h3
+                  className="text-xl font-bold"
+                  style={{ fontFamily: 'var(--font-heading)' }}
+                >
+                  Email opened!
+                </h3>
+                <p className="text-zinc-400 text-[14px] max-w-xs leading-relaxed">
+                  Your email client should have opened with a pre-filled message. Hit send whenever you're ready.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFormState('idle')}
+                  className="mt-2 text-[13px] text-zinc-500 hover:text-white transition-colors underline underline-offset-2"
+                >
+                  Send another message
+                </button>
               </div>
-            ))}
+            ) : (
+              /* ── Form ── */
+              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+                <div className="mb-2">
+                  <h3
+                    className="text-[17px] font-bold mb-1"
+                    style={{ fontFamily: 'var(--font-heading)' }}
+                  >
+                    Send a message
+                  </h3>
+                  <p className="text-zinc-500 text-[13px]">
+                    Opens your email client — no tracking, no fake sends.
+                  </p>
+                </div>
+
+                {/* Name */}
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="contact-name"
+                    className="text-[11px] font-bold uppercase tracking-widest text-zinc-500"
+                  >
+                    Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    autoComplete="name"
+                    className="w-full rounded-xl px-4 py-3 text-[14px] text-white placeholder-zinc-600 outline-none transition-all duration-200 focus:ring-1"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(129,140,248,0.4)';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(129,140,248,0.08)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="contact-email"
+                    className="text-[11px] font-bold uppercase tracking-widest text-zinc-500"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="your@email.com"
+                    autoComplete="email"
+                    className="w-full rounded-xl px-4 py-3 text-[14px] text-white placeholder-zinc-600 outline-none transition-all duration-200"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(129,140,248,0.4)';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(129,140,248,0.08)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col gap-1.5">
+                  <label
+                    htmlFor="contact-message"
+                    className="text-[11px] font-bold uppercase tracking-widest text-zinc-500"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    rows={5}
+                    placeholder="Tell me about your idea, project, or just say hi..."
+                    className="w-full rounded-xl px-4 py-3 text-[14px] text-white placeholder-zinc-600 outline-none transition-all duration-200 resize-none"
+                    style={{
+                      background: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(129,140,248,0.4)';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(129,140,248,0.08)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={formState === 'sending'}
+                  className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl text-[14px] font-semibold text-black bg-white hover:bg-zinc-100 active:scale-[0.98] transition-all duration-200 shadow-md disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {formState === 'sending' ? (
+                    <>
+                      <span className="w-4 h-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
+                      Opening email…
+                    </>
+                  ) : (
+                    <>
+                      <Send size={15} strokeWidth={2.2} />
+                      Send Message
+                    </>
+                  )}
+                </button>
+
+                <p className="text-center text-zinc-600 text-[11px]">
+                  This will open your default email client.
+                </p>
+              </form>
+            )}
           </div>
         </div>
-      </div>
 
-      {/* Footer */}
-      <div className="w-full border-t border-white/5 pt-10 mt-20">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <span
-            className="font-bold text-zinc-300 text-sm"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Shreyas M Holeyache (Shreyas MH)
-          </span>
-
-          <span className="text-center">
-            Co-Founder &amp; COO @ XTICH | CSE Student | Full Stack Developer
-          </span>
-
-          <span>© 2026 Shreyas M Holeyache. All rights reserved.</span>
+        {/* Footer */}
+        <div className="mt-20 pt-10 border-t border-white/5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+            <span
+              className="font-bold text-zinc-300 text-sm"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              Shreyas MH
+            </span>
+            <span className="text-center">Founder · Builder · Computer Science Engineer</span>
+            <span>© 2026 Shreyas MH. All rights reserved.</span>
+          </div>
         </div>
       </div>
     </section>
