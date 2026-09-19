@@ -11,161 +11,163 @@ function GithubIcon({ size = 16 }: { size?: number }) {
 }
 
 interface ProjectData {
+  number: string;
   title: string;
   category: string;
   description: string;
   tech: string[];
-  image: string;
   liveUrl?: string;
   githubUrl?: string;
   statusBadge?: string;
+  badgeColor?: string;
 }
 
 const projectsList: ProjectData[] = [
   {
+    number: '01',
     title: 'XTICH Website & Platform',
-    category: 'E-Commerce / Brand',
+    category: 'E-Commerce / Brand Platform',
     description:
-      'Digital storefront and brand platform for XTICH, a student-focused contemporary clothing brand. Designed for seamless product presentation, brand identity, and smooth community commerce.',
+      'Digital storefront and brand platform for XTICH, a student-focused contemporary clothing brand. Designed for seamless product presentation, brand identity, and smooth community commerce with modern web architecture.',
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Digital Commerce', 'Brand Strategy'],
-    image: '/hero-bg.png',
     liveUrl: 'https://xtich.in',
     statusBadge: 'Active Venture',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 border-emerald-500/20',
   },
   {
+    number: '02',
     title: 'EchoVerse',
     category: 'AI Knowledge Operating System',
     description:
-      'An exploration into AI-powered personal memory and knowledge systems. EchoVerse investigates how AI agents can understand, surface, and connect information in ways that feel meaningful — an idea with product potential.',
-    tech: ['Python', 'LLMs', 'Embeddings', 'Vector DB', 'Semantic Search'],
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&auto=format&fit=crop&q=80',
+      'An exploration into AI-powered personal memory and knowledge systems. EchoVerse investigates how autonomous AI agents can understand, surface, and connect information semantically through vector retrieval and intelligent graph structures.',
+    tech: ['Python', 'LLMs', 'Embeddings', 'Vector DB', 'Semantic Search', 'Agent Workflows'],
     githubUrl: 'https://github.com/shreyasMH26',
     statusBadge: 'Exploring',
+    badgeColor: 'bg-indigo-500/10 text-indigo-700 border-indigo-500/20',
   },
   {
+    number: '03',
     title: 'MH AI Steering Wheel',
-    category: 'Personal AI Layer',
+    category: 'Personal AI Operating Layer',
     description:
-      'An experiment in building my own personal AI operating layer. Exploring local AI execution, speech interaction, computer automation and macOS workflows — a look at what personal computing could look like with AI as the interface.',
-    tech: ['Python', 'Local LLMs', 'macOS', 'Voice Interaction', 'Automation'],
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80',
+      'An experiment in building my own personal AI operating layer. Exploring local AI execution, voice interaction, computer automation, and macOS workflows — reimagining what personal computing feels like with AI as the central interaction paradigm.',
+    tech: ['Python', 'Local LLMs', 'macOS Automation', 'Voice Interaction', 'Scripting'],
     githubUrl: 'https://github.com/shreyasMH26',
     statusBadge: 'Experiment',
+    badgeColor: 'bg-amber-500/10 text-amber-700 border-amber-500/20',
   },
   {
+    number: '04',
     title: 'SecureVault',
-    category: 'Security Software',
+    category: 'Local-First Security Software',
     description:
-      'A password management application with password generation, categorization, search, and local storage persistence. A software build focused on usability and local-first security without third-party surveillance.',
+      'A password management application with password generation, categorization, search, and local storage persistence. A software build focused on usability, reliability, and local-first client encryption without third-party surveillance.',
     tech: ['HTML5', 'CSS3', 'JavaScript', 'LocalStorage', 'Client Encryption'],
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&auto=format&fit=crop&q=80',
-    liveUrl: 'https://shreyasmh26.github.io/SecureVault/',
     githubUrl: 'https://github.com/shreyasMH26',
-    statusBadge: 'Shipped',
+    statusBadge: 'Shipped Tool',
+    badgeColor: 'bg-emerald-500/10 text-emerald-700 border-emerald-500/20',
   },
   {
+    number: '05',
+    title: 'IoT Laser Security Rig',
+    category: 'Hardware & Embedded IoT',
+    description:
+      'A physical security system built around an ESP8266 microcontroller and a laser tripwire sensor. Engineered to detect perimeter breaches and trigger instant automated alert notifications through a custom Telegram bot.',
+    tech: ['ESP8266', 'C++', 'IoT Sensors', 'Telegram Bot API', 'Embedded Hardware'],
+    githubUrl: 'https://github.com/shreyasMH26',
+    statusBadge: 'Hardware Build',
+    badgeColor: 'bg-orange-500/10 text-orange-700 border-orange-500/20',
+  },
+  {
+    number: '06',
     title: 'Doubt System',
-    category: 'Academic Web App',
+    category: 'Student Academic Platform',
     description:
-      'A student-focused platform for doubt-solving and academic collaboration. A web build exploring how simple interfaces can improve learning workflows and eliminate barriers between questions and answers.',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive UI'],
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&auto=format&fit=crop&q=80',
-    liveUrl: 'https://shreyasmh26.github.io/doubt-system/',
+      'A community question-and-answer platform for students to ask, answer, and discuss academic doubts collaboratively. Features question categorization, threaded answers, and a clean interface built to remove friction in peer learning.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL'],
     githubUrl: 'https://github.com/shreyasMH26',
-    statusBadge: 'Shipped',
-  },
-  {
-    title: 'IoT Laser Security System',
-    category: 'Hardware & Automation',
-    description:
-      'An ESP8266-based intrusion detection system that sends real-time Telegram alerts when a laser beam is interrupted. An early experiment combining hardware microcontrollers, networking, and automation.',
-    tech: ['ESP8266', 'Arduino IDE', 'Hardware', 'Telegram Bot API'],
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80',
-    githubUrl: 'https://github.com/shreyasMH26',
-    statusBadge: 'Completed',
+    statusBadge: 'Shipped App',
+    badgeColor: 'bg-teal-500/10 text-teal-700 border-teal-500/20',
   },
 ];
 
-function ProjectItem({ project }: { project: ProjectData }) {
+function ProjectCard({ project, index }: { project: ProjectData; index: number }) {
   const [ref, isInView] = useInViewAnimation<HTMLDivElement>(0.1);
 
   return (
     <div
       ref={ref}
-      className={`space-y-6 transition-all duration-700 ${
+      className={`p-8 sm:p-12 md:p-14 rounded-3xl bg-zinc-50/70 border border-black/[0.06] hover:border-black/[0.14] transition-all duration-300 ${
         isInView ? 'animate-fade-in-up' : 'opacity-0'
       }`}
+      style={{ animationDelay: `${0.1 + index * 0.1}s` }}
     >
-      {/* Offset Text Block */}
-      <div className="ml-0 sm:ml-8 md:ml-16 max-w-2xl">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="text-xs font-mono uppercase tracking-wider text-[#273C46]">
-            {project.category}
+      {/* Top Header: Index Number & Status Badge */}
+      <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-black/[0.05]">
+        <span className="font-mono text-xs sm:text-sm text-[#273C46] tracking-wider font-semibold">
+          {project.number} / {project.category}
+        </span>
+
+        {project.statusBadge && (
+          <span
+            className={`text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full border ${
+              project.badgeColor || 'bg-black/5 text-[#051A24] border-black/10'
+            }`}
+          >
+            {project.statusBadge}
           </span>
-          {project.statusBadge && (
-            <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-full bg-zinc-100 border border-black/[0.06] text-[#051A24]">
-              {project.statusBadge}
-            </span>
-          )}
-        </div>
-
-        <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-[#051A24] tracking-tight mb-3">
-          {project.title}
-        </h3>
-
-        <p className="text-sm sm:text-base text-[#273C46] leading-relaxed mb-4">
-          {project.description}
-        </p>
-
-        {/* Tech Stack & Links */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="text-xs font-mono text-[#051A24] bg-zinc-50 border border-black/[0.06] px-2.5 py-1 rounded-md"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-4 text-sm font-medium text-[#051A24]">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 hover:underline underline-offset-4"
-              >
-                <span>Live Project</span>
-                <ArrowUpRight size={14} />
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 hover:underline underline-offset-4 text-[#273C46] hover:text-[#051A24]"
-              >
-                <GithubIcon size={14} />
-                <span>Code</span>
-              </a>
-            )}
-          </div>
-        </div>
+        )}
       </div>
 
-      {/* Full-width Image Card */}
-      <div className="w-full h-[300px] sm:h-[420px] md:h-[520px] rounded-2xl md:rounded-3xl overflow-hidden shadow-card border border-black/[0.06] relative group bg-[#051A24]">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="size-full object-cover group-hover:scale-102 transition-transform duration-700 opacity-90 group-hover:opacity-100"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+      {/* Project Title */}
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold tracking-tight text-[#0D212C] mb-4">
+        {project.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-base sm:text-lg text-[#273C46] leading-relaxed max-w-3xl mb-8">
+        {project.description}
+      </p>
+
+      {/* Bottom Bar: Tech Stack Tags & Action Links */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-black/[0.04]">
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="text-xs font-mono text-[#051A24] bg-white border border-black/[0.08] px-3 py-1 rounded-md shadow-2xs"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* Links */}
+        <div className="flex items-center gap-5 text-sm font-medium text-[#051A24]">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:underline underline-offset-4 font-semibold text-[#051A24]"
+            >
+              <span>Live Platform</span>
+              <ArrowUpRight size={15} />
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 hover:underline underline-offset-4 text-[#273C46] hover:text-[#051A24]"
+            >
+              <GithubIcon size={15} />
+              <span>Source Code</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -183,7 +185,7 @@ export default function Projects() {
         {/* Section Header */}
         <div
           ref={headerRef}
-          className={`mb-16 md:mb-24 ${isHeaderInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+          className={`mb-14 md:mb-20 ${isHeaderInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
           <span className="text-xs md:text-sm font-mono uppercase tracking-widest text-[#273C46] mb-3 inline-block font-semibold">
             Portfolio
@@ -196,10 +198,10 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Vertical Stack of Showcase Items */}
-        <div className="space-y-20 md:space-y-32">
-          {projectsList.map((project) => (
-            <ProjectItem key={project.title} project={project} />
+        {/* Stack of Clean Editorial Project Cards */}
+        <div className="space-y-8 md:space-y-10">
+          {projectsList.map((project, idx) => (
+            <ProjectCard key={project.title} project={project} index={idx} />
           ))}
         </div>
       </div>

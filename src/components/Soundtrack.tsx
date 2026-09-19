@@ -540,13 +540,11 @@ export default function Soundtrack() {
               {/* Lyrics Header & Track Selector */}
               <div className="relative z-10 p-5 sm:p-6 border-b border-white/10 bg-black/40 backdrop-blur-md flex flex-col gap-4">
                 <div className="flex items-center justify-between gap-3">
-                  {/* Song Meta with Album Art */}
+                  {/* Song Meta with Minimal Musical Badge */}
                   <div className="flex items-center gap-3 min-w-0">
-                    <img
-                      src={activeTrack.artworkUrl}
-                      alt={activeTrack.title}
-                      className="w-11 h-11 rounded-lg object-cover shadow-sm border border-white/10 flex-shrink-0"
-                    />
+                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white shrink-0 shadow-sm">
+                      <MusicIcon size={18} className="text-[#FA243C]" />
+                    </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5">
                         <span className="text-[11px] font-mono tracking-wider uppercase text-[#FA243C] font-semibold">

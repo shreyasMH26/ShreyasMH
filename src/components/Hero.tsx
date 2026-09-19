@@ -8,20 +8,12 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative w-full min-h-[660px] md:min-h-[740px] pt-16 md:pt-24 pb-24 md:pb-32 flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-cover bg-[center_25%]"
-      style={{
-        backgroundImage: "url('/hero-bg.png')",
-      }}
+      className="w-full bg-white pt-16 md:pt-28 pb-16 md:pb-24 flex flex-col items-center justify-center text-center px-6"
     >
-      {/* Dark cinematic vignette overlay — balanced for photo richness and text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/40 via-transparent to-transparent pointer-events-none" />
-
-      {/* Hero content */}
-      <div className="relative z-10 w-full max-w-[500px] mx-auto flex flex-col items-center">
+      <div className="w-full max-w-[500px] mx-auto flex flex-col items-center">
         {/* 1. Logo / Name */}
         <h1
-          className={`font-serif text-[34px] md:text-[42px] lg:text-[48px] font-semibold text-white tracking-tight mb-2 select-none drop-shadow-md ${
+          className={`font-serif text-[36px] md:text-[46px] lg:text-[52px] font-semibold text-[#051A24] tracking-tight mb-2 select-none ${
             isInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.1s' }}
@@ -31,7 +23,7 @@ export default function Hero() {
 
         {/* 2. Tagline (Monospace) */}
         <p
-          className={`font-mono text-xs md:text-sm text-zinc-300 tracking-wide mb-6 drop-shadow-sm ${
+          className={`font-mono text-xs md:text-sm text-[#273C46] tracking-wide mb-6 ${
             isInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.2s' }}
@@ -41,7 +33,7 @@ export default function Hero() {
 
         {/* 3. Main Heading */}
         <div
-          className={`text-[32px] md:text-[42px] lg:text-[48px] leading-[1.15] text-white tracking-tight font-sans font-medium mb-6 select-none drop-shadow-md ${
+          className={`text-[34px] md:text-[44px] lg:text-[50px] leading-[1.12] text-[#0D212C] tracking-tight font-sans font-medium mb-6 select-none ${
             isInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.3s' }}
@@ -56,7 +48,7 @@ export default function Hero() {
 
         {/* 4. Description (Three Paragraphs) */}
         <div
-          className={`flex flex-col gap-3.5 md:gap-4 text-sm md:text-base text-zinc-200 leading-relaxed text-center drop-shadow-sm ${
+          className={`flex flex-col gap-3.5 md:gap-4 text-sm md:text-base text-[#051A24] leading-relaxed text-center ${
             isInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.4s' }}
@@ -64,10 +56,10 @@ export default function Hero() {
           <p>
             I build at the intersection of technology, AI, and entrepreneurship.
           </p>
-          <p>
+          <p className="text-[#273C46]">
             Currently studying Computer Science Engineering while building XTICH and Versity.
           </p>
-          <p className="font-medium text-white">
+          <p className="font-medium text-[#0D212C]">
             From writing code to building businesses, I enjoy taking ideas from zero to something real.
           </p>
         </div>
@@ -79,25 +71,14 @@ export default function Hero() {
           }`}
           style={{ animationDelay: '0.5s' }}
         >
-          <Button
-            variant="secondary"
-            href="#projects"
-            className="w-full sm:w-auto bg-white text-[#051A24] font-medium shadow-xl hover:bg-zinc-100"
-          >
+          <Button variant="primary" href="#projects" className="w-full sm:w-auto">
             View my work
           </Button>
-          <Button
-            variant="primary"
-            href="#contact"
-            className="w-full sm:w-auto bg-black/40 hover:bg-black/60 text-white backdrop-blur-md border border-white/20 shadow-xl"
-          >
+          <Button variant="secondary" href="#contact" className="w-full sm:w-auto">
             Let's talk
           </Button>
         </div>
       </div>
-
-      {/* Smooth, feathered bottom fade into the white canvas */}
-      <div className="absolute bottom-0 inset-x-0 h-28 md:h-36 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none" />
     </section>
   );
 }
