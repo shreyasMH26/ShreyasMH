@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
 import About from './components/About';
@@ -15,6 +16,19 @@ import CopyrightBar from './components/CopyrightBar';
 import BottomNav from './components/BottomNav';
 
 export default function App() {
+  useEffect(() => {
+    if (window.location.hash) {
+      const targetId = window.location.hash.replace('#', '');
+      const element = document.getElementById(targetId);
+      if (element) {
+        const timer = setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-[#051A24] font-sans antialiased relative selection:bg-[#051A24] selection:text-[#F6FCFF]">
       {/* 1. Hero Section */}

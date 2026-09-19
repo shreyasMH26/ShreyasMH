@@ -8,13 +8,14 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative w-full min-h-[660px] md:min-h-[740px] pt-16 md:pt-24 pb-20 md:pb-28 flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-cover bg-center"
+      className="relative w-full min-h-[660px] md:min-h-[740px] pt-16 md:pt-24 pb-24 md:pb-32 flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-cover bg-[center_25%]"
       style={{
         backgroundImage: "url('/hero-bg.png')",
       }}
     >
-      {/* Dark cinematic vignette overlay for contrast and legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/80 backdrop-blur-[1px] pointer-events-none" />
+      {/* Dark cinematic vignette overlay — balanced for photo richness and text legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-black/75 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black/40 via-transparent to-transparent pointer-events-none" />
 
       {/* Hero content */}
       <div className="relative z-10 w-full max-w-[500px] mx-auto flex flex-col items-center">
@@ -95,8 +96,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Smooth bottom fade into the white canvas */}
-      <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      {/* Smooth, feathered bottom fade into the white canvas */}
+      <div className="absolute bottom-0 inset-x-0 h-28 md:h-36 bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none" />
     </section>
   );
 }
