@@ -1,5 +1,6 @@
 import { useInViewAnimation } from '../hooks/useInViewAnimation';
 import { ArrowUpRight } from 'lucide-react';
+import IntroAnimation from './ui/scroll-morph-hero';
 
 /* ── Inline Github Icon ── */
 function GithubIcon({ size = 16 }: { size?: number }) {
@@ -179,13 +180,13 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="w-full bg-white py-16 md:py-28 px-6 border-t border-black/[0.05]"
+      className="w-full bg-white py-16 md:py-28 px-4 sm:px-6 border-t border-black/[0.05]"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Section Header */}
         <div
           ref={headerRef}
-          className={`mb-14 md:mb-20 ${isHeaderInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+          className={`mb-10 md:mb-14 ${isHeaderInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
           <span className="text-xs md:text-sm font-mono uppercase tracking-widest text-[#273C46] mb-3 inline-block font-semibold">
             Portfolio
@@ -198,6 +199,16 @@ export default function Projects() {
           </p>
         </div>
 
+        {/* 3D Scroll Morph Interactive Hero Showcase */}
+        <div className="w-full h-[620px] sm:h-[720px] md:h-[800px] rounded-3xl overflow-hidden border border-black/[0.08] shadow-card relative mb-16 md:mb-20 bg-[#FAFAFA]">
+          <IntroAnimation
+            introHeading="The future is built on AI."
+            introSubheading="SCROLL TO EXPLORE"
+            activeHeading="Explore Selected Work"
+            activeDescription="Discover software architectures, AI operating layers, and physical systems designed from zero to one."
+          />
+        </div>
+
         {/* Stack of Clean Editorial Project Cards */}
         <div className="space-y-8 md:space-y-10">
           {projectsList.map((project, idx) => (
@@ -208,3 +219,4 @@ export default function Projects() {
     </section>
   );
 }
+

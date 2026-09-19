@@ -143,3 +143,24 @@ body {
     transform: none !important;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Scroll Morph Hero 3D Perspective & Styling Utilities
+───────────────────────────────────────────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #051A24;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
