@@ -55,19 +55,19 @@ export default function Hero() {
 
         {/* 4. Description (Three Paragraphs) */}
         <div
-          className={`flex flex-col gap-4 md:gap-5 text-sm md:text-base text-zinc-200 leading-relaxed text-center drop-shadow-sm ${
+          className={`flex flex-col gap-3.5 md:gap-4 text-sm md:text-base text-zinc-200 leading-relaxed text-center drop-shadow-sm ${
             isInView ? 'animate-fade-in-up' : 'opacity-0'
           }`}
           style={{ animationDelay: '0.4s' }}
         >
           <p>
-            I'm a Computer Science Engineering student building software, AI projects, and real-world products.
+            I build at the intersection of technology, AI, and entrepreneurship.
           </p>
           <p>
-            I'm also a Co-Founder at XTICH, a B2C premium clothing brand, and I'm building Versity, a B2B venture focused on modernizing uniform solutions.
+            Currently studying Computer Science Engineering while building XTICH and Versity.
           </p>
           <p className="font-medium text-white">
-            I like turning ideas into things that actually ship.
+            From writing code to building businesses, I enjoy taking ideas from zero to something real.
           </p>
         </div>
 
