@@ -28,7 +28,7 @@ const projectsList: ProjectData[] = [
     description:
       'Digital storefront and brand platform for XTICH, a student-focused contemporary clothing brand. Designed for seamless product presentation, brand identity, and smooth community commerce.',
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Digital Commerce', 'Brand Strategy'],
-    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&auto=format&fit=crop&q=80',
+    image: '/hero-bg.png',
     liveUrl: 'https://xtich.in',
     statusBadge: 'Active Venture',
   },

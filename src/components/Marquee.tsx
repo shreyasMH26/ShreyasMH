@@ -18,7 +18,7 @@ const marqueeItems: MarqueeCardData[] = [
     textColor: 'text-white',
     accent: '#34d399',
     description: 'Contemporary student apparel brand designed for university culture and everyday confidence.',
-    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&auto=format&fit=crop&q=80',
+    image: '/hero-bg.png',
   },
   {
     title: 'EchoVerse',
