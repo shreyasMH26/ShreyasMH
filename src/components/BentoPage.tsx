@@ -246,7 +246,7 @@ function TweetCard({
 /* ═══════════════════════════════════════════════════════════════════
    MAIN 100% FAITHFUL BENTO PORTFOLIO (AVELY.ME/ARYANKARMA CLONE)
 ═══════════════════════════════════════════════════════════════════ */
-export default function BentoPage() {
+export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper?: () => void }) {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const playlistUrl = "https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo";
 
@@ -856,6 +856,14 @@ export default function BentoPage() {
                   <span className="hover:text-white/60 transition-colors cursor-pointer">Terms</span>
                   <span className="hover:text-white/60 transition-colors cursor-pointer">Privacy Policy</span>
                   <span className="hover:text-white/60 transition-colors cursor-pointer">Cookie Policy</span>
+                  {onSwitchToDeveloper && (
+                    <button
+                      onClick={onSwitchToDeveloper}
+                      className="hover:text-white transition-colors cursor-pointer underline underline-offset-4 text-blue-400"
+                    >
+                      Developer Portfolio View ↗
+                    </button>
+                  )}
                 </div>
 
                 <p className="text-[11px] text-white/20 mt-4">
