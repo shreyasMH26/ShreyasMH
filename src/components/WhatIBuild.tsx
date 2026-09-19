@@ -17,7 +17,7 @@ const pillars = [
   {
     num: '03',
     title: 'Startups',
-    description: 'Building XTICH from the ground up and exploring new business solutions through Versity.',
+    description: 'Co-founding XTICH from the ground up, scaling direct-to-consumer digital commerce, product strategy, and brand operations.',
     icon: Rocket,
   },
   {

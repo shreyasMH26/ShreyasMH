@@ -43,8 +43,7 @@ export default function About() {
           </p>
           <p className="text-[#273C46]">
             Beyond writing code, I co-founded{' '}
-            <strong className="text-[#051A24] font-semibold">XTICH</strong> to build a contemporary student apparel brand from scratch, and I'm developing{' '}
-            <strong className="text-[#051A24] font-semibold">Versity</strong> to modernize traditional uniform solutions for institutions.
+            <strong className="text-[#051A24] font-semibold">XTICH</strong> to build a contemporary student apparel brand from scratch, focusing on product design, university culture, and direct-to-consumer digital commerce.
           </p>
           <p className="text-sm sm:text-base font-mono text-[#273C46]">
             Based in Davanagere, Karnataka, India · Always learning by building.

@@ -13,17 +13,6 @@ const experiences = [
     link: 'https://xtich.in',
     logo: '/xtich-logo.png',
   },
-  {
-    role: 'Co-Building',
-    company: 'Versity by XTICH',
-    period: 'Current',
-    badge: 'B2B Venture',
-    description:
-      'A B2B venture focused on modernizing uniform solutions for schools and PU colleges through contemporary apparel design, institutional fulfillment, and digital ordering.',
-    skills: ['B2B Solutions', 'Apparel Design', 'Supply Chain', 'Institutional Sales'],
-    link: 'https://xtich.in',
-    logo: '/versity-logo.png',
-  },
 ];
 
 export default function Experience() {

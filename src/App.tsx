@@ -44,7 +44,7 @@ export default function App() {
       {/* 4. What I Build (4 Pillars) */}
       <WhatIBuild />
 
-      {/* 5. Experience (XTICH & Versity) */}
+      {/* 5. Experience (XTICH) */}
       <Experience />
 
       {/* 6. Education */}

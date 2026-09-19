@@ -25,14 +25,6 @@ const marqueeItems: MarqueeCardData[] = [
     description: 'Personal memory and knowledge graph system using vector search and autonomous agents.',
   },
   {
-    title: 'Versity',
-    category: 'B2B Uniform Solutions',
-    badge: 'Co-Building',
-    bgGradient: 'from-[#0b1d28] via-[#102d3f] to-[#1b435b]',
-    accent: '#38bdf8',
-    description: 'Modernizing student uniforms for educational institutions through contemporary apparel design.',
-  },
-  {
     title: 'MH AI Steering Wheel',
     category: 'Personal AI Operating Layer',
     badge: 'AI Experiment',

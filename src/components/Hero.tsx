@@ -57,7 +57,7 @@ export default function Hero() {
             I build at the intersection of technology, AI, and entrepreneurship.
           </p>
           <p className="text-[#273C46]">
-            Currently studying Computer Science Engineering while building XTICH and Versity.
+            Currently studying Computer Science Engineering while building XTICH.
           </p>
           <p className="font-medium text-[#0D212C]">
             From writing code to building businesses, I enjoy taking ideas from zero to something real.

@@ -8,12 +8,6 @@ const activeBuilds = [
     description: 'B2C premium clothing brand focused on student culture, product design, and digital commerce.',
   },
   {
-    title: 'Versity',
-    status: 'BUILDING',
-    statusColor: 'bg-emerald-500',
-    description: 'B2B venture focused on modernizing institutional uniform solutions for schools and PU colleges.',
-  },
-  {
     title: 'EchoVerse',
     status: 'EXPLORING',
     statusColor: 'bg-indigo-500',
