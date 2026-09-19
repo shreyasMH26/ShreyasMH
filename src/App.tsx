@@ -9,6 +9,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import BuilderStatement from './components/BuilderStatement';
 import CurrentlyBuilding from './components/CurrentlyBuilding';
+import Soundtrack from './components/Soundtrack';
 import PartnerSection from './components/PartnerSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -61,7 +62,10 @@ export default function App() {
       {/* 10. Currently Building (Status radar) */}
       <CurrentlyBuilding />
 
-      {/* 11. Partner / Collaboration CTA */}
+      {/* 11. Soundtrack (Apple Music "after 2 : 17") */}
+      <Soundtrack />
+
+      {/* 12. Partner / Collaboration CTA */}
       <PartnerSection />
 
       {/* 12. Contact Section */}

@@ -25,6 +25,9 @@ export default function Footer() {
             <a href="#projects" className="hover:opacity-70 transition-opacity">
               Projects
             </a>
+            <a href="#soundtrack" className="hover:opacity-70 transition-opacity">
+              Soundtrack
+            </a>
             <a href="#contact" className="hover:opacity-70 transition-opacity">
               Contact
             </a>
@@ -48,6 +51,15 @@ export default function Footer() {
               className="flex items-center gap-1 hover:opacity-70 transition-opacity"
             >
               <span>LinkedIn</span>
+              <ArrowUpRight size={15} />
+            </a>
+            <a
+              href="https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:opacity-70 transition-opacity"
+            >
+              <span>Apple Music</span>
               <ArrowUpRight size={15} />
             </a>
             <a

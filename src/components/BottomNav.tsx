@@ -1,10 +1,11 @@
 import Button from './Button';
+import { Music } from 'lucide-react';
 
 export default function BottomNav() {
   return (
     <div
       aria-label="Floating Navigation"
-      className="fixed bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 sm:gap-6 px-4 sm:px-7 py-2 rounded-full bg-white/95 backdrop-blur-xl border border-black/[0.06] shadow-dock select-none transition-all duration-300"
+      className="fixed bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2.5 sm:gap-4 px-4 sm:px-6 py-2 rounded-full bg-white/95 backdrop-blur-xl border border-black/[0.06] shadow-dock select-none transition-all duration-300"
     >
       {/* Logo Monogram */}
       <a
@@ -13,6 +14,19 @@ export default function BottomNav() {
         className="font-serif text-xl sm:text-2xl font-semibold text-[#051A24] tracking-tight hover:opacity-75 transition-opacity pr-1"
       >
         MH
+      </a>
+
+      <div className="w-px h-5 bg-black/[0.08]" />
+
+      {/* Soundtrack link */}
+      <a
+        href="#soundtrack"
+        aria-label="Apple Music Soundtrack"
+        title="Late night soundtrack on Apple Music"
+        className="flex items-center gap-1.5 text-xs font-mono text-[#273C46] hover:text-[#FA243C] transition-colors px-2 py-1 rounded-full hover:bg-black/[0.03]"
+      >
+        <Music size={14} className="text-[#FA243C]" />
+        <span className="hidden sm:inline">Soundtrack</span>
       </a>
 
       <div className="w-px h-5 bg-black/[0.08]" />
