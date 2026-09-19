@@ -1,6 +1,6 @@
 import { ArrowUpRight, MapPin, Mail, Download, FileText, Globe } from 'lucide-react';
 
-/* ── Inline brand icons (lucide-react version doesn't export these) ── */
+/* ── Inline brand icons ── */
 function GithubIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -25,6 +25,14 @@ function TwitterXIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+function AppleMusicIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm3.89 6.22l.01 5.38c0 1.63-1.2 2.8-2.73 2.8-1.55 0-2.67-1.12-2.67-2.65 0-1.55 1.21-2.7 2.76-2.7.46 0 .89.1 1.27.3V9.12l-4.54 1.05v5.33c0 1.63-1.2 2.8-2.73 2.8-1.55 0-2.67-1.12-2.67-2.65 0-1.55 1.21-2.7 2.76-2.7.46 0 .89.1 1.27.3v-6.7c0-.52.38-.96.9-1.05l5.22-1.22c.56-.13 1.12.28 1.12.86v.08z" />
+    </svg>
+  );
+}
+
 /* ── Section divider ─────────────────────────────────────────────── */
 function SectionHeader({ label }: { label: string }) {
   return (
@@ -44,7 +52,7 @@ interface ProjectCardProps {
   sub: string;
   href: string;
   badge?: string;
-  colSpan?: string; // tailwind col-span classes
+  colSpan?: string;
 }
 
 function ProjectCard({ title, sub, href, badge, colSpan = 'col-span-2 xl:col-span-2' }: ProjectCardProps) {
@@ -79,10 +87,52 @@ function ProjectCard({ title, sub, href, badge, colSpan = 'col-span-2 xl:col-spa
   );
 }
 
+/* ── Song track tile card (Aryan Karma style) ──────────────────────── */
+interface TrackTileProps {
+  title: string;
+  artist: string;
+  href: string;
+  bgHex: string;
+}
+
+function TrackTile({ title, artist, href, bgHex }: TrackTileProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ backgroundColor: bgHex }}
+      className="
+        col-span-1 h-[104px] xl:h-[110px]
+        rounded-2xl xl:rounded-3xl overflow-hidden relative
+        border border-white/[0.06]
+        hover:opacity-90 active:scale-[0.98]
+        transition-all duration-200 cursor-pointer group
+        p-4 xl:p-5 flex flex-col justify-between
+      "
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-[9px] text-white/40 uppercase tracking-widest font-mono">track</span>
+        <ArrowUpRight className="text-white/25 group-hover:text-white/70 transition-colors" size={13} />
+      </div>
+      <div>
+        <p className="text-[13px] xl:text-[14px] font-bold text-white leading-tight truncate">
+          {title}
+        </p>
+        <p className="text-[10px] xl:text-[11px] text-white/45 truncate mt-0.5">
+          {artist}
+        </p>
+      </div>
+    </a>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    MAIN PAGE
 ═══════════════════════════════════════════════════════════════════ */
 export default function BentoPage() {
+  const playlistUrl = "https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo";
+
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white antialiased">
       <div className="relative w-full max-w-[1728px] mx-auto">
@@ -156,6 +206,15 @@ export default function BentoPage() {
                   <Mail size={14} />
                   <span>adolfhitlerr26@gmail.com</span>
                 </a>
+                <a
+                  href={playlistUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[13px] text-white/35 hover:text-[#FA243C] transition-colors"
+                >
+                  <AppleMusicIcon size={14} />
+                  <span>AFTER 2:17 (Playlist)</span>
+                </a>
                 <div className="flex items-center gap-2 text-[13px] text-white/35">
                   <MapPin size={14} />
                   <span>Davanagere, India</span>
@@ -186,12 +245,10 @@ export default function BentoPage() {
                 "
               >
                 <div className="flex flex-col justify-between h-full p-6 xl:p-7">
-                  {/* Icon */}
                   <div className="text-white/60 group-hover:text-white/90 transition-colors duration-200">
                     <GithubIcon size={34} />
                   </div>
 
-                  {/* Content */}
                   <div>
                     <p className="text-[10px] text-white/25 uppercase tracking-[0.18em] mb-1.5 font-medium">
                       GitHub
@@ -205,7 +262,6 @@ export default function BentoPage() {
                   </div>
                 </div>
 
-                {/* Arrow */}
                 <ArrowUpRight
                   className="absolute top-5 right-5 text-white/20 group-hover:text-white/55 transition-colors"
                   size={16}
@@ -322,7 +378,6 @@ export default function BentoPage() {
                   border border-white/[0.06]
                 "
               >
-                {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/12 via-transparent to-emerald-900/10 pointer-events-none" />
                 <div className="relative flex flex-col justify-between h-full p-6 xl:p-7">
                   <MapPin className="text-white/30" size={22} />
@@ -340,14 +395,12 @@ export default function BentoPage() {
               {/* ─── SECTION: building ───────────────────────────── */}
               <SectionHeader label="building" />
 
-              {/* SecureVault */}
               <ProjectCard
                 title="SecureVault"
                 sub="Password manager · HTML, CSS, JavaScript"
                 href="https://shreyasmh26.github.io/SecureVault/"
               />
 
-              {/* EchoVerse */}
               <ProjectCard
                 title="EchoVerse"
                 sub="AI memory system · Python, LLMs, Vector DB"
@@ -355,7 +408,6 @@ export default function BentoPage() {
                 badge="Exploring"
               />
 
-              {/* MH AI Steering Wheel */}
               <ProjectCard
                 title="MH AI Steering Wheel"
                 sub="Personal AI layer · Python, Local LLMs, macOS"
@@ -363,7 +415,6 @@ export default function BentoPage() {
                 badge="Experimenting"
               />
 
-              {/* IoT Laser Security */}
               <ProjectCard
                 title="IoT Laser Security"
                 sub="Intrusion detection · ESP8266, Arduino, Telegram"
@@ -371,19 +422,138 @@ export default function BentoPage() {
                 badge="Completed"
               />
 
-              {/* Doubt System */}
               <ProjectCard
                 title="Doubt System"
                 sub="Student Q&A platform · HTML, CSS, JavaScript"
                 href="https://shreyasmh26.github.io/doubt-system/"
               />
 
-              {/* Versity */}
               <ProjectCard
                 title="Versity by XTICH"
                 sub="B2B · Modernising uniforms for schools & colleges"
                 href="https://xtich.in"
                 badge="Active"
+              />
+
+              {/* ─── SECTION: after 2:17 (APPLE MUSIC) ───────────── */}
+              <SectionHeader label="after 2:17 // soundtrack" />
+
+              {/* Featured Apple Music Playlist Card */}
+              <a
+                href={playlistUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="AFTER 2:17 on Apple Music"
+                className="
+                  col-span-2 xl:col-span-2 h-[190px]
+                  rounded-2xl xl:rounded-3xl overflow-hidden relative
+                  border border-white/[0.08]
+                  hover:border-[#FA243C]/40 active:scale-[0.99]
+                  transition-all duration-300 cursor-pointer group
+                "
+              >
+                {/* Background image & gradient overlay */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{
+                    backgroundImage: 'url("https://is1-ssl.mzstatic.com/image/thumb/rt.352479040/1200x630wp-60.jpg")',
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0e0e0e] via-[#0e0e0e]/80 to-[#0e0e0e]/50" />
+
+                {/* Content */}
+                <div className="relative h-full p-6 xl:p-7 flex flex-col justify-between z-10">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center justify-center size-6 rounded-full bg-[#FA243C] text-white shadow-[0_0_12px_rgba(250,36,60,0.5)]">
+                        <AppleMusicIcon size={14} />
+                      </span>
+                      <span className="text-[10px] text-white/60 font-semibold tracking-widest uppercase">
+                        Apple Music
+                      </span>
+                    </div>
+
+                    {/* Equalizer soundbars */}
+                    <div className="flex items-end gap-1 h-3.5 px-2 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/10">
+                      <span className="w-0.5 bg-[#FA243C] soundbar-1 rounded-full" />
+                      <span className="w-0.5 bg-[#FA243C] soundbar-2 rounded-full" />
+                      <span className="w-0.5 bg-[#FA243C] soundbar-3 rounded-full" />
+                      <span className="w-0.5 bg-[#FA243C] soundbar-4 rounded-full" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-[10px] text-white/40 uppercase tracking-[0.18em] font-medium mb-1">
+                      Curated Playlist
+                    </p>
+                    <p className="text-[24px] xl:text-[28px] font-black text-white tracking-tight leading-none group-hover:text-white transition-colors">
+                      AFTER 2:17
+                    </p>
+                    <p className="text-[11px] xl:text-[12px] text-white/50 mt-1.5 line-clamp-1">
+                      31 songs · 1 hr 56 min · The Neighbourhood, Joji, Kanye, Drake
+                    </p>
+                  </div>
+                </div>
+
+                <ArrowUpRight
+                  className="absolute top-5 right-5 text-white/30 group-hover:text-white/80 transition-colors z-20"
+                  size={16}
+                />
+              </a>
+
+              {/* Apple Music Interactive Embed Player */}
+              <div
+                className="
+                  col-span-2 xl:col-span-2 h-[190px]
+                  bg-[#191919] rounded-2xl xl:rounded-3xl overflow-hidden
+                  border border-white/[0.06]
+                  relative flex items-center justify-center p-2
+                "
+              >
+                <iframe
+                  allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                  frameBorder="0"
+                  height="175"
+                  style={{
+                    width: '100%',
+                    maxWidth: '100%',
+                    overflow: 'hidden',
+                    borderRadius: '16px',
+                    border: 'none',
+                  }}
+                  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                  src="https://embed.music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo"
+                  title="AFTER 2:17 by Shreyas MH on Apple Music"
+                />
+              </div>
+
+              {/* 4 Track Tiles inspired by Aryan Karma */}
+              <TrackTile
+                title="Sweater Weather"
+                artist="The Neighbourhood"
+                href="https://music.apple.com/in/song/sweater-weather/1682584224"
+                bgHex="#101520"
+              />
+
+              <TrackTile
+                title="Pink + White"
+                artist="Frank Ocean"
+                href="https://music.apple.com/in/song/pink-white/1146195714"
+                bgHex="#26151c"
+              />
+
+              <TrackTile
+                title="Bad Habit"
+                artist="Steve Lacy"
+                href="https://music.apple.com/in/song/bad-habit/1631909584"
+                bgHex="#151e18"
+              />
+
+              <TrackTile
+                title="Heartless"
+                artist="Kanye West"
+                href="https://music.apple.com/in/song/heartless/1615128013"
+                bgHex="#221217"
               />
 
               {/* ─── SECTION: about ───────────────────────────────── */}
