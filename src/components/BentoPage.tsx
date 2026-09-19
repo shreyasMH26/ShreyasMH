@@ -482,12 +482,6 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
               />
 
               <WorkPill
-                title="Versity by XTICH — Modern Institutional Uniforms"
-                href="https://xtich.in"
-                icon={<Sparkles size={18} />}
-              />
-
-              <WorkPill
                 title="EchoVerse — AI Knowledge & Memory Operating System"
                 href="https://github.com/shreyasMH26"
                 icon={<Terminal size={18} />}

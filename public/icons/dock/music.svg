@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="musicBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FC3C44"/>
+      <stop offset="50%" stop-color="#F9263C"/>
+      <stop offset="100%" stop-color="#DE1B31"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="url(#musicBg)" filter="url(#shadow)"/>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+
+  <!-- Apple Music Two-Notes Glyph -->
+  <g fill="#FFFFFF">
+    <!-- Left Note Head -->
+    <ellipse cx="42" cy="88" rx="14" ry="10" transform="rotate(-20 42 88)"/>
+    <!-- Right Note Head -->
+    <ellipse cx="86" cy="74" rx="14" ry="10" transform="rotate(-20 86 74)"/>
+    <!-- Left Stem -->
+    <rect x="50" y="32" width="6.5" height="54" rx="3.2"/>
+    <!-- Right Stem -->
+    <rect x="94" y="24" width="6.5" height="48" rx="3.2"/>
+    <!-- Cross Beam -->
+    <path d="M 50 32 L 100.5 22 L 100.5 35 L 50 45 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="safariBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="dialBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#0369A1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="url(#safariBg)" filter="url(#shadow)"/>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+
+  <!-- Compass dial circle -->
+  <circle cx="64" cy="64" r="44" fill="url(#dialBg)"/>
+  <circle cx="64" cy="64" r="44" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+
+  <!-- Ticks -->
+  <circle cx="64" cy="64" r="38" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2,6"/>
+
+  <!-- Compass Needle (Rotated 45deg) -->
+  <g transform="rotate(45 64 64)">
+    <!-- Red Needle (North) -->
+    <polygon points="64,24 57,64 71,64" fill="#EF4444"/>
+    <!-- White Needle (South) -->
+    <polygon points="64,104 57,64 71,64" fill="#FFFFFF"/>
+    <!-- Pivot -->
+    <circle cx="64" cy="64" r="4" fill="#0F172A"/>
+    <circle cx="64" cy="64" r="1.5" fill="#FFFFFF"/>
+  </g>
+</svg>

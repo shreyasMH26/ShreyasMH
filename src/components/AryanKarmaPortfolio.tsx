@@ -321,11 +321,7 @@ export default function AryanKarmaPortfolio({ onSwitchToBento }: { onSwitchToBen
             >
               XTICH
             </a>
-            , leading product development, brand identity, digital experiences, and operations. Also building{' '}
-            <span className="text-zinc-200 underline underline-offset-4 decoration-zinc-600">
-              Versity
-            </span>
-            , modernizing institutional uniform solutions. I explore software, AI, automation, and physical systems to turn ideas into real-world builds.
+            , leading product development, brand identity, digital experiences, and operations. I explore software, AI, automation, and physical systems to turn ideas into real-world builds.
           </p>
         </section>
 
@@ -345,14 +341,6 @@ export default function AryanKarmaPortfolio({ onSwitchToBento }: { onSwitchToBen
               role="Co-Founder & COO"
               period="2025 - Present"
               description="Contemporary student apparel brand. Co-founded the venture, leading brand strategy, product design, website and digital presence, and day-to-day business operations."
-              href="https://xtich.in"
-            />
-            <ExperienceRow
-              logo="/versity-logo.png"
-              company="Versity by XTICH"
-              role="Co-Founder & COO"
-              period="2025 - Present"
-              description="B2B uniform solution modernizing traditional student apparel for schools and PU colleges through contemporary apparel design and supply chain."
               href="https://xtich.in"
             />
           </div>
@@ -510,7 +498,7 @@ export default function AryanKarmaPortfolio({ onSwitchToBento }: { onSwitchToBen
             />
             <TimelineItem
               period="2025"
-              title="Co-Founded XTICH & Versity"
+              title="Co-Founded XTICH"
               location="Davanagere, Karnataka, India"
               description="Co-founded XTICH contemporary clothing brand, building e-commerce infrastructure, brand identity, and student community operations."
             />

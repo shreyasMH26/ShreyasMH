@@ -39,7 +39,7 @@ const milestones = [
   {
     year: '2025–Present',
     title: 'Building XTICH & Exploring Product Development',
-    desc: 'Actively working on XTICH and Versity by XTICH — product planning, brand strategy, digital execution, and student-focused product development.',
+    desc: 'Actively working on XTICH — product planning, brand strategy, digital execution, and student-focused product development.',
     isFuture: false,
     isHighlight: false,
   },

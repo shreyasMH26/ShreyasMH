@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="termBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="url(#termBg)" filter="url(#shadow)"/>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+
+  <!-- Top titlebar -->
+  <path d="M 8 30 C 8 17.85 17.85 8 30 8 L 98 8 C 110.15 8 120 17.85 120 30 L 120 32 L 8 32 Z" fill="url(#headerBg)"/>
+  <circle cx="22" cy="20" r="3.5" fill="#EF4444"/>
+  <circle cx="32" cy="20" r="3.5" fill="#F59E0B"/>
+  <circle cx="42" cy="20" r="3.5" fill="#10B981"/>
+
+  <!-- Terminal Prompt >_ -->
+  <path d="M 28 50 L 50 68 L 28 86" fill="none" stroke="#22C55E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="58" y1="86" x2="88" y2="86" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+</svg>
