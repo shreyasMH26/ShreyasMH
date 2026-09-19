@@ -423,25 +423,48 @@ export default function Soundtrack() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Playlist Card & Curation Details */}
           <div
-            className={`lg:col-span-5 p-8 rounded-3xl bg-zinc-50 border border-black/[0.06] flex flex-col justify-between h-full space-y-6 ${
+            className={`lg:col-span-5 p-6 sm:p-8 rounded-3xl bg-zinc-50 border border-black/[0.06] flex flex-col justify-between h-full space-y-6 ${
               isInView ? 'animate-fade-in-up' : 'opacity-0'
             }`}
             style={{ animationDelay: '0.35s' }}
           >
             <div>
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/[0.06] shadow-sm mb-6 text-xs font-mono text-[#051A24]">
-                <AppleLogo size={14} className="text-[#FA243C]" />
-                <span>Apple Music</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FA243C] animate-pulse" />
+              {/* Apple Music Playlist Cover Artwork */}
+              <div className="relative aspect-square w-full max-w-[260px] sm:max-w-[300px] mx-auto mb-6 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-black/10 group bg-zinc-900">
+                <img
+                  src="/after-217-cover.jpg"
+                  alt="after 2 : 17 — Apple Music Playlist Cover by Shreyas MH"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+
+                {/* Apple Music Badge Floating Overlay */}
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-xs font-mono shadow-md">
+                  <AppleLogo size={13} className="text-[#FA243C]" />
+                  <span>Apple Music</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FA243C] animate-pulse" />
+                </div>
+
+                {/* Playlist Title & Curator Overlay at Bottom of Cover */}
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white pointer-events-none">
+                  <p className="text-[10px] font-mono uppercase tracking-widest text-white/70 mb-0.5">
+                    Official Playlist
+                  </p>
+                  <p className="text-xl sm:text-2xl font-serif font-semibold tracking-tight text-white drop-shadow-md">
+                    after 2 : 17
+                  </p>
+                </div>
               </div>
 
               {/* Title & Curator */}
-              <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-[#0D212C] tracking-tight mb-2">
-                after 2 : 17
-              </h3>
+              <div className="flex items-baseline justify-between gap-2 mb-1">
+                <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-[#0D212C] tracking-tight">
+                  after 2 : 17
+                </h3>
+                <span className="text-xs font-mono text-[#FA243C] font-semibold">31 Tracks</span>
+              </div>
               <p className="text-sm font-mono text-[#273C46] mb-5">
-                Curated by Shreyas MH · 31 Tracks
+                Curated by Shreyas MH
               </p>
 
               {/* Sound Equalizer Indicator */}
@@ -542,8 +565,8 @@ export default function Soundtrack() {
                 <div className="flex items-center justify-between gap-3">
                   {/* Song Meta with Minimal Musical Badge */}
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white shrink-0 shadow-sm">
-                      <MusicIcon size={18} className="text-[#FA243C]" />
+                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/15 overflow-hidden shrink-0 shadow-sm">
+                      <img src="/after-217-cover.jpg" alt="after 2 : 17 playlist" className="w-full h-full object-cover select-none" />
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5">
