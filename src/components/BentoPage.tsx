@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, MapPin, FileText, Check, Shield, Sparkles, Terminal, Layers } from 'lucide-react';
+import { ArrowUpRight, MapPin, Check, Layers } from 'lucide-react';
 
 /* ── Inline Brand Icons ── */
 function GithubIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
@@ -26,14 +26,6 @@ function TwitterXIcon({ size = 20, className = "" }: { size?: number; className?
   );
 }
 
-function AppleMusicIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm3.89 6.22l.01 5.38c0 1.63-1.2 2.8-2.73 2.8-1.55 0-2.67-1.12-2.67-2.65 0-1.55 1.21-2.7 2.76-2.7.46 0 .89.1 1.27.3V9.12l-4.54 1.05v5.33c0 1.63-1.2 2.8-2.73 2.8-1.55 0-2.67-1.12-2.67-2.65 0-1.55 1.21-2.7 2.76-2.7.46 0 .89.1 1.27.3v-6.7c0-.52.38-.96.9-1.05l5.22-1.22c.56-.13 1.12.28 1.12.86v.08z" />
-    </svg>
-  );
-}
-
 function SpotifyIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -44,7 +36,6 @@ function SpotifyIcon({ size = 20, className = "" }: { size?: number; className?:
 
 /* ── Realistic GitHub Contribution Heatmap ── */
 function ContributionHeatmap() {
-  // 6 columns x 7 rows of activity levels (0: none, 1: low, 2: medium, 3: high, 4: very high)
   const dots = [
     [0, 1, 0, 3, 4, 1, 0],
     [3, 0, 2, 4, 3, 2, 1],
@@ -56,11 +47,11 @@ function ContributionHeatmap() {
   ];
 
   const colors = [
-    '#1c2128', // empty
-    '#0e4429', // low
-    '#006d32', // medium
-    '#26a641', // high
-    '#39d353', // very high
+    '#1c2128',
+    '#0e4429',
+    '#006d32',
+    '#26a641',
+    '#39d353',
   ];
 
   return (
@@ -78,46 +69,42 @@ function ContributionHeatmap() {
   );
 }
 
-/* ── Davanagere Street Map Card Visual ── */
+/* ── Map Card Visual ── */
 function MapVisual() {
   return (
     <div className="relative size-full overflow-hidden bg-[#e5e3df] select-none">
-      {/* Map street background simulation */}
       <svg className="absolute inset-0 size-full opacity-80" viewBox="0 0 400 200" preserveAspectRatio="none">
         <rect width="400" height="200" fill="#f4f1ea" />
-        {/* Secondary roads */}
         <path d="M-20,40 Q150,60 420,30" stroke="#ffffff" strokeWidth="12" fill="none" />
         <path d="M-20,160 Q200,140 420,170" stroke="#ffffff" strokeWidth="14" fill="none" />
         <path d="M80,-20 L110,220" stroke="#ffffff" strokeWidth="10" fill="none" />
         <path d="M280,-20 L260,220" stroke="#ffffff" strokeWidth="10" fill="none" />
         <path d="M190,-20 L210,220" stroke="#ffffff" strokeWidth="8" fill="none" />
-        {/* Main Highway / Yellow route */}
         <path d="M-20,100 Q180,95 420,110" stroke="#fed576" strokeWidth="10" fill="none" />
         <path d="M220,-20 Q200,100 210,220" stroke="#fed576" strokeWidth="9" fill="none" />
-        {/* City blocks / park */}
         <rect x="120" y="20" width="50" height="60" fill="#d9ebd3" rx="4" />
         <rect x="230" y="125" width="40" height="35" fill="#d9ebd3" rx="4" />
       </svg>
 
-      {/* Blue Map Pin */}
+      {/* Blue Map Marker Pin */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
         <span className="absolute size-8 rounded-full bg-blue-500/25 animate-ping" />
         <span className="relative size-4 rounded-full bg-blue-500 border-2 border-white shadow-md flex items-center justify-center" />
       </div>
 
-      {/* Davanagere location pill badge (exact styling from reference) */}
+      {/* Location Badge */}
       <div className="absolute bottom-3 left-3 bg-[#111111]/90 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5">
         <MapPin size={11} className="text-blue-400" />
-        <span>Davanagere</span>
+        <span>Indore</span>
       </div>
     </div>
   );
 }
 
-/* ── Section Header (exact style from reference: lowercase, clean, no line) ── */
-function SectionTitle({ title }: { title: string }) {
+/* ── Section Title (exact lowercase style from screenshots 1, 2 & 3) ── */
+function SectionTitle({ title, id }: { title: string; id?: string }) {
   return (
-    <div className="col-span-2 xl:col-span-4 mt-8 mb-2">
+    <div id={id} className="col-span-2 xl:col-span-4 mt-8 mb-2 scroll-mt-8">
       <h2 className="text-[15px] font-medium text-white/90 tracking-tight lowercase">
         {title}
       </h2>
@@ -163,7 +150,7 @@ function WorkPill({
   );
 }
 
-/* ── Formatted Tweet Card (exact style from screenshot 2, 3 & 4) ── */
+/* ── Formatted Tweet Card (exact style from screenshots 2 & 3) ── */
 function TweetCard({
   authorName,
   authorHandle,
@@ -181,7 +168,7 @@ function TweetCard({
   authorAvatar: string;
   date: string;
   content: string;
-  stats?: { replies: string; retweets: string; likes: string; views?: string };
+  stats?: { replies?: string; retweets?: string; likes?: string; views?: string };
   href?: string;
   verified?: boolean;
   locked?: boolean;
@@ -233,9 +220,9 @@ function TweetCard({
       {/* Stats bar */}
       {stats && (
         <div className="flex items-center gap-5 mt-4 pt-3 border-t border-white/[0.04] text-[11px] text-white/35 font-mono">
-          <span>💬 {stats.replies}</span>
-          <span>🔁 {stats.retweets}</span>
-          <span>❤️ {stats.likes}</span>
+          {stats.replies && <span>💬 {stats.replies}</span>}
+          {stats.retweets && <span>🔁 {stats.retweets}</span>}
+          {stats.likes && <span>❤️ {stats.likes}</span>}
           {stats.views && <span>👁️ {stats.views}</span>}
         </div>
       )}
@@ -244,9 +231,9 @@ function TweetCard({
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   MAIN 100% FAITHFUL BENTO PORTFOLIO (AVELY.ME/ARYANKARMA CLONE)
+   MAIN 100% REPLICATION BENTO PAGE
 ═══════════════════════════════════════════════════════════════════ */
-export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper?: () => void }) {
+export default function BentoPage() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const playlistUrl = "https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo";
 
@@ -260,11 +247,12 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
     <div className="min-h-screen bg-[#000000] text-white antialiased selection:bg-white/20 selection:text-white font-sans">
       <div className="relative w-full max-w-[1400px] mx-auto">
 
-        {/* ─── Two-Column Desktop / One-Column Mobile ──────────── */}
+        {/* Two-Column Desktop / One-Column Mobile */}
         <div className="flex flex-col xl:flex-row xl:items-start">
 
-          {/* ══ LEFT SIDEBAR (Exact Replica of Screenshots 1–4) ════ */}
+          {/* ══ LEFT SIDEBAR (Screenshot 1, 2, 3) ════ */}
           <aside
+            id="hero"
             className="
               flex flex-col items-center xl:items-start
               xl:sticky xl:top-0 xl:h-screen xl:justify-between
@@ -273,27 +261,28 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
               xl:px-12 xl:pt-16 xl:pb-16
             "
           >
-            <div className="flex flex-col items-center xl:items-start text-center xl:text-left">
-              {/* Circular B&W Profile Avatar */}
+            <div id="about" className="flex flex-col items-center xl:items-start text-center xl:text-left scroll-mt-10">
+              {/* Circular Avatar Photo */}
               <div
                 className="
                   size-[136px] xl:size-[170px] rounded-full overflow-hidden
                   bg-[#161616] border border-white/10
                   shadow-[0_4px_24px_rgba(0,0,0,0.8)] shrink-0 select-none
-                  flex items-center justify-center
                 "
               >
-                <span className="text-white/90 font-bold text-4xl xl:text-5xl tracking-tighter">
-                  SM
-                </span>
+                <img
+                  src="/photos/shreyas-editorial-bw.jpg"
+                  alt="Shreyas MH"
+                  className="size-full object-cover"
+                />
               </div>
 
-              {/* Name (bold, period at the end) */}
+              {/* Name */}
               <h1 className="mt-8 text-[32px] xl:text-[40px] font-bold tracking-tight text-white leading-none">
                 Shreyas MH.
               </h1>
 
-              {/* Punchy Bio (Two paragraphs, matching Aryan's exact cadence) */}
+              {/* Punchy Bio (Exact cadence from screenshots) */}
               <div className="mt-6 space-y-4 text-[14px] xl:text-[15px] text-white/55 leading-relaxed max-w-[280px] xl:max-w-none">
                 <p>
                   I don't need gravity, I just need growth.
@@ -309,21 +298,26 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                   Co-Founder &amp; COO @ XTICH
                 </span>
                 <span className="text-[11px] font-medium text-white/40 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full">
-                  CSE @ JIT Davanagere
+                  CSE Undergrad
                 </span>
               </div>
             </div>
 
-            {/* Bottom-left Floating Pill Badge (Exact Avely style) */}
-            <div className="hidden xl:block mt-12">
-              <div className="inline-flex items-center gap-2.5 bg-[#141414] hover:bg-[#1a1a1a] text-white/80 text-[12px] font-medium px-4 py-2 rounded-full border border-white/[0.08] shadow-sm transition-colors">
-                <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Shreyas MH · Founder &amp; Builder</span>
-              </div>
+            {/* Bottom-left Button: Join on Avely */}
+            <div className="mt-10 xl:mt-12">
+              <a
+                href="mailto:adolfhitlerr26@gmail.com"
+                className="inline-flex items-center gap-2.5 bg-[#141414] hover:bg-[#1a1a1a] text-white/90 text-[13px] font-medium px-5 py-2.5 rounded-full border border-white/10 shadow-lg transition-all active:scale-[0.98]"
+              >
+                <span className="size-4 rounded-full bg-[#00E599] flex items-center justify-center text-[10px] font-bold text-black">
+                  a
+                </span>
+                <span>Join Shreyas MH. on Avely</span>
+              </a>
             </div>
           </aside>
 
-          {/* ══ RIGHT: BENTO GRID (Screenshots 1–4 100% Replication) ══ */}
+          {/* ══ RIGHT: BENTO GRID ══ */}
           <main className="flex-1 min-w-0 p-5 pt-2 xl:pt-16 xl:pr-14 xl:pl-6 xl:pb-24">
             <div className="grid grid-cols-2 gap-[16px] xl:grid-cols-4 xl:gap-[18px]">
 
@@ -346,7 +340,7 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 "
               >
                 <div>
-                  <GithubIcon size={34} className="text-white" />
+                  <GithubIcon size={32} className="text-white" />
                   <div className="mt-3">
                     <p className="text-[15px] font-bold text-white leading-tight">GitHub</p>
                     <p className="text-[12px] text-white/45 mt-0.5">@shreyasMH26</p>
@@ -358,13 +352,13 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                   </div>
                 </div>
 
-                {/* Real GitHub commit activity heat map visual */}
+                {/* Contribution matrix */}
                 <div className="pt-5 mt-auto border-t border-white/[0.05]">
                   <ContributionHeatmap />
                 </div>
               </a>
 
-              {/* ── LINKEDIN CARD (1 col × 1 row, col 2 row 1) ── */}
+              {/* ── LINKEDIN CARD (1 col × 1 row) ── */}
               <a
                 href="https://linkedin.com/in/shreyasmh"
                 target="_blank"
@@ -392,9 +386,9 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 </div>
               </a>
 
-              {/* ── X / TWITTER CARD (1 col × 1 row, col 2 row 2) ── */}
+              {/* ── X / TWITTER CARD (1 col × 1 row) ── */}
               <a
-                href="https://x.com"
+                href="https://x.com/shreyasMH26"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -420,7 +414,7 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 </div>
               </a>
 
-              {/* ── APPLE MUSIC PLAYLIST CARD (2 cols × 1 row, col 3-4 row 1) ── */}
+              {/* ── SPOTIFY / MUSIC CARD (Screenshot 1 with Photo) ── */}
               <a
                 href={playlistUrl}
                 target="_blank"
@@ -434,31 +428,30 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                   transition-all duration-200 cursor-pointer group overflow-hidden relative
                 "
               >
-                {/* Left side text */}
                 <div className="flex flex-col justify-between h-full pr-4 z-10">
-                  <div className="flex items-center gap-2 text-[#FA243C]">
-                    <AppleMusicIcon size={26} />
+                  <div className="flex items-center gap-2 text-[#1DB954]">
+                    <SpotifyIcon size={26} />
                   </div>
                   <div>
                     <p className="text-[18px] xl:text-[20px] font-bold text-white tracking-tight leading-tight">
-                      AFTER 2:17
+                      Shreyas MH
                     </p>
-                    <p className="text-[12px] text-white/40 mt-1">music.apple.com</p>
+                    <p className="text-[12px] text-white/40 mt-1">open.spotify.com</p>
                   </div>
                 </div>
 
-                {/* Right side cover image with rounded corners (matches Aryan's card) */}
-                <div className="size-[140px] xl:size-[148px] rounded-2xl overflow-hidden shrink-0 shadow-md border border-white/10 relative">
+                {/* Right side photo preview from screenshot 1 */}
+                <div className="size-[136px] xl:size-[144px] rounded-2xl overflow-hidden shrink-0 shadow-md border border-white/10 relative">
                   <img
-                    src="https://is1-ssl.mzstatic.com/image/thumb/rt.352479040/1200x630wp-60.jpg"
-                    alt="AFTER 2:17 cover"
+                    src="/photos/shreyas-night-water.png"
+                    alt="Shreyas Music"
                     className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/10" />
                 </div>
               </a>
 
-              {/* ── LOCATION MAP CARD (2 cols × 1 row, col 3-4 row 2) ── */}
+              {/* ── LOCATION MAP CARD (Screenshot 1) ── */}
               <div
                 className="
                   col-span-2 aspect-[2/1]
@@ -473,42 +466,38 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
               {/* ════════════════════════════════════════════════════
                   SECTION 2: work - obsessor (Screenshot 1)
                  ════════════════════════════════════════════════════ */}
-              <SectionTitle title="work - obsessor" />
+              <SectionTitle id="projects" title="work - obsessor" />
 
               <WorkPill
-                title="XTICH — Student-Focused Contemporary Apparel"
+                title="Snapsy - Your Dev Workflow,..."
                 href="https://xtich.in"
-                icon={<Layers size={18} />}
+                icon={
+                  <div className="size-5 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-300 shadow-sm" />
+                }
               />
 
               <WorkPill
-                title="EchoVerse — AI Knowledge & Memory Operating System"
+                title="Kindlesuite"
                 href="https://github.com/shreyasMH26"
-                icon={<Terminal size={18} />}
+                icon={<span className="font-serif font-black text-sm text-white/80">ki</span>}
               />
 
               <WorkPill
-                title="MH AI Steering Wheel — Personal macOS AI Layer"
+                title="IFactory — The Operating System for..."
                 href="https://github.com/shreyasMH26"
-                icon={<Sparkles size={18} />}
+                icon={<Layers size={17} />}
               />
 
               <WorkPill
-                title="SecureVault — Local-First Encrypted Vault"
-                href="https://shreyasmh26.github.io/SecureVault/"
-                icon={<Shield size={18} />}
-              />
-
-              <WorkPill
-                title="Curriculum Vitae — Download Official Resume (PDF)"
-                href="/resume.pdf"
-                icon={<FileText size={18} />}
+                title="30 min meeting | Shreyas MH |..."
+                href="mailto:adolfhitlerr26@gmail.com"
+                icon={<span className="font-mono text-xs font-bold text-white/90">Cal</span>}
               />
 
               {/* ════════════════════════════════════════════════════
                   SECTION 3: if (by some chance) I end up in heaven (Screenshot 2)
                  ════════════════════════════════════════════════════ */}
-              <SectionTitle title="if (by some chance) I end up in heaven" />
+              <SectionTitle id="soundtrack" title="if (by some chance) I end up in heaven" />
 
               <a
                 href={playlistUrl}
@@ -524,50 +513,26 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
               >
                 <div className="flex flex-col justify-between h-full pr-4">
                   <div className="flex items-center gap-1.5 text-white/80">
-                    <AppleMusicIcon size={24} className="text-[#FA243C]" />
+                    <SpotifyIcon size={24} className="text-[#1DB954]" />
                   </div>
                   <div>
                     <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
                       That golden era 👀
                     </p>
-                    <p className="text-[12px] text-white/40 mt-0.5">music.apple.com</p>
-                  </div>
-                </div>
-                <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10">
-                  <img
-                    src="https://is1-ssl.mzstatic.com/image/thumb/rt.352479040/1200x630wp-60.jpg"
-                    alt="Golden era cover"
-                    className="size-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              </a>
-
-              {/* Spotify Playlist Twin Card (Like Aryan's second heaven card) */}
-              <a
-                href={playlistUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  col-span-2 xl:col-span-2 h-[154px]
-                  bg-[#131313] hover:bg-[#171717]
-                  rounded-[24px] border border-white/[0.06]
-                  p-5 xl:p-6 flex items-center justify-between
-                  transition-all duration-200 cursor-pointer group overflow-hidden
-                "
-              >
-                <div className="flex flex-col justify-between h-full pr-4">
-                  <div className="flex items-center gap-1.5 text-[#1DB954]">
-                    <SpotifyIcon size={24} />
-                  </div>
-                  <div>
-                    <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
-                      AFTER 2:17 — Night Drive
-                    </p>
                     <p className="text-[12px] text-white/40 mt-0.5">open.spotify.com</p>
                   </div>
                 </div>
-                <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10 bg-gradient-to-tr from-indigo-950 to-neutral-900 flex items-center justify-center">
-                  <span className="text-3xl">🌙</span>
+                <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10 relative bg-[#2a2a2e]">
+                  {/* Vintage film artwork */}
+                  <img
+                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&auto=format&fit=crop&q=80"
+                    alt="That golden era"
+                    className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute top-2 left-2 text-[10px] font-serif italic text-amber-200/90 font-bold">
+                    Yahudi
+                  </div>
                 </div>
               </a>
 
@@ -590,21 +555,30 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
               >
                 <div className="flex flex-col justify-between h-full pr-4">
                   <div className="flex items-center gap-1.5 text-white/80">
-                    <AppleMusicIcon size={24} className="text-[#FA243C]" />
+                    <SpotifyIcon size={24} className="text-[#1DB954]" />
                   </div>
                   <div>
                     <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
                       your wine, sir.
                     </p>
-                    <p className="text-[12px] text-white/40 mt-0.5">music.apple.com</p>
+                    <p className="text-[12px] text-white/40 mt-0.5">open.spotify.com</p>
                   </div>
                 </div>
-                {/* 4-cover album collage grid (exact replication from screenshot 2!) */}
+
+                {/* 4-cover album collage grid (Screenshot 2 exact replica) */}
                 <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10 grid grid-cols-2 grid-rows-2">
-                  <div className="bg-[#180a0a] flex items-center justify-center text-[10px] font-bold text-red-400">STARBOY</div>
-                  <div className="bg-[#0f1118] flex items-center justify-center text-[10px] font-bold text-indigo-400">CHASE</div>
-                  <div className="bg-[#141414] flex items-center justify-center text-[10px] font-bold text-amber-400">BAD BOY</div>
-                  <div className="bg-[#1c0c16] flex items-center justify-center text-[10px] font-bold text-rose-400">2:17</div>
+                  <div className="bg-[#441111] flex items-center justify-center p-1 text-[8px] font-bold text-white/90">
+                    STARBOY
+                  </div>
+                  <div className="bg-[#1a1a1a] flex items-center justify-center p-1 text-[8px] font-bold text-neutral-300 border-l border-white/10">
+                    20 YEARS
+                  </div>
+                  <div className="bg-[#0b132b] flex items-center justify-center p-1 text-[8px] font-bold text-blue-400 border-t border-white/10">
+                    STARBOY
+                  </div>
+                  <div className="bg-[#240000] flex items-center justify-center p-1 text-[8px] font-bold text-rose-400 border-t border-l border-white/10">
+                    CHASE
+                  </div>
                 </div>
               </a>
 
@@ -613,7 +587,7 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                  ════════════════════════════════════════════════════ */}
               <SectionTitle title="main character research" />
 
-              {/* Books by Shreyas MH card (Exact Peerlist style from screenshot 2) */}
+              {/* Books by Shreyas MH card (Screenshot 2) */}
               <a
                 href="https://peerlist.io"
                 target="_blank"
@@ -627,7 +601,7 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 "
               >
                 <div className="flex flex-col justify-between h-full pr-4">
-                  <div className="size-7 rounded-lg bg-[#22c55e] flex items-center justify-center font-bold text-black text-sm">
+                  <div className="size-7 rounded-lg bg-[#22c55e] flex items-center justify-center font-bold text-black text-sm shadow-sm">
                     P
                   </div>
                   <div>
@@ -641,10 +615,13 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                   <span className="text-2xl">📖</span>
                   <span className="font-serif font-bold text-[13px] mt-1">Books</span>
                   <span className="text-[8px] text-neutral-500">collection by Shreyas</span>
+                  <div className="flex items-center gap-1 mt-1 text-[8px] text-[#22c55e] font-bold">
+                    <span>P Peerlist</span>
+                  </div>
                 </div>
               </a>
 
-              {/* Featured Tweet (Screenshot 2: "the masculine urge...") */}
+              {/* Tweet Card: The mountain quote (Screenshot 2) */}
               <TweetCard
                 authorName="lichthauch"
                 authorHandle="@lichthauch"
@@ -657,7 +634,7 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
 
               {/* ── Song Tiles & Hero Lyrics Card (Screenshot 3) ── */}
 
-              {/* Song Tile 1: Skyfall (Pitch Black #000000) */}
+              {/* Song Tile: Skyfall */}
               <a
                 href="https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo"
                 target="_blank"
@@ -679,7 +656,7 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 <span className="text-[11px] text-white/30 font-mono">track // 007</span>
               </a>
 
-              {/* Song Tile 2: Heaven Or Las Vegas (Deep Crimson #8C0808) */}
+              {/* Song Tile: Heaven Or Las Vegas */}
               <a
                 href="https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo"
                 target="_blank"
@@ -703,11 +680,30 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 <span className="text-[11px] text-white/60 font-mono">track // cocteau</span>
               </a>
 
-              {/* Large Lyrics Hero Card (Screenshot 3: "I stand on the stage, I give 'em the rage") */}
+              {/* Media Photo Tile: Earbuds on mousepad with red ambient light (Screenshot 3) */}
+              <div
+                className="
+                  col-span-2 xl:col-span-2 h-[154px]
+                  rounded-[24px] overflow-hidden border border-white/[0.08]
+                  relative group bg-[#0e0e12]
+                "
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80"
+                  alt="Tech setup"
+                  className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-3 left-4 text-[11px] text-white/60 font-mono">
+                  setup // late night desk
+                </div>
+              </div>
+
+              {/* Giant Spotify Lyrics Card: "I stand on the stage, I give 'em the rage" (Screenshot 3) */}
               <div
                 className="
                   col-span-2 xl:col-span-2 xl:row-span-2
-                  bg-[#3d2f2f] hover:bg-[#453636]
+                  bg-[#735751] hover:bg-[#7d605a]
                   rounded-[24px] border border-white/[0.08]
                   p-7 xl:p-8 flex flex-col justify-between
                   transition-all duration-200 group relative
@@ -716,47 +712,26 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 <div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
-                      <div className="size-7 rounded-lg bg-black/40 flex items-center justify-center">
-                        <AppleMusicIcon size={16} className="text-[#FA243C]" />
+                      <div className="size-8 rounded-lg bg-black/40 flex items-center justify-center text-white">
+                        <SpotifyIcon size={18} />
                       </div>
                       <div>
-                        <p className="text-[12px] font-bold text-white uppercase tracking-wider">AFTER 2:17</p>
-                        <p className="text-[10px] text-white/50">Song · Frank Ocean / Travis</p>
+                        <p className="text-[12px] font-bold text-white uppercase tracking-wider">MY EYES</p>
+                        <p className="text-[10px] text-white/60">Song · Travis Scott</p>
                       </div>
                     </div>
                     <ArrowUpRight size={16} className="text-white/40 group-hover:text-white transition-colors" />
                   </div>
 
-                  {/* Huge Punchy Quote */}
+                  {/* Huge Punchy Lyrics */}
                   <h3 className="mt-8 text-[28px] xl:text-[34px] font-black tracking-tight text-white leading-[1.15]">
                     I stand on the stage, I give 'em the rage
                   </h3>
                 </div>
 
-                <div className="mt-6 flex items-center gap-2 text-white/40 text-xs font-semibold">
-                  <AppleMusicIcon size={15} />
-                  <span>Apple Music</span>
-                </div>
-              </div>
-
-              {/* Media Photo Tile (Screenshot 3: Earbuds on mousepad with red ambient light) */}
-              <div
-                className="
-                  col-span-2 xl:col-span-2 h-[154px]
-                  rounded-[24px] overflow-hidden border border-white/[0.08]
-                  relative group bg-[#0e0e12]
-                "
-              >
-                {/* Sleek tech desk simulation */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80")',
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-4 text-[11px] text-white/60 font-mono">
-                  setup // late night desk
+                <div className="mt-8 flex items-center gap-2 text-white/50 text-xs font-semibold">
+                  <SpotifyIcon size={15} />
+                  <span>Spotify</span>
                 </div>
               </div>
 
@@ -771,65 +746,21 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                 verified={true}
               />
 
-              {/* Tweet Card: Shreyas MH (Screenshot 3: "nobody could ever tear down...") */}
+              {/* Tweet Card: Shreyas MH (Screenshot 3) */}
               <TweetCard
                 authorName="Shreyas MH"
                 authorHandle="@shreyasMH26"
-                authorAvatar="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80"
+                authorAvatar="/photos/shreyas-editorial-bw.jpg"
                 date="Oct 8, 2025"
                 content={`nobody could ever tear down your internals, build them.\n\nno hollow soul can say they can rebuild it.\n\nanything that can be seen can be destroyed, privacy is power.\n\nonly war breeds peace.`}
-                stats={{ replies: "1", retweets: "0", likes: "87" }}
+                stats={{ replies: "0", retweets: "1", likes: "87" }}
                 locked={true}
               />
-
-              {/* Tweet Card: Shreyas MH (Screenshot 4: "my desire to win...") */}
-              <TweetCard
-                authorName="Shreyas MH"
-                authorHandle="@shreyasMH26"
-                authorAvatar="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80"
-                date="2026"
-                content="my desire to win is much more than my embarrassment of failing."
-                locked={true}
-              />
-
-              {/* Personal Portfolio Website Card (Screenshot 4: aryankarma.com / shreyasmh.in card) */}
-              <a
-                href="https://shreyasmh.in"
-                className="
-                  col-span-2 xl:col-span-2 h-[154px]
-                  bg-[#131313] hover:bg-[#171717]
-                  rounded-[24px] border border-white/[0.06]
-                  p-5 xl:p-6 flex items-center justify-between
-                  transition-all duration-200 cursor-pointer group overflow-hidden
-                "
-              >
-                <div className="flex flex-col justify-between h-full pr-4">
-                  <div className="size-8 rounded-full bg-neutral-800 flex items-center justify-center text-white/90 text-xs font-bold">
-                    SM
-                  </div>
-                  <div>
-                    <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
-                      Shreyas MH.
-                    </p>
-                    <p className="text-[12px] text-white/40 mt-0.5">shreyasmh.in</p>
-                  </div>
-                </div>
-                {/* Mini Website Preview Mockup */}
-                <div className="w-[140px] h-[114px] bg-white text-black rounded-2xl p-3 flex flex-col justify-between shrink-0 shadow-lg border border-neutral-200 group-hover:scale-105 transition-transform">
-                  <div>
-                    <p className="text-[11px] font-black text-black">Hi, I'm Shreyas.</p>
-                    <p className="text-[8px] text-neutral-600 mt-1 leading-tight line-clamp-3">
-                      Computer Science Engineer building AI agents, software products, and real-world ventures.
-                    </p>
-                  </div>
-                  <span className="text-[7px] font-mono text-neutral-400">shreyasmh.in</span>
-                </div>
-              </a>
 
               {/* ════════════════════════════════════════════════════
-                  SECTION 6: BOTTOM CENTERED QUOTE & FOOTER (Screenshot 4)
+                  SECTION 6: BOTTOM FOOTER
                  ════════════════════════════════════════════════════ */}
-              <div className="col-span-2 xl:col-span-4 mt-16 mb-8 text-center">
+              <div id="contact" className="col-span-2 xl:col-span-4 mt-16 mb-8 text-center">
                 <p className="text-[15px] xl:text-[17px] font-medium text-white/75 tracking-tight">
                   demons imitate every virtue, except one.
                 </p>
@@ -845,19 +776,11 @@ export default function BentoPage({ onSwitchToDeveloper }: { onSwitchToDeveloper
                   </button>
                 </div>
 
-                {/* Footer Links (Exact from screenshot 4) */}
+                {/* Footer Links */}
                 <div className="mt-10 flex items-center justify-center gap-6 text-[12px] text-white/30">
                   <span className="hover:text-white/60 transition-colors cursor-pointer">Terms</span>
                   <span className="hover:text-white/60 transition-colors cursor-pointer">Privacy Policy</span>
                   <span className="hover:text-white/60 transition-colors cursor-pointer">Cookie Policy</span>
-                  {onSwitchToDeveloper && (
-                    <button
-                      onClick={onSwitchToDeveloper}
-                      className="hover:text-white transition-colors cursor-pointer underline underline-offset-4 text-blue-400"
-                    >
-                      Developer Portfolio View ↗
-                    </button>
-                  )}
                 </div>
 
                 <p className="text-[11px] text-white/20 mt-4">

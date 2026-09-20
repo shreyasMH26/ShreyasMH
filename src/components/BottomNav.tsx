@@ -143,7 +143,7 @@ export default function BottomNav() {
         apps={portfolioApps}
         onAppClick={handleAppClick}
         openApps={openApps}
-        theme="glass"
+        theme="dark"
       />
     </nav>
   );
