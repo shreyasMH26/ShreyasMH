@@ -95,7 +95,7 @@ function MapVisual() {
       {/* Location Badge */}
       <div className="absolute bottom-3 left-3 bg-[#111111]/90 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5">
         <MapPin size={11} className="text-blue-400" />
-        <span>Indore</span>
+        <span>Davangere</span>
       </div>
     </div>
   );
