@@ -122,7 +122,7 @@ export default function BottomNav() {
         break;
       }
       case 'mail': {
-        window.location.href = 'mailto:adolfhitlerr26@gmail.com';
+        window.open('https://wa.me/917483794998?text=Hey%20Shreyas%2C%20I%20found%20your%20portfolio!', '_blank', 'noopener,noreferrer');
         break;
       }
       case 'safari': {
