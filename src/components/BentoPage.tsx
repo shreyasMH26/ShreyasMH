@@ -26,10 +26,10 @@ function TwitterXIcon({ size = 20, className = "" }: { size?: number; className?
   );
 }
 
-function SpotifyIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
+function AppleMusicIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.305c-.215.353-.673.465-1.026.25-2.812-1.718-6.353-2.107-10.523-1.155-.403.092-.808-.16-.9-.563-.092-.403.16-.808.563-.9 4.568-1.044 8.484-.6 11.636 1.342.353.216.465.674.25 1.026zm1.464-3.257c-.27.44-.847.579-1.287.31-3.218-1.977-8.124-2.55-11.93-1.394-.495.15-1.024-.132-1.174-.627-.15-.494.132-1.023.627-1.173 4.356-1.322 9.776-.68 13.454 1.58.44.27.579.847.31 1.287zm.126-3.41C15.228 8.35 8.87 8.14 5.163 9.266c-.59.18-1.22-.16-1.4-.75-.18-.59.16-1.22.75-1.4 4.257-1.292 11.28-1.05 15.688 1.57.533.316.708 1.01.39 1.543-.316.533-1.01.708-1.543.39z"/>
+      <path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.77.206 4.002.388 3.292.817 2.15 1.49 1.35 2.48 1.04 3.8a9.217 9.217 0 00-.24 2.19C.8 6.5.8 6.7.8 6.9v10.2c0 .2 0 .4.01.6.04.73.16 1.46.36 2.17.32 1.22.99 2.19 2.04 2.91.63.43 1.34.68 2.1.78.48.06.97.09 1.46.09h11.46c.49 0 .98-.03 1.46-.09a5.12 5.12 0 002.1-.78c1.05-.72 1.72-1.69 2.04-2.91.2-.71.32-1.44.36-2.17.01-.2.01-.4.01-.6V6.9c0-.2 0-.4-.01-.6zm-5.12 5.82l-5.63 3.25a1.5 1.5 0 01-2.25-1.3V8.12a1.5 1.5 0 012.25-1.3l5.63 3.25a1.5 1.5 0 010 2.6z"/>
     </svg>
   );
 }
@@ -414,7 +414,7 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* ── SPOTIFY / MUSIC CARD (Screenshot 1 with Photo) ── */}
+              {/* ── APPLE MUSIC CARD (Screenshot 1 with Photo) ── */}
               <a
                 href={playlistUrl}
                 target="_blank"
@@ -429,14 +429,14 @@ export default function BentoPage() {
                 "
               >
                 <div className="flex flex-col justify-between h-full pr-4 z-10">
-                  <div className="flex items-center gap-2 text-[#1DB954]">
-                    <SpotifyIcon size={26} />
+                  <div className="flex items-center gap-2 text-[#FC3C44]">
+                    <AppleMusicIcon size={26} />
                   </div>
                   <div>
                     <p className="text-[18px] xl:text-[20px] font-bold text-white tracking-tight leading-tight">
                       Shreyas MH
                     </p>
-                    <p className="text-[12px] text-white/40 mt-1">open.spotify.com</p>
+                    <p className="text-[12px] text-white/40 mt-1">music.apple.com</p>
                   </div>
                 </div>
 
@@ -513,13 +513,13 @@ export default function BentoPage() {
               >
                 <div className="flex flex-col justify-between h-full pr-4">
                   <div className="flex items-center gap-1.5 text-white/80">
-                    <SpotifyIcon size={24} className="text-[#1DB954]" />
+                    <AppleMusicIcon size={24} className="text-[#FC3C44]" />
                   </div>
                   <div>
                     <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
                       That golden era 👀
                     </p>
-                    <p className="text-[12px] text-white/40 mt-0.5">open.spotify.com</p>
+                    <p className="text-[12px] text-white/40 mt-0.5">music.apple.com</p>
                   </div>
                 </div>
                 <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10 relative bg-[#2a2a2e]">
@@ -555,13 +555,13 @@ export default function BentoPage() {
               >
                 <div className="flex flex-col justify-between h-full pr-4">
                   <div className="flex items-center gap-1.5 text-white/80">
-                    <SpotifyIcon size={24} className="text-[#1DB954]" />
+                    <AppleMusicIcon size={24} className="text-[#FC3C44]" />
                   </div>
                   <div>
                     <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
                       your wine, sir.
                     </p>
-                    <p className="text-[12px] text-white/40 mt-0.5">open.spotify.com</p>
+                    <p className="text-[12px] text-white/40 mt-0.5">music.apple.com</p>
                   </div>
                 </div>
 
@@ -699,7 +699,7 @@ export default function BentoPage() {
                 </div>
               </div>
 
-              {/* Giant Spotify Lyrics Card: "I stand on the stage, I give 'em the rage" (Screenshot 3) */}
+              {/* Giant Apple Music Lyrics Card: "I stand on the stage, I give 'em the rage" (Screenshot 3) */}
               <div
                 className="
                   col-span-2 xl:col-span-2 xl:row-span-2
@@ -713,7 +713,7 @@ export default function BentoPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <div className="size-8 rounded-lg bg-black/40 flex items-center justify-center text-white">
-                        <SpotifyIcon size={18} />
+                        <AppleMusicIcon size={18} />
                       </div>
                       <div>
                         <p className="text-[12px] font-bold text-white uppercase tracking-wider">MY EYES</p>
@@ -730,8 +730,8 @@ export default function BentoPage() {
                 </div>
 
                 <div className="mt-8 flex items-center gap-2 text-white/50 text-xs font-semibold">
-                  <SpotifyIcon size={15} />
-                  <span>Spotify</span>
+                  <AppleMusicIcon size={15} />
+                  <span>Apple Music</span>
                 </div>
               </div>
 
