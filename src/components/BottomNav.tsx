@@ -14,7 +14,7 @@ const portfolioApps: DockApp[] = [
   },
   {
     id: 'xtich',
-    name: 'XTICH (Brand)',
+    name: 'XTICH Studios',
     icon: '/icons/dock/xtich.svg',
   },
   {
@@ -104,7 +104,11 @@ export default function BottomNav() {
       }
       case 'xtich': {
         const expEl = document.getElementById('experience');
-        if (expEl) expEl.scrollIntoView({ behavior: 'smooth' });
+        if (expEl) {
+          expEl.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.open('https://xtich.in', '_blank', 'noopener,noreferrer');
+        }
         break;
       }
       case 'projects': {
