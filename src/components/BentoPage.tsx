@@ -579,9 +579,9 @@ export default function BentoPage() {
 
               {/* ── Song Tiles & Hero Lyrics Card (Screenshot 3) ── */}
 
-              {/* Song Tile: Skyfall */}
+              {/* Song Tile: Sprinter */}
               <a
-                href="https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo"
+                href="https://music.apple.com/in/lyrics/1839470171?ts=112.828&te=117.328&l=en&tk=4.v1.5TaUEQxRXt%2BHMzf%2FkuIsWg%3D%3D&incomingRefApp=com.whatsapp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -593,12 +593,12 @@ export default function BentoPage() {
                 "
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-[15px] font-bold text-white">Skyfall</span>
+                  <span className="text-[15px] font-bold text-white">Sprinter</span>
                   <div className="size-6 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors">
                     <ArrowUpRight size={13} />
                   </div>
                 </div>
-                <span className="text-[11px] text-white/30 font-mono">track // 007</span>
+                <span className="text-[11px] text-white/30 font-mono">track // central cee</span>
               </a>
 
               {/* Song Tile: Heaven Or Las Vegas */}
