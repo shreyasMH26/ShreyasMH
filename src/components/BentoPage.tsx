@@ -455,7 +455,63 @@ export default function BentoPage() {
                  ════════════════════════════════════════════════════ */}
               <SectionTitle id="projects" title="work - obsessor" />
 
-              {/* Space reserved for upcoming lyrics card */}
+              {/* ── Justin Bieber — Company Lyric Card ── */}
+              <a
+                href="https://music.apple.com/in/album/company/1440838188?i=1440838276"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  col-span-2 xl:col-span-2 h-[172px] relative overflow-hidden
+                  bg-gradient-to-br from-[#202022] via-[#161617] to-[#0d0d0e]
+                  hover:from-[#28282b] hover:via-[#1c1c1e] hover:to-[#121213]
+                  rounded-[24px] border border-white/[0.08]
+                  p-3.5 sm:p-4 flex flex-col justify-between
+                  transition-all duration-200 cursor-pointer group shadow-lg shadow-black/40
+                "
+              >
+                {/* Subtle blurred album background reflection */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-10 blur-xl scale-125 pointer-events-none"
+                  style={{ backgroundImage: `url('/photos/bieber-purpose.png')` }}
+                />
+
+                {/* Subtle ambient lighting glows */}
+                <div className="absolute -top-6 -right-6 size-24 bg-white/[0.04] rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -bottom-6 -left-6 size-24 bg-white/[0.03] rounded-full blur-xl pointer-events-none" />
+
+                {/* Top arrow */}
+                <div className="absolute top-3 right-3 size-5 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors z-10">
+                  <ArrowUpRight size={11} />
+                </div>
+
+                {/* Lyrics Typography */}
+                <div className="pr-4 relative z-10">
+                  <p className="text-[11.5px] sm:text-[12px] font-bold text-white/95 leading-[1.22] tracking-tight">
+                    Just wanna have<br />
+                    a conversation<br />
+                    Forget about<br />
+                    the obligations<br />
+                    Maybe we can<br />
+                    stay in touch<br />
+                    Oh, that ain&apos;t<br />
+                    doin&apos; too much
+                  </p>
+                </div>
+
+                {/* Track Metadata & Artwork Footer */}
+                <div className="flex items-center gap-2.5 min-w-0 relative z-10">
+                  <img
+                    src="/photos/bieber-purpose.png"
+                    alt="Purpose by Justin Bieber"
+                    className="size-7 rounded-[6px] object-cover shrink-0 border border-white/10 shadow-sm"
+                  />
+                  <div className="flex flex-col min-w-0 leading-none">
+                    <span className="text-[10.5px] font-bold text-white truncate">Company</span>
+                    <span className="text-[9px] text-white/60 font-medium truncate mt-0.5">Justin Bieber</span>
+                    <span className="text-[8px] text-white/40 font-medium truncate mt-0.5"> Music</span>
+                  </div>
+                </div>
+              </a>
 
               <WorkPill
                 title="30 min meeting | Shreyas MH |..."
