@@ -461,32 +461,32 @@ export default function BentoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-2 xl:col-span-2 h-[172px] relative overflow-hidden
-                  bg-gradient-to-br from-[#202022] via-[#161617] to-[#0d0d0e]
-                  hover:from-[#28282b] hover:via-[#1c1c1e] hover:to-[#121213]
+                  col-span-2 xl:col-span-2 min-h-[380px] xl:min-h-[460px] relative overflow-hidden
+                  bg-gradient-to-br from-[#1c1c1e] via-[#141416] to-[#0d0d0f]
+                  hover:from-[#222225] hover:via-[#18181b] hover:to-[#101012]
                   rounded-[24px] border border-white/[0.08]
-                  p-3.5 sm:p-4 flex flex-col justify-between
-                  transition-all duration-200 cursor-pointer group shadow-lg shadow-black/40
+                  p-6 sm:p-7 xl:p-8 flex flex-col justify-between
+                  transition-all duration-300 cursor-pointer group shadow-xl shadow-black/50
                 "
               >
                 {/* Subtle blurred album background reflection */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center opacity-10 blur-xl scale-125 pointer-events-none"
+                  className="absolute inset-0 bg-cover bg-center opacity-10 blur-2xl scale-125 pointer-events-none"
                   style={{ backgroundImage: `url('/photos/bieber-purpose.png')` }}
                 />
 
                 {/* Subtle ambient lighting glows */}
-                <div className="absolute -top-6 -right-6 size-24 bg-white/[0.04] rounded-full blur-xl pointer-events-none" />
-                <div className="absolute -bottom-6 -left-6 size-24 bg-white/[0.03] rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -top-10 -right-10 size-40 bg-white/[0.03] rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute -bottom-10 -left-10 size-40 bg-white/[0.02] rounded-full blur-2xl pointer-events-none" />
 
                 {/* Top arrow */}
-                <div className="absolute top-3 right-3 size-5 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors z-10">
-                  <ArrowUpRight size={11} />
+                <div className="absolute top-5 right-5 sm:top-6 sm:right-6 size-8 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors z-10">
+                  <ArrowUpRight size={15} />
                 </div>
 
-                {/* Lyrics Typography */}
-                <div className="pr-4 relative z-10">
-                  <p className="text-[11.5px] sm:text-[12px] font-bold text-white/95 leading-[1.22] tracking-tight">
+                {/* Large Bold White Lyric Typography */}
+                <div className="pr-10 relative z-10">
+                  <h3 className="text-[24px] sm:text-[30px] xl:text-[36px] font-bold text-white leading-[1.1] tracking-tight">
                     Just wanna have<br />
                     a conversation<br />
                     Forget about<br />
@@ -495,20 +495,26 @@ export default function BentoPage() {
                     stay in touch<br />
                     Oh, that ain&apos;t<br />
                     doin&apos; too much
-                  </p>
+                  </h3>
                 </div>
 
-                {/* Track Metadata & Artwork Footer */}
-                <div className="flex items-center gap-2.5 min-w-0 relative z-10">
+                {/* Bottom Row: Album Artwork & Metadata */}
+                <div className="mt-8 sm:mt-10 flex items-center gap-3 min-w-0 relative z-10">
                   <img
                     src="/photos/bieber-purpose.png"
                     alt="Purpose by Justin Bieber"
-                    className="size-7 rounded-[6px] object-cover shrink-0 border border-white/10 shadow-sm"
+                    className="size-11 sm:size-12 rounded-[8px] object-cover shrink-0 border border-white/15 shadow-md"
                   />
-                  <div className="flex flex-col min-w-0 leading-none">
-                    <span className="text-[10.5px] font-bold text-white truncate">Company</span>
-                    <span className="text-[9px] text-white/60 font-medium truncate mt-0.5">Justin Bieber</span>
-                    <span className="text-[8px] text-white/40 font-medium truncate mt-0.5"> Music</span>
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span className="text-[13px] sm:text-[14px] font-bold text-white truncate">
+                      Company
+                    </span>
+                    <span className="text-[11px] sm:text-[12px] text-white/60 font-medium truncate mt-0.5">
+                      Justin Bieber
+                    </span>
+                    <span className="text-[10px] sm:text-[10.5px] text-white/40 font-medium flex items-center gap-1 mt-0.5">
+                       Music
+                    </span>
                   </div>
                 </div>
               </a>
