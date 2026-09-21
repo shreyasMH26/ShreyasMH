@@ -490,51 +490,9 @@ export default function BentoPage() {
               />
 
               {/* ════════════════════════════════════════════════════
-                  SECTION 3: if (by some chance) I end up in heaven (Screenshot 2)
-                 ════════════════════════════════════════════════════ */}
-              <SectionTitle id="soundtrack" title="if (by some chance) I end up in heaven" />
-
-              <a
-                href={playlistUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  col-span-2 xl:col-span-2 h-[154px]
-                  bg-[#131313] hover:bg-[#171717]
-                  rounded-[24px] border border-white/[0.06]
-                  p-5 xl:p-6 flex items-center justify-between
-                  transition-all duration-200 cursor-pointer group overflow-hidden
-                "
-              >
-                <div className="flex flex-col justify-between h-full pr-4">
-                  <div className="flex items-center gap-1.5 text-white/80">
-                    <AppleMusicIcon size={24} className="text-[#FC3C44]" />
-                  </div>
-                  <div>
-                    <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
-                      That golden era 👀
-                    </p>
-                    <p className="text-[12px] text-white/40 mt-0.5">music.apple.com</p>
-                  </div>
-                </div>
-                <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10 relative bg-[#2a2a2e]">
-                  {/* Vintage film artwork */}
-                  <img
-                    src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=300&auto=format&fit=crop&q=80"
-                    alt="That golden era"
-                    className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute top-2 left-2 text-[10px] font-serif italic text-amber-200/90 font-bold">
-                    Yahudi
-                  </div>
-                </div>
-              </a>
-
-              {/* ════════════════════════════════════════════════════
                   SECTION 4: if i end up in hell (Screenshot 2)
                  ════════════════════════════════════════════════════ */}
-              <SectionTitle title="if i end up in hell" />
+              <SectionTitle id="soundtrack" title="if i end up in hell" />
 
               <a
                 href={playlistUrl}
