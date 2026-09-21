@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight, MapPin, Layers } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, MapPin } from 'lucide-react';
 
 /* ── Inline Brand Icons ── */
 function GithubIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
@@ -455,25 +455,7 @@ export default function BentoPage() {
                  ════════════════════════════════════════════════════ */}
               <SectionTitle id="projects" title="work - obsessor" />
 
-              <WorkPill
-                title="Snapsy - Your Dev Workflow,..."
-                href="https://github.com/shreyasMH26"
-                icon={
-                  <div className="size-5 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-300 shadow-sm" />
-                }
-              />
-
-              <WorkPill
-                title="Kindlesuite"
-                href="https://github.com/shreyasMH26"
-                icon={<span className="font-serif font-black text-sm text-white/80">ki</span>}
-              />
-
-              <WorkPill
-                title="IFactory — The Operating System for..."
-                href="https://github.com/shreyasMH26"
-                icon={<Layers size={17} />}
-              />
+              {/* Space reserved for upcoming lyrics card */}
 
               <WorkPill
                 title="30 min meeting | Shreyas MH |..."
