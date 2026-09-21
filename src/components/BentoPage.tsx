@@ -625,23 +625,19 @@ export default function BentoPage() {
                 <span className="text-[11px] text-white/60 font-mono">track // cocteau</span>
               </a>
 
-              {/* Media Photo Tile: Earbuds on mousepad with red ambient light (Screenshot 3) */}
+              {/* Media Photo Tile: XTICH Night Waterfront */}
               <div
                 className="
                   col-span-2 xl:col-span-2 h-[154px]
                   rounded-[24px] overflow-hidden border border-white/[0.08]
-                  relative group bg-[#0e0e12]
+                  relative group bg-[#0a0a0c]
                 "
               >
                 <img
-                  src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80"
-                  alt="Tech setup"
-                  className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  src="/photos/shreyas-xtich-night.png"
+                  alt="Shreyas XTICH"
+                  className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-4 text-[11px] text-white/60 font-mono">
-                  setup // late night desk
-                </div>
               </div>
 
               {/* Giant Apple Music Lyrics Card: "I stand on the stage, I give 'em the rage" (Screenshot 3) */}
