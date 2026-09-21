@@ -38,9 +38,9 @@ const portfolioApps: DockApp[] = [
     icon: '/icons/dock/mail.svg',
   },
   {
-    id: 'safari',
-    name: 'GitHub / Social',
-    icon: '/icons/dock/safari.svg',
+    id: 'github',
+    name: 'GitHub (@shreyasMH26)',
+    icon: '/icons/dock/github.svg',
   },
 ];
 
@@ -129,6 +129,7 @@ export default function BottomNav() {
         window.open('https://wa.me/917483794998?text=Hey%20Shreyas%2C%20I%20found%20your%20portfolio!', '_blank', 'noopener,noreferrer');
         break;
       }
+      case 'github':
       case 'safari': {
         window.open('https://github.com/shreyasMH26', '_blank', 'noopener,noreferrer');
         break;
