@@ -698,10 +698,7 @@ export default function BentoPage() {
                 locked={true}
               />
 
-              {/* ════════════════════════════════════════════════════
-                  SECTION: for fun (Dev Humor)
-                 ════════════════════════════════════════════════════ */}
-              <SectionTitle title="for fun" />
+
 
               {/* Development Humor Card (Exact replication from screenshot) */}
               <div
