@@ -627,28 +627,58 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* Song Tile: Heaven Or Las Vegas */}
+              {/* Song Tile: Sprinter (Dave & Central Cee) */}
               <a
-                href="https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo"
+                href="https://music.apple.com/in/album/sprinter/1690226065?i=1690226066"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-1 h-[154px]
-                  bg-[#8C0808] hover:bg-[#9d0c0c]
-                  rounded-[24px] border border-white/[0.12]
-                  p-5 flex flex-col justify-between
-                  transition-all duration-200 cursor-pointer group shadow-lg shadow-red-950/20
+                  col-span-1 h-[154px] relative overflow-hidden
+                  bg-gradient-to-br from-[#331e23] via-[#241419] to-[#140b0e]
+                  hover:from-[#3e252b] hover:via-[#2b171d] hover:to-[#1a0e13]
+                  rounded-[24px] border border-stone-600/20
+                  p-3.5 flex flex-col justify-between
+                  transition-all duration-200 cursor-pointer group shadow-lg shadow-black/30
                 "
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-[15px] font-bold text-white leading-tight">
-                    Heaven Or Las<br />Vegas
-                  </span>
-                  <div className="size-6 rounded-full bg-white/20 flex items-center justify-center text-white/80 group-hover:text-white transition-colors shrink-0">
-                    <ArrowUpRight size={13} />
+                {/* Subtle blurred album background reflection */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-15 blur-xl scale-125 pointer-events-none"
+                  style={{ backgroundImage: `url('/photos/sprinter-cover.png')` }}
+                />
+
+                {/* Subtle ambient lighting glows */}
+                <div className="absolute -top-6 -right-6 size-24 bg-[#543440]/30 rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -bottom-6 -left-6 size-24 bg-[#422521]/30 rounded-full blur-xl pointer-events-none" />
+
+                {/* Top arrow */}
+                <div className="absolute top-3 right-3 size-5 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors z-10">
+                  <ArrowUpRight size={11} />
+                </div>
+
+                {/* Lyrics Typography */}
+                <div className="pr-4 relative z-10">
+                  <p className="text-[11.5px] sm:text-[12px] font-bold text-white/95 leading-[1.22] tracking-tight">
+                    Before I give you my<br />
+                    Insta&apos; password, I&apos;ll<br />
+                    give you the pin to my<br />
+                    AmEx, huh, alright
+                  </p>
+                </div>
+
+                {/* Track Metadata & Artwork Footer */}
+                <div className="flex items-center gap-2 min-w-0 relative z-10">
+                  <img
+                    src="/photos/sprinter-cover.png"
+                    alt="Sprinter by Dave & Central Cee"
+                    className="size-7 rounded-[6px] object-cover shrink-0 border border-white/10 shadow-sm"
+                  />
+                  <div className="flex flex-col min-w-0 leading-none">
+                    <span className="text-[10px] font-bold text-white truncate">Sprinter</span>
+                    <span className="text-[9px] text-white/60 font-medium truncate mt-0.5">Dave &amp; Central Cee</span>
+                    <span className="text-[8px] text-white/40 font-medium truncate mt-0.5"> Music</span>
                   </div>
                 </div>
-                <span className="text-[11px] text-white/60 font-mono">track // cocteau</span>
               </a>
 
               {/* Media Photo Tile: XTICH Night Waterfront */}
