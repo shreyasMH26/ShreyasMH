@@ -734,41 +734,64 @@ export default function BentoPage() {
                 />
               </div>
 
-              {/* Giant Apple Music Lyrics Card: "I stand on the stage, I give 'em the rage" (Screenshot 3) */}
-              <div
+              {/* ── Giant Apple Music Lyrics Card: Starboy (The Weeknd) ── */}
+              <a
+                href="https://music.apple.com/in/album/starboy-feat-daft-punk/1440871441?i=1440871446"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
-                  col-span-2 xl:col-span-2 xl:row-span-2
-                  bg-[#735751] hover:bg-[#7d605a]
-                  rounded-[24px] border border-white/[0.08]
-                  p-7 xl:p-8 flex flex-col justify-between
-                  transition-all duration-200 group relative
+                  col-span-2 xl:col-span-2 xl:row-span-2 relative overflow-hidden
+                  bg-gradient-to-r from-[#120816] via-[#1a0c1e] to-[#2a0e1c]
+                  hover:from-[#170b1c] hover:via-[#200f26] hover:to-[#331223]
+                  rounded-[24px] border border-rose-500/20
+                  p-6 sm:p-7 xl:p-8 flex flex-col justify-between
+                  transition-all duration-300 group cursor-pointer shadow-xl shadow-red-950/20
                 "
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="size-8 rounded-lg bg-black/40 flex items-center justify-center text-white">
-                        <AppleMusicIcon size={18} />
-                      </div>
-                      <div>
-                        <p className="text-[12px] font-bold text-white uppercase tracking-wider">MY EYES</p>
-                        <p className="text-[10px] text-white/60">Song · Travis Scott</p>
-                      </div>
-                    </div>
-                    <ArrowUpRight size={16} className="text-white/40 group-hover:text-white transition-colors" />
-                  </div>
+                {/* Subtle blurred album background reflection */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-10 blur-2xl scale-125 pointer-events-none"
+                  style={{ backgroundImage: `url('/photos/the-weeknd-starboy.png')` }}
+                />
 
-                  {/* Huge Punchy Lyrics */}
-                  <h3 className="mt-8 text-[28px] xl:text-[34px] font-black tracking-tight text-white leading-[1.15]">
-                    I stand on the stage, I give 'em the rage
+                {/* Atmospheric lighting glows matching the reference */}
+                <div className="absolute -top-12 -right-12 size-64 bg-gradient-to-bl from-rose-600/35 via-orange-600/25 to-transparent rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-10 -right-8 size-60 bg-gradient-to-tl from-red-600/40 via-amber-600/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -top-10 left-1/4 size-48 bg-indigo-950/40 rounded-full blur-2xl pointer-events-none" />
+
+                {/* Top-right subtle arrow icon */}
+                <div className="absolute top-5 right-5 sm:top-6 sm:right-6 size-8 rounded-full bg-white/10 flex items-center justify-center text-white/50 group-hover:text-white transition-colors z-10">
+                  <ArrowUpRight size={16} />
+                </div>
+
+                {/* Large Bold White Lyric Typography */}
+                <div className="pr-10 relative z-10">
+                  <h3 className="text-[26px] sm:text-[32px] xl:text-[36px] font-extrabold tracking-tight text-white leading-[1.15]">
+                    We don&apos;t pray for love,<br />
+                    we just pray for cars
                   </h3>
                 </div>
 
-                <div className="mt-8 flex items-center gap-2 text-white/50 text-xs font-semibold">
-                  <AppleMusicIcon size={15} />
-                  <span>Apple Music</span>
+                {/* Bottom Row: Album Artwork & Metadata */}
+                <div className="mt-8 sm:mt-10 flex items-center gap-3 min-w-0 relative z-10">
+                  <img
+                    src="/photos/the-weeknd-starboy.png"
+                    alt="Starboy by The Weeknd"
+                    className="size-11 sm:size-12 rounded-[8px] object-cover shrink-0 border border-white/15 shadow-md"
+                  />
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span className="text-[13px] sm:text-[14px] font-bold text-white truncate">
+                      Starboy (feat. Daft Punk)
+                    </span>
+                    <span className="text-[11px] sm:text-[12px] text-white/60 font-medium truncate mt-0.5">
+                      The Weeknd
+                    </span>
+                    <span className="text-[10px] text-white/40 font-medium flex items-center gap-1 mt-0.5">
+                       Music
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </a>
 
               {/* Tweet Card: Elon Musk (Screenshot 3) */}
               <TweetCard
