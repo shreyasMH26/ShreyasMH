@@ -556,21 +556,12 @@ export default function BentoPage() {
                   </div>
                 </div>
 
-                {/* 4-cover album collage grid (Screenshot 2 exact replica) */}
-                <div className="size-[114px] rounded-2xl overflow-hidden shrink-0 border border-white/10 grid grid-cols-2 grid-rows-2">
-                  <div className="bg-[#441111] flex items-center justify-center p-1 text-[8px] font-bold text-white/90">
-                    STARBOY
-                  </div>
-                  <div className="bg-[#1a1a1a] flex items-center justify-center p-1 text-[8px] font-bold text-neutral-300 border-l border-white/10">
-                    20 YEARS
-                  </div>
-                  <div className="bg-[#0b132b] flex items-center justify-center p-1 text-[8px] font-bold text-blue-400 border-t border-white/10">
-                    STARBOY
-                  </div>
-                  <div className="bg-[#240000] flex items-center justify-center p-1 text-[8px] font-bold text-rose-400 border-t border-l border-white/10">
-                    CHASE
-                  </div>
-                </div>
+                {/* Playlist cover artwork */}
+                <img
+                  src="/photos/your-wine-sir-cover.jpg"
+                  alt="your wine, sir. playlist cover"
+                  className="size-[114px] rounded-2xl object-cover shrink-0 border border-white/10 shadow-md group-hover:scale-[1.02] transition-transform duration-200"
+                />
               </a>
 
               {/* ════════════════════════════════════════════════════
