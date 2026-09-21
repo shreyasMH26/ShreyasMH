@@ -4,7 +4,7 @@ import MacOSDock, { DockApp } from './ui/mac-os-dock';
 const portfolioApps: DockApp[] = [
   {
     id: 'finder',
-    name: 'Finder (Home)',
+    name: 'Home',
     icon: '/icons/dock/finder.svg',
   },
   {
@@ -19,12 +19,12 @@ const portfolioApps: DockApp[] = [
   },
   {
     id: 'projects',
-    name: 'Projects & Code',
+    name: 'Vibe Coding',
     icon: '/icons/dock/terminal.svg',
   },
   {
     id: 'soundtrack',
-    name: 'Soundtrack (after 2 : 17)',
+    name: 'Apple Music (after 2 : 17)',
     icon: '/icons/dock/music.svg',
   },
   {
@@ -34,7 +34,7 @@ const portfolioApps: DockApp[] = [
   },
   {
     id: 'mail',
-    name: 'Start a Chat (Mail)',
+    name: 'Chat on WhatsApp',
     icon: '/icons/dock/mail.svg',
   },
   {
