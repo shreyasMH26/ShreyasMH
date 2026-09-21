@@ -579,26 +579,52 @@ export default function BentoPage() {
 
               {/* ── Song Tiles & Hero Lyrics Card (Screenshot 3) ── */}
 
-              {/* Song Tile: Sprinter */}
+              {/* Song Tile: Can't Tell Me Nothing (Kanye West) */}
               <a
-                href="https://music.apple.com/in/lyrics/1839470171?ts=112.828&te=117.328&l=en&tk=4.v1.5TaUEQxRXt%2BHMzf%2FkuIsWg%3D%3D&incomingRefApp=com.whatsapp"
+                href="https://music.apple.com/in/album/cant-tell-me-nothing/1451733602?i=1451733611"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-1 h-[154px]
-                  bg-[#000000] hover:bg-[#080808]
-                  rounded-[24px] border border-white/[0.08]
-                  p-5 flex flex-col justify-between
-                  transition-all duration-200 cursor-pointer group
+                  col-span-1 h-[154px] relative overflow-hidden
+                  bg-gradient-to-br from-[#2b1030] via-[#1a0c20] to-[#0d0512]
+                  hover:from-[#35153b] hover:via-[#200f28] hover:to-[#120718]
+                  rounded-[24px] border border-fuchsia-500/20
+                  p-3.5 flex flex-col justify-between
+                  transition-all duration-200 cursor-pointer group shadow-lg shadow-purple-950/20
                 "
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-[15px] font-bold text-white">Sprinter</span>
-                  <div className="size-6 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors">
-                    <ArrowUpRight size={13} />
+                {/* Subtle ambient artwork glow */}
+                <div className="absolute -top-6 -right-6 size-20 bg-fuchsia-600/20 rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -bottom-6 -left-6 size-20 bg-purple-600/20 rounded-full blur-xl pointer-events-none" />
+
+                {/* Top arrow */}
+                <div className="absolute top-3 right-3 size-5 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors">
+                  <ArrowUpRight size={11} />
+                </div>
+
+                {/* Lyrics Typography */}
+                <div className="pr-4">
+                  <p className="text-[12px] sm:text-[12.5px] font-bold text-white/95 leading-[1.22] tracking-tight">
+                    Let the champagne<br />
+                    splash, let that<br />
+                    man get cash<br />
+                    Let that man get past
+                  </p>
+                </div>
+
+                {/* Track Metadata & Artwork Footer */}
+                <div className="flex items-center gap-2 min-w-0">
+                  <img
+                    src="/photos/kanye-graduation.png"
+                    alt="Graduation by Kanye West"
+                    className="size-7 rounded-[6px] object-cover shrink-0 border border-white/10 shadow-sm"
+                  />
+                  <div className="flex flex-col min-w-0 leading-none">
+                    <span className="text-[10px] font-bold text-white truncate">Can&apos;t Tell Me Nothing</span>
+                    <span className="text-[9px] text-white/60 font-medium truncate mt-0.5">Kanye West</span>
+                    <span className="text-[8px] text-white/40 font-medium truncate mt-0.5"> Music</span>
                   </div>
                 </div>
-                <span className="text-[11px] text-white/30 font-mono">track // central cee</span>
               </a>
 
               {/* Song Tile: Heaven Or Las Vegas */}
