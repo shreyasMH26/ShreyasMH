@@ -729,18 +729,20 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* Tweet Card: Elon Musk (X/Twitter-style) */}
-              <TweetCard
-                authorName="Elon Musk"
-                authorHandle="@elonmusk"
-                authorAvatar="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&auto=format&fit=crop&q=80"
-                date="Nov 11, 2024"
-                content="You will not find a better friend than me, nor a worse enemy"
-                stats={{ replies: "990", retweets: "1.7K", likes: "17K", views: "843.9K" }}
-                verified={true}
-                href="https://x.com/elonmusk/status/1855936841628733600"
-                colSpan="col-span-2 xl:col-span-4"
-              />
+              {/* Media Photo Tile: XTICH Night Waterfront */}
+              <div
+                className="
+                  col-span-2 xl:col-span-4 h-[160px] sm:h-[180px]
+                  rounded-[24px] overflow-hidden border border-white/[0.08]
+                  relative group bg-[#0a0a0c]
+                "
+              >
+                <img
+                  src="/photos/shreyas-xtich-night.png"
+                  alt="Shreyas XTICH"
+                  className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
 
               {/* ── Giant Apple Music Lyrics Card: Starboy (The Weeknd) ── */}
               <a
