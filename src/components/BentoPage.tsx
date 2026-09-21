@@ -550,7 +550,7 @@ export default function BentoPage() {
                   </div>
                   <div>
                     <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
-                      your wine, sir.
+                      After 2:17
                     </p>
                     <p className="text-[12px] text-white/40 mt-0.5">music.apple.com</p>
                   </div>
@@ -559,7 +559,7 @@ export default function BentoPage() {
                 {/* Playlist cover artwork */}
                 <img
                   src="/photos/your-wine-sir-cover.jpg"
-                  alt="your wine, sir. playlist cover"
+                  alt="After 2:17 playlist cover"
                   className="size-[114px] rounded-2xl object-cover shrink-0 border border-white/10 shadow-md group-hover:scale-[1.02] transition-transform duration-200"
                 />
               </a>
