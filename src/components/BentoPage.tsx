@@ -1,4 +1,4 @@
-import { ArrowUpRight, MapPin, Layers } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, MapPin, Layers } from 'lucide-react';
 
 /* ── Inline Brand Icons ── */
 function GithubIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
@@ -697,6 +697,44 @@ export default function BentoPage() {
                 stats={{ replies: "0", retweets: "1", likes: "87" }}
                 locked={true}
               />
+
+              {/* ════════════════════════════════════════════════════
+                  SECTION: for fun (Dev Humor)
+                 ════════════════════════════════════════════════════ */}
+              <SectionTitle title="for fun" />
+
+              {/* Development Humor Card (Exact replication from screenshot) */}
+              <div
+                onClick={() => {
+                  console.log("%c🐛 Shhh... it's okay, bug. You're in console now.", "color: #ff385c; font-size: 14px; font-weight: bold;");
+                }}
+                className="
+                  col-span-2 xl:col-span-2 min-h-[300px] xl:min-h-[320px]
+                  bg-white hover:bg-neutral-50
+                  rounded-[28px] border border-black/5
+                  p-7 sm:p-9 xl:p-10 flex flex-col justify-between
+                  shadow-xl text-black select-none transition-all duration-200
+                  group cursor-pointer relative overflow-hidden
+                "
+              >
+                <div>
+                  <span className="text-[11px] font-mono tracking-[0.28em] text-neutral-400 font-semibold uppercase block mb-6">
+                    D E V E L O P M E N T
+                  </span>
+                  <h3 className="text-[26px] sm:text-[32px] xl:text-[34px] font-bold text-neutral-950 leading-[1.14] tracking-tight">
+                    How do you<br />comfort a<br />JavaScript<br />bug?
+                  </h3>
+                </div>
+
+                <div className="flex items-end justify-between mt-8 sm:mt-10">
+                  <p className="text-[26px] sm:text-[32px] xl:text-[34px] font-bold text-neutral-950 leading-tight tracking-tight">
+                    You console it.
+                  </p>
+                  <div className="size-9 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-800 group-hover:translate-x-1 group-hover:bg-neutral-200 transition-all shrink-0 ml-4">
+                    <ArrowRight size={18} />
+                  </div>
+                </div>
+              </div>
 
               {/* ════════════════════════════════════════════════════
                   SECTION 6: BOTTOM FOOTER
