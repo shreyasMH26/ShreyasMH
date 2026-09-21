@@ -355,7 +355,7 @@ export default function BentoPage() {
 
               {/* ── LINKEDIN CARD (1 col × 1 row) ── */}
               <a
-                href="https://linkedin.com/in/shreyasmh"
+                href="https://www.linkedin.com/in/shreyasmh/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -465,7 +465,7 @@ export default function BentoPage() {
 
               <WorkPill
                 title="Snapsy - Your Dev Workflow,..."
-                href="https://xtich.in"
+                href="https://github.com/shreyasMH26"
                 icon={
                   <div className="size-5 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-300 shadow-sm" />
                 }
