@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': '/src',
+      'motion/react': 'framer-motion',
     },
   },
 })
