@@ -33,40 +33,17 @@ function AppleMusicIcon({ size = 20, className = "" }: { size?: number; classNam
   );
 }
 
-/* ── Realistic GitHub Contribution Heatmap ── */
-function ContributionHeatmap() {
-  const dots = [
-    [0, 1, 0, 3, 4, 1, 0],
-    [3, 0, 2, 4, 3, 2, 1],
-    [1, 2, 4, 1, 0, 3, 4],
-    [4, 3, 1, 0, 4, 2, 1],
-    [2, 4, 3, 2, 1, 4, 3],
-    [0, 2, 1, 4, 3, 2, 4],
-    [1, 0, 3, 2, 4, 1, 0],
-  ];
-
-  const colors = [
-    '#1c2128',
-    '#0e4429',
-    '#006d32',
-    '#26a641',
-    '#39d353',
-  ];
-
+function InstagramIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
-    <div className="grid grid-flow-col grid-rows-7 gap-[5px] w-fit">
-      {dots.map((col, colIdx) =>
-        col.map((val, rowIdx) => (
-          <div
-            key={`${colIdx}-${rowIdx}`}
-            className="size-[11px] rounded-[2.5px] transition-colors duration-300"
-            style={{ backgroundColor: colors[val] }}
-          />
-        ))
-      )}
-    </div>
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+    </svg>
   );
 }
+
+
 
 /* ── Map Card Visual ── */
 function MapVisual() {
@@ -320,42 +297,37 @@ export default function BentoPage() {
                   SECTION 1: TOP PROFILE / SOCIAL BENTO (Screenshot 1)
                  ════════════════════════════════════════════════════ */}
 
-              {/* ── GITHUB CARD (Tall 1 col × 2 rows on desktop) ── */}
+              {/* ── GITHUB CARD (1 col × 1 row) ── */}
               <a
                 href="https://github.com/shreyasMH26"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-2 aspect-[2/1]
-                  xl:col-start-1 xl:col-span-1 xl:row-start-1 xl:row-span-2 xl:aspect-auto xl:h-[450px]
+                  col-span-1 h-[172px]
+                  xl:col-start-1 xl:col-span-1 xl:row-start-1 xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
-                  p-6 xl:p-7 flex flex-col justify-between
+                  p-5 xl:p-6 flex flex-col justify-between
                   transition-all duration-200 cursor-pointer group
                 "
               >
+                <div className="size-8 rounded-lg bg-white/10 flex items-center justify-center text-white group-hover:scale-105 transition-transform">
+                  <GithubIcon size={19} className="text-white" />
+                </div>
                 <div>
-                  <GithubIcon size={32} className="text-white" />
-                  <div className="mt-3">
-                    <p className="text-[15px] font-bold text-white leading-tight">GitHub</p>
-                    <p className="text-[12px] text-white/45 mt-0.5">@shreyasMH26</p>
-                  </div>
-                  <div className="mt-3">
-                    <span className="inline-block bg-[#0070f3] hover:bg-[#0060df] text-white text-[11px] font-semibold px-4 py-1.5 rounded-full transition-colors shadow-sm">
+                  <p className="text-[14px] font-bold text-white leading-tight">GitHub</p>
+                  <p className="text-[11px] text-white/45 mt-0.5">@shreyasMH26</p>
+                  <div className="mt-2.5">
+                    <span className="inline-block bg-[#0070f3] hover:bg-[#0060df] text-white text-[11px] font-semibold px-4 py-1 rounded-full transition-colors shadow-sm">
                       Follow 28
                     </span>
                   </div>
                 </div>
-
-                {/* Contribution matrix */}
-                <div className="pt-5 mt-auto border-t border-white/[0.05]">
-                  <ContributionHeatmap />
-                </div>
               </a>
 
-              {/* ── LINKEDIN CARD (1 col × 1 row) ── */}
+              {/* ── INSTAGRAM CARD (1 col × 1 row, beside GitHub) ── */}
               <a
-                href="https://www.linkedin.com/in/shreyasmh/"
+                href="https://www.instagram.com/shreyasm.h/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -367,7 +339,35 @@ export default function BentoPage() {
                   transition-all duration-200 cursor-pointer group
                 "
               >
-                <div className="size-8 rounded-lg bg-[#0A66C2] flex items-center justify-center text-white">
+                <div className="size-8 rounded-lg bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] flex items-center justify-center text-white shadow-md shadow-pink-950/30 group-hover:scale-105 transition-transform">
+                  <InstagramIcon size={17} />
+                </div>
+                <div>
+                  <p className="text-[14px] font-bold text-white leading-tight">Instagram</p>
+                  <p className="text-[11px] text-white/45 mt-0.5">@shreyasm.h</p>
+                  <div className="mt-2.5">
+                    <span className="inline-block bg-gradient-to-r from-[#f58529] via-[#dd2a7b] to-[#8134af] hover:opacity-90 text-white text-[11px] font-semibold px-4 py-1 rounded-full transition-opacity shadow-sm">
+                      Follow
+                    </span>
+                  </div>
+                </div>
+              </a>
+
+              {/* ── LINKEDIN CARD (1 col × 1 row) ── */}
+              <a
+                href="https://www.linkedin.com/in/shreyasmh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  col-span-1 h-[172px]
+                  xl:col-start-1 xl:col-span-1 xl:row-start-2 xl:h-[216px]
+                  bg-[#131313] hover:bg-[#161616]
+                  rounded-[24px] border border-white/[0.06]
+                  p-5 xl:p-6 flex flex-col justify-between
+                  transition-all duration-200 cursor-pointer group
+                "
+              >
+                <div className="size-8 rounded-lg bg-[#0A66C2] flex items-center justify-center text-white group-hover:scale-105 transition-transform">
                   <LinkedinIcon size={18} />
                 </div>
                 <div>
@@ -395,7 +395,7 @@ export default function BentoPage() {
                   transition-all duration-200 cursor-pointer group
                 "
               >
-                <div className="size-8 rounded-lg bg-black flex items-center justify-center text-white">
+                <div className="size-8 rounded-lg bg-black flex items-center justify-center text-white group-hover:scale-105 transition-transform">
                   <TwitterXIcon size={17} />
                 </div>
                 <div>
