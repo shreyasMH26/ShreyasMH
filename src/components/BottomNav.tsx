@@ -8,11 +8,6 @@ const portfolioApps: DockApp[] = [
     icon: '/icons/dock/finder.svg',
   },
   {
-    id: 'about',
-    name: 'About MH',
-    icon: '/icons/dock/notes.svg',
-  },
-  {
     id: 'xtich',
     name: 'XTICH Studios',
     icon: '/icons/dock/xtich.svg',
@@ -54,8 +49,6 @@ export default function BottomNav() {
 
       const sections = [
         { id: 'finder', el: document.getElementById('hero') },
-        { id: 'about', el: document.getElementById('about') },
-        { id: 'xtich', el: document.getElementById('experience') },
         { id: 'projects', el: document.getElementById('projects') },
         { id: 'soundtrack', el: document.getElementById('soundtrack') },
         { id: 'mail', el: document.getElementById('contact') },
@@ -93,32 +86,30 @@ export default function BottomNav() {
 
     switch (appId) {
       case 'finder': {
-        const heroEl = document.getElementById('hero') || document.body;
-        heroEl.scrollIntoView({ behavior: 'smooth' });
-        break;
-      }
-      case 'about': {
-        const aboutEl = document.getElementById('about');
-        if (aboutEl) aboutEl.scrollIntoView({ behavior: 'smooth' });
+        const heroEl = document.getElementById('hero');
+        if (heroEl) {
+          heroEl.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
         break;
       }
       case 'xtich': {
-        const expEl = document.getElementById('experience');
-        if (expEl) {
-          expEl.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.open('https://xtich.in', '_blank', 'noopener,noreferrer');
-        }
+        window.open('https://xtich.in', '_blank', 'noopener,noreferrer');
         break;
       }
       case 'projects': {
         const projEl = document.getElementById('projects');
-        if (projEl) projEl.scrollIntoView({ behavior: 'smooth' });
+        if (projEl) {
+          projEl.scrollIntoView({ behavior: 'smooth' });
+        }
         break;
       }
       case 'soundtrack': {
         const musicEl = document.getElementById('soundtrack');
-        if (musicEl) musicEl.scrollIntoView({ behavior: 'smooth' });
+        if (musicEl) {
+          musicEl.scrollIntoView({ behavior: 'smooth' });
+        }
         break;
       }
       case 'resume': {
