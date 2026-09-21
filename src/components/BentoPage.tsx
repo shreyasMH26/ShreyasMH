@@ -629,44 +629,49 @@ export default function BentoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-1 h-[154px] relative overflow-hidden
+                  col-span-2 xl:col-span-2 min-h-[220px] xl:h-[240px] relative overflow-hidden
                   bg-gradient-to-br from-[#2b1030] via-[#1a0c20] to-[#0d0512]
                   hover:from-[#35153b] hover:via-[#200f28] hover:to-[#120718]
                   rounded-[24px] border border-fuchsia-500/20
-                  p-3.5 flex flex-col justify-between
-                  transition-all duration-200 cursor-pointer group shadow-lg shadow-purple-950/20
+                  p-6 sm:p-7 flex flex-col justify-between
+                  transition-all duration-300 cursor-pointer group shadow-xl shadow-purple-950/20
                 "
               >
+                {/* Subtle blurred album background reflection */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-10 blur-2xl scale-125 pointer-events-none"
+                  style={{ backgroundImage: `url('/photos/kanye-graduation.png')` }}
+                />
+
                 {/* Subtle ambient artwork glow */}
-                <div className="absolute -top-6 -right-6 size-20 bg-fuchsia-600/20 rounded-full blur-xl pointer-events-none" />
-                <div className="absolute -bottom-6 -left-6 size-20 bg-purple-600/20 rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -top-10 -right-10 size-48 bg-fuchsia-600/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-10 -left-10 size-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Top arrow */}
-                <div className="absolute top-3 right-3 size-5 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors">
-                  <ArrowUpRight size={11} />
+                <div className="absolute top-5 right-5 sm:top-6 sm:right-6 size-8 rounded-full bg-white/10 flex items-center justify-center text-white/50 group-hover:text-white transition-colors z-10">
+                  <ArrowUpRight size={15} />
                 </div>
 
                 {/* Lyrics Typography */}
-                <div className="pr-4">
-                  <p className="text-[12px] sm:text-[12.5px] font-bold text-white/95 leading-[1.22] tracking-tight">
+                <div className="pr-10 relative z-10">
+                  <h3 className="text-[22px] sm:text-[26px] xl:text-[28px] 2xl:text-[32px] font-bold text-white leading-[1.08] tracking-tight">
                     Let the champagne<br />
-                    splash, let that<br />
-                    man get cash<br />
+                    splash, let that man get cash<br />
                     Let that man get past
-                  </p>
+                  </h3>
                 </div>
 
                 {/* Track Metadata & Artwork Footer */}
-                <div className="flex items-center gap-2 min-w-0">
+                <div className="mt-6 flex items-center gap-3 min-w-0 relative z-10">
                   <img
                     src="/photos/kanye-graduation.png"
                     alt="Graduation by Kanye West"
-                    className="size-7 rounded-[6px] object-cover shrink-0 border border-white/10 shadow-sm"
+                    className="size-10 sm:size-11 rounded-[8px] object-cover shrink-0 border border-white/15 shadow-md"
                   />
-                  <div className="flex flex-col min-w-0 leading-none">
-                    <span className="text-[10px] font-bold text-white truncate">Can&apos;t Tell Me Nothing</span>
-                    <span className="text-[9px] text-white/60 font-medium truncate mt-0.5">Kanye West</span>
-                    <span className="text-[8px] text-white/40 font-medium truncate mt-0.5"> Music</span>
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span className="text-[13px] sm:text-[14px] font-bold text-white truncate">Can&apos;t Tell Me Nothing</span>
+                    <span className="text-[11px] sm:text-[12px] text-white/60 font-medium truncate mt-0.5">Kanye West</span>
+                    <span className="text-[10px] text-white/40 font-medium truncate mt-0.5 flex items-center gap-1"> Music</span>
                   </div>
                 </div>
               </a>
@@ -677,50 +682,50 @@ export default function BentoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-1 h-[154px] relative overflow-hidden
+                  col-span-2 xl:col-span-2 min-h-[220px] xl:h-[240px] relative overflow-hidden
                   bg-gradient-to-br from-[#331e23] via-[#241419] to-[#140b0e]
                   hover:from-[#3e252b] hover:via-[#2b171d] hover:to-[#1a0e13]
                   rounded-[24px] border border-stone-600/20
-                  p-3.5 flex flex-col justify-between
-                  transition-all duration-200 cursor-pointer group shadow-lg shadow-black/30
+                  p-6 sm:p-7 flex flex-col justify-between
+                  transition-all duration-300 cursor-pointer group shadow-xl shadow-black/40
                 "
               >
                 {/* Subtle blurred album background reflection */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center opacity-15 blur-xl scale-125 pointer-events-none"
+                  className="absolute inset-0 bg-cover bg-center opacity-10 blur-2xl scale-125 pointer-events-none"
                   style={{ backgroundImage: `url('/photos/sprinter-cover.png')` }}
                 />
 
                 {/* Subtle ambient lighting glows */}
-                <div className="absolute -top-6 -right-6 size-24 bg-[#543440]/30 rounded-full blur-xl pointer-events-none" />
-                <div className="absolute -bottom-6 -left-6 size-24 bg-[#422521]/30 rounded-full blur-xl pointer-events-none" />
+                <div className="absolute -top-10 -right-10 size-48 bg-[#543440]/30 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-10 -left-10 size-48 bg-[#422521]/30 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Top arrow */}
-                <div className="absolute top-3 right-3 size-5 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors z-10">
-                  <ArrowUpRight size={11} />
+                <div className="absolute top-5 right-5 sm:top-6 sm:right-6 size-8 rounded-full bg-white/10 flex items-center justify-center text-white/50 group-hover:text-white transition-colors z-10">
+                  <ArrowUpRight size={15} />
                 </div>
 
                 {/* Lyrics Typography */}
-                <div className="pr-4 relative z-10">
-                  <p className="text-[11.5px] sm:text-[12px] font-bold text-white/95 leading-[1.22] tracking-tight">
+                <div className="pr-10 relative z-10">
+                  <h3 className="text-[20px] sm:text-[23px] xl:text-[25px] 2xl:text-[27px] font-bold text-white leading-[1.08] tracking-tight">
                     Before I give you my<br />
                     Insta&apos; password, I&apos;ll<br />
                     give you the pin to my<br />
                     AmEx, huh, alright
-                  </p>
+                  </h3>
                 </div>
 
                 {/* Track Metadata & Artwork Footer */}
-                <div className="flex items-center gap-2 min-w-0 relative z-10">
+                <div className="mt-6 flex items-center gap-3 min-w-0 relative z-10">
                   <img
                     src="/photos/sprinter-cover.png"
                     alt="Sprinter by Dave & Central Cee"
-                    className="size-7 rounded-[6px] object-cover shrink-0 border border-white/10 shadow-sm"
+                    className="size-10 sm:size-11 rounded-[8px] object-cover shrink-0 border border-white/15 shadow-md"
                   />
-                  <div className="flex flex-col min-w-0 leading-none">
-                    <span className="text-[10px] font-bold text-white truncate">Sprinter</span>
-                    <span className="text-[9px] text-white/60 font-medium truncate mt-0.5">Dave &amp; Central Cee</span>
-                    <span className="text-[8px] text-white/40 font-medium truncate mt-0.5"> Music</span>
+                  <div className="flex flex-col min-w-0 leading-tight">
+                    <span className="text-[13px] sm:text-[14px] font-bold text-white truncate">Sprinter</span>
+                    <span className="text-[11px] sm:text-[12px] text-white/60 font-medium truncate mt-0.5">Dave &amp; Central Cee</span>
+                    <span className="text-[10px] text-white/40 font-medium truncate mt-0.5 flex items-center gap-1"> Music</span>
                   </div>
                 </div>
               </a>
@@ -728,7 +733,7 @@ export default function BentoPage() {
               {/* Media Photo Tile: XTICH Night Waterfront */}
               <div
                 className="
-                  col-span-2 xl:col-span-2 h-[154px]
+                  col-span-2 xl:col-span-4 h-[160px] sm:h-[180px]
                   rounded-[24px] overflow-hidden border border-white/[0.08]
                   relative group bg-[#0a0a0c]
                 "
