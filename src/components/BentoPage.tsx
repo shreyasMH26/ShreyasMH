@@ -104,7 +104,7 @@ function MapVisual() {
 function SectionTitle({ title, id }: { title: string; id?: string }) {
   return (
     <div id={id} className="col-span-2 xl:col-span-4 mt-8 mb-2 scroll-mt-8">
-      <h2 className="text-[15px] font-medium text-white/90 tracking-tight lowercase">
+      <h2 className="text-[15px] font-medium text-white/90 tracking-tight">
         {title}
       </h2>
     </div>
@@ -482,9 +482,9 @@ export default function BentoPage() {
               />
 
               {/* ════════════════════════════════════════════════════
-                  SECTION 4: if i end up in hell (Screenshot 2)
+                  SECTION 4: Even in hell
                  ════════════════════════════════════════════════════ */}
-              <SectionTitle id="soundtrack" title="if i end up in hell" />
+              <SectionTitle id="soundtrack" title="Even in hell" />
 
               <a
                 href={playlistUrl}
