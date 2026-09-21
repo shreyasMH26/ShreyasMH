@@ -1,4 +1,5 @@
 import { ArrowUpRight, MapPin, Layers } from 'lucide-react';
+import { AppleMusicPlayerCard } from './AppleMusicPlayerCard';
 
 /* ── Inline Brand Icons ── */
 function GithubIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
@@ -409,42 +410,8 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* ── APPLE MUSIC CARD (Screenshot 1 with Photo) ── */}
-              <a
-                href={playlistUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  col-span-2 aspect-[2/1]
-                  xl:col-start-3 xl:col-span-2 xl:row-start-1 xl:aspect-auto xl:h-[188px]
-                  bg-[#131313] hover:bg-[#161616]
-                  rounded-[24px] border border-white/[0.06]
-                  p-5 xl:p-6 flex items-center justify-between
-                  transition-all duration-200 cursor-pointer group overflow-hidden relative
-                "
-              >
-                <div className="flex flex-col justify-between h-full pr-4 z-10">
-                  <div className="flex items-center gap-2 text-[#FC3C44]">
-                    <AppleMusicIcon size={26} />
-                  </div>
-                  <div>
-                    <p className="text-[18px] xl:text-[20px] font-bold text-white tracking-tight leading-tight">
-                      Shreyas MH
-                    </p>
-                    <p className="text-[12px] text-white/40 mt-1">music.apple.com</p>
-                  </div>
-                </div>
-
-                {/* Right side photo preview from screenshot 1 */}
-                <div className="size-[136px] xl:size-[144px] rounded-2xl overflow-hidden shrink-0 shadow-md border border-white/10 relative">
-                  <img
-                    src="/photos/shreyas-night-water.png"
-                    alt="Shreyas Music"
-                    className="size-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
-                </div>
-              </a>
+              {/* ── APPLE MUSIC PLAYER CARD (Hybrid Bento Native + Embed) ── */}
+              <AppleMusicPlayerCard playlistUrl={playlistUrl} />
 
               {/* ── LOCATION MAP CARD (Screenshot 1) ── */}
               <div
