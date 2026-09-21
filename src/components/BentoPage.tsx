@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { ArrowUpRight, ArrowRight, MapPin } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, MapPin, MessageCircleHeart } from 'lucide-react';
 import { GithubIcon, type GithubIconHandle } from '@/components/ui/github-icon';
 import { NewTwitterIcon, type NewTwitterIconHandle } from '@/components/ui/new-twitter-icon';
 
@@ -522,9 +522,9 @@ export default function BentoPage() {
               </a>
 
               <WorkPill
-                title="30 min meeting | Shreyas MH |..."
+                title="come say hi."
                 href={whatsappUrl}
-                icon={<span className="font-mono text-xs font-bold text-white/90">Cal</span>}
+                icon={<MessageCircleHeart size={18} className="text-white/80" />}
               />
 
               {/* ════════════════════════════════════════════════════
