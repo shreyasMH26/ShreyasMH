@@ -457,7 +457,7 @@ export default function BentoPage() {
 
               {/* ── Justin Bieber — Company Lyric Card ── */}
               <a
-                href="https://music.apple.com/in/album/company/1440838188?i=1440838276"
+                href="https://music.apple.com/in/album/company/1440829460?i=1440829617"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -625,7 +625,7 @@ export default function BentoPage() {
 
               {/* Song Tile: Can't Tell Me Nothing (Kanye West) */}
               <a
-                href="https://music.apple.com/in/album/cant-tell-me-nothing/1451733602?i=1451733611"
+                href="https://music.apple.com/in/album/cant-tell-me-nothing/1451901307?i=1451903287"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -678,7 +678,7 @@ export default function BentoPage() {
 
               {/* Song Tile: Sprinter (Dave & Central Cee) */}
               <a
-                href="https://music.apple.com/in/album/sprinter/1690226065?i=1690226066"
+                href="https://music.apple.com/in/album/sprinter/1839470018?i=1839470171"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
@@ -747,7 +747,7 @@ export default function BentoPage() {
 
               {/* ── Giant Apple Music Lyrics Card: Starboy (The Weeknd) ── */}
               <a
-                href="https://music.apple.com/in/album/starboy-feat-daft-punk/1440871441?i=1440871446"
+                href="https://music.apple.com/in/album/starboy-feat-daft-punk/1440870373?i=1440870375"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
