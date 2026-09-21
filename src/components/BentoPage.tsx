@@ -803,16 +803,22 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* Tweet Card: Elon Musk (Screenshot 3) */}
-              <TweetCard
-                authorName="Elon Musk"
-                authorHandle="@elonmusk"
-                authorAvatar="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&auto=format&fit=crop&q=80"
-                date="Nov 11, 2024"
-                content="You will not find a better friend than me, nor a worse enemy"
-                stats={{ replies: "990", retweets: "1.7K", likes: "17K", views: "843.9K" }}
-                verified={true}
-              />
+              {/* Media Tile: Soccer Running Illustration */}
+              <div
+                className="
+                  col-span-2 xl:col-span-2 h-[154px] sm:h-[160px]
+                  bg-[#000000] hover:bg-[#050505]
+                  rounded-[24px] border border-white/[0.08]
+                  flex items-center justify-center
+                  overflow-hidden relative group transition-all duration-200 cursor-default
+                "
+              >
+                <img
+                  src="/photos/soccer-running.png"
+                  alt="Soccer Running Illustration"
+                  className="size-full object-contain p-4 transition-transform duration-500 group-hover:scale-105 select-none pointer-events-none"
+                />
+              </div>
 
               {/* Tweet Card: Shreyas MH (Screenshot 3) */}
               <TweetCard
