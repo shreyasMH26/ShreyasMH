@@ -524,7 +524,13 @@ export default function BentoPage() {
               <WorkPill
                 title="come say hi."
                 href={whatsappUrl}
-                icon={<Heart size={18} className="text-white/80" />}
+                icon={
+                  <Heart
+                    size={21}
+                    strokeWidth={2.2}
+                    className="text-white/90 -rotate-6 group-hover:scale-115 group-hover:-rotate-12 group-hover:text-white transition-all duration-300 ease-out drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                  />
+                }
               />
 
               {/* ════════════════════════════════════════════════════
