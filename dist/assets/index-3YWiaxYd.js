@@ -131,15 +131,15 @@ Error generating stack: `+o.message+`
                   p-6 xl:p-7 flex flex-col justify-between
                   transition-all duration-200 cursor-pointer group
                 `,children:[c.jsxs("div",{children:[c.jsx(op,{size:32,className:"text-white"}),c.jsxs("div",{className:"mt-3",children:[c.jsx("p",{className:"text-[15px] font-bold text-white leading-tight",children:"GitHub"}),c.jsx("p",{className:"text-[12px] text-white/45 mt-0.5",children:"@shreyasMH26"})]}),c.jsx("div",{className:"mt-3",children:c.jsx("span",{className:"inline-block bg-[#0070f3] hover:bg-[#0060df] text-white text-[11px] font-semibold px-4 py-1.5 rounded-full transition-colors shadow-sm",children:"Follow 28"})})]}),c.jsx("div",{className:"pt-5 mt-auto border-t border-white/[0.05]",children:c.jsx(up,{})})]}),c.jsxs("a",{href:"https://www.linkedin.com/in/shreyasmh/",target:"_blank",rel:"noopener noreferrer",className:`
-                  col-span-1 aspect-square
-                  xl:col-start-2 xl:col-span-1 xl:row-start-1 xl:aspect-auto xl:h-[216px]
+                  col-span-1 h-[172px]
+                  xl:col-start-2 xl:col-span-1 xl:row-start-1 xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-5 xl:p-6 flex flex-col justify-between
                   transition-all duration-200 cursor-pointer group
                 `,children:[c.jsx("div",{className:"size-8 rounded-lg bg-[#0A66C2] flex items-center justify-center text-white",children:c.jsx(ip,{size:18})}),c.jsxs("div",{children:[c.jsx("p",{className:"text-[14px] font-bold text-white leading-tight",children:"LinkedIn"}),c.jsx("p",{className:"text-[11px] text-white/45 mt-0.5",children:"@shreyasmh"}),c.jsx("div",{className:"mt-2.5",children:c.jsx("span",{className:"inline-block bg-[#0A66C2] hover:bg-[#095196] text-white text-[11px] font-semibold px-4 py-1 rounded-full transition-colors",children:"Connect"})})]})]}),c.jsxs("a",{href:"https://x.com/shreyasMH26",target:"_blank",rel:"noopener noreferrer",className:`
-                  col-span-1 aspect-square
-                  xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:aspect-auto xl:h-[216px]
+                  col-span-1 h-[172px]
+                  xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-5 xl:p-6 flex flex-col justify-between

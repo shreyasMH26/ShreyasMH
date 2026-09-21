@@ -359,8 +359,8 @@ export default function BentoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-1 aspect-square
-                  xl:col-start-2 xl:col-span-1 xl:row-start-1 xl:aspect-auto xl:h-[216px]
+                  col-span-1 h-[172px]
+                  xl:col-start-2 xl:col-span-1 xl:row-start-1 xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-5 xl:p-6 flex flex-col justify-between
@@ -387,8 +387,8 @@ export default function BentoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  col-span-1 aspect-square
-                  xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:aspect-auto xl:h-[216px]
+                  col-span-1 h-[172px]
+                  xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-5 xl:p-6 flex flex-col justify-between
