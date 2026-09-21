@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { ArrowUpRight, ArrowRight, MapPin } from 'lucide-react';
 import { GithubIcon, type GithubIconHandle } from '@/components/ui/github-icon';
+import { NewTwitterIcon, type NewTwitterIconHandle } from '@/components/ui/new-twitter-icon';
 
 /* ── Inline Brand Icons ── */
 
@@ -206,6 +207,7 @@ function TweetCard({
 ═══════════════════════════════════════════════════════════════════ */
 export default function BentoPage() {
   const githubIconRef = useRef<GithubIconHandle>(null);
+  const twitterIconRef = useRef<NewTwitterIconHandle>(null);
   const whatsappUrl = "https://wa.me/917483794998?text=Hey%20Shreyas%2C%20I%20found%20your%20portfolio!";
   const playlistUrl = "https://music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo";
 
@@ -384,6 +386,8 @@ export default function BentoPage() {
                 href="https://x.com/shreyasMH26"
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={() => twitterIconRef.current?.startAnimation()}
+                onMouseLeave={() => twitterIconRef.current?.stopAnimation()}
                 className="
                   col-span-1 h-[172px]
                   xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:h-[216px]
@@ -394,7 +398,7 @@ export default function BentoPage() {
                 "
               >
                 <div className="size-8 rounded-lg bg-black flex items-center justify-center text-white group-hover:scale-105 transition-transform">
-                  <TwitterXIcon size={17} />
+                  <NewTwitterIcon ref={twitterIconRef} size={18} className="text-white" />
                 </div>
                 <div>
                   <p className="text-[14px] font-bold text-white leading-tight">X / Twitter</p>
