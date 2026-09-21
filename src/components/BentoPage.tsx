@@ -1,5 +1,4 @@
 import { ArrowUpRight, MapPin, Layers } from 'lucide-react';
-import { AppleMusicPlayerCard } from './AppleMusicPlayerCard';
 
 /* ── Inline Brand Icons ── */
 function GithubIcon({ size = 20, className = "" }: { size?: number; className?: string }) {
@@ -328,7 +327,7 @@ export default function BentoPage() {
                 rel="noopener noreferrer"
                 className="
                   col-span-2 aspect-[2/1]
-                  xl:col-start-1 xl:col-span-1 xl:row-start-1 xl:row-span-2 xl:aspect-auto
+                  xl:col-start-1 xl:col-span-1 xl:row-start-1 xl:row-span-2 xl:aspect-auto xl:h-[450px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-6 xl:p-7 flex flex-col justify-between
@@ -361,7 +360,7 @@ export default function BentoPage() {
                 rel="noopener noreferrer"
                 className="
                   col-span-1 aspect-square
-                  xl:col-start-2 xl:col-span-1 xl:row-start-1 xl:aspect-auto xl:h-[188px]
+                  xl:col-start-2 xl:col-span-1 xl:row-start-1 xl:aspect-auto xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-5 xl:p-6 flex flex-col justify-between
@@ -389,7 +388,7 @@ export default function BentoPage() {
                 rel="noopener noreferrer"
                 className="
                   col-span-1 aspect-square
-                  xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:aspect-auto xl:h-[188px]
+                  xl:col-start-2 xl:col-span-1 xl:row-start-2 xl:aspect-auto xl:h-[216px]
                   bg-[#131313] hover:bg-[#161616]
                   rounded-[24px] border border-white/[0.06]
                   p-5 xl:p-6 flex flex-col justify-between
@@ -410,14 +409,40 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* ── APPLE MUSIC PLAYER CARD (Hybrid Bento Native + Embed) ── */}
-              <AppleMusicPlayerCard playlistUrl={playlistUrl} />
+              {/* ── OFFICIAL APPLE MUSIC WIDGET (Approach B: Full Size 450px) ── */}
+              <div
+                className="
+                  col-span-2
+                  xl:col-start-3 xl:col-span-2 xl:row-start-1 xl:row-span-2
+                  h-[450px]
+                  bg-[#131313]
+                  rounded-[24px] border border-white/[0.08]
+                  overflow-hidden shadow-2xl relative
+                "
+              >
+                <iframe
+                  allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                  height="450"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    maxWidth: '100%',
+                    overflow: 'hidden',
+                    borderRadius: '24px',
+                    border: 0,
+                    background: 'transparent',
+                  }}
+                  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+                  src="https://embed.music.apple.com/in/playlist/after-2-17/pl.u-vxy6974T8y18pDo?theme=dark"
+                  title="after 2 : 17 — Official Apple Music Playlist by Shreyas MH"
+                />
+              </div>
 
               {/* ── LOCATION MAP CARD (Screenshot 1) ── */}
               <div
                 className="
                   col-span-2 aspect-[2/1]
-                  xl:col-start-3 xl:col-span-2 xl:row-start-2 xl:aspect-auto xl:h-[188px]
+                  xl:col-span-4 xl:aspect-auto xl:h-[188px]
                   rounded-[24px] border border-white/[0.06]
                   overflow-hidden relative shadow-inner
                 "
