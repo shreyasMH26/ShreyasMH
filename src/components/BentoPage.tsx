@@ -589,9 +589,11 @@ export default function BentoPage() {
                 "
               >
                 <div className="flex flex-col justify-between h-full pr-4">
-                  <div className="size-7 rounded-lg bg-[#22c55e] flex items-center justify-center font-bold text-black text-sm shadow-sm">
-                    P
-                  </div>
+                  <img
+                    src="/icons/peerlist.webp"
+                    alt="Peerlist"
+                    className="size-7 rounded-lg object-cover shadow-sm"
+                  />
                   <div>
                     <p className="text-[16px] xl:text-[17px] font-bold text-white tracking-tight">
                       Books by Shreyas MH
@@ -603,8 +605,13 @@ export default function BentoPage() {
                   <span className="text-2xl">📖</span>
                   <span className="font-serif font-bold text-[13px] mt-1">Books</span>
                   <span className="text-[8px] text-neutral-500">collection by Shreyas</span>
-                  <div className="flex items-center gap-1 mt-1 text-[8px] text-[#22c55e] font-bold">
-                    <span>P Peerlist</span>
+                  <div className="flex items-center gap-1 mt-1 text-[9px] text-[#22c55e] font-bold">
+                    <img
+                      src="/icons/peerlist.webp"
+                      alt="Peerlist"
+                      className="size-3 rounded-[3px] object-cover"
+                    />
+                    <span>Peerlist</span>
                   </div>
                 </div>
               </a>
