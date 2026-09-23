@@ -12,7 +12,7 @@ export default function IDCardLanyardDemo() {
       idNumber="SMH-2026"
       validThru="12/2029"
       site="shreyasmh.in"
-      avatarUrl="/photos/shreyas-editorial-bw.jpg"
+      avatarUrl="/photos/shreyas-id-card.jpg"
       githubUrl="https://github.com/shreyasMH26"
       linkedinUrl="https://www.linkedin.com/in/shreyasmh/"
       instagramUrl="https://www.instagram.com/shreyasm.h/"
