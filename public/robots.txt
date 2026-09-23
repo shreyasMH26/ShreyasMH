@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shreyasmh.onrender.com/sitemap.xml
+Sitemap: https://shreyasmh.in/sitemap.xml
