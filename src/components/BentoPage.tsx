@@ -42,33 +42,118 @@ function InstagramIcon({ size = 20, className = "" }: { size?: number; className
 
 
 
-/* ── Map Card Visual ── */
+/* ── Map Card Visual: Spidey Tracker Edition ── */
 function MapVisual() {
   return (
-    <div className="relative size-full overflow-hidden bg-[#e5e3df] select-none">
-      <svg className="absolute inset-0 size-full opacity-80" viewBox="0 0 400 200" preserveAspectRatio="none">
-        <rect width="400" height="200" fill="#f4f1ea" />
-        <path d="M-20,40 Q150,60 420,30" stroke="#ffffff" strokeWidth="12" fill="none" />
-        <path d="M-20,160 Q200,140 420,170" stroke="#ffffff" strokeWidth="14" fill="none" />
-        <path d="M80,-20 L110,220" stroke="#ffffff" strokeWidth="10" fill="none" />
-        <path d="M280,-20 L260,220" stroke="#ffffff" strokeWidth="10" fill="none" />
-        <path d="M190,-20 L210,220" stroke="#ffffff" strokeWidth="8" fill="none" />
-        <path d="M-20,100 Q180,95 420,110" stroke="#fed576" strokeWidth="10" fill="none" />
-        <path d="M220,-20 Q200,100 210,220" stroke="#fed576" strokeWidth="9" fill="none" />
-        <rect x="120" y="20" width="50" height="60" fill="#d9ebd3" rx="4" />
-        <rect x="230" y="125" width="40" height="35" fill="#d9ebd3" rx="4" />
+    <div className="relative size-full overflow-hidden bg-[#071120] select-none">
+      {/* Dark Tactical Map Vector Background */}
+      <svg className="absolute inset-0 size-full opacity-60" viewBox="0 0 400 200" preserveAspectRatio="none">
+        <rect width="400" height="200" fill="#071120" />
+        {/* River / Water body in dark cyan */}
+        <path d="M-20,180 Q120,130 250,165 T420,140" stroke="#0e2447" strokeWidth="22" fill="none" />
+        {/* Primary Tactical Road Grid */}
+        <path d="M-20,40 Q150,60 420,30" stroke="#132a4f" strokeWidth="6" fill="none" />
+        <path d="M-20,160 Q200,140 420,170" stroke="#132a4f" strokeWidth="7" fill="none" />
+        <path d="M80,-20 L110,220" stroke="#132a4f" strokeWidth="5" fill="none" />
+        <path d="M280,-20 L260,220" stroke="#132a4f" strokeWidth="5" fill="none" />
+        <path d="M190,-20 L210,220" stroke="#132a4f" strokeWidth="4" fill="none" />
+        {/* Highway lines in glowing cyber cyan/blue */}
+        <path d="M-20,100 Q180,95 420,110" stroke="#1a457a" strokeWidth="4" fill="none" strokeDasharray="6 3" />
+        <path d="M220,-20 Q200,100 210,220" stroke="#1a457a" strokeWidth="4" fill="none" strokeDasharray="6 3" />
+        {/* Sector blocks */}
+        <rect x="120" y="25" width="55" height="50" fill="#0a1a33" rx="4" stroke="#15325b" strokeWidth="1" />
+        <rect x="235" y="115" width="40" height="35" fill="#0a1a33" rx="4" stroke="#15325b" strokeWidth="1" />
+        <rect x="40" y="110" width="35" height="35" fill="#0a1a33" rx="4" stroke="#15325b" strokeWidth="1" />
       </svg>
 
-      {/* Blue Map Marker Pin */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
-        <span className="absolute size-8 rounded-full bg-blue-500/25 animate-ping" />
-        <span className="relative size-4 rounded-full bg-blue-500 border-2 border-white shadow-md flex items-center justify-center" />
+      {/* Cyber Grid Pattern Overlay */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, rgba(43,184,255,0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(43,184,255,0.2) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      {/* Rotating Radar Sweep Beam */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-25"
+        style={{
+          background:
+            'conic-gradient(from 0deg at 50% 50%, rgba(43, 184, 255, 0.45) 0deg, rgba(43, 184, 255, 0) 55deg, transparent 360deg)',
+          animation: 'spin 6s linear infinite',
+        }}
+      />
+
+      {/* Sonar Concentric Rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+        <div className="size-24 rounded-full border border-[#2bb8ff]/25" />
+        <div className="absolute inset-0 size-48 -translate-x-12 -translate-y-12 rounded-full border border-[#2bb8ff]/15" />
+        <div className="absolute inset-0 size-72 -translate-x-24 -translate-y-24 rounded-full border border-[#2bb8ff]/10" />
       </div>
 
-      {/* Location Badge */}
-      <div className="absolute bottom-3 left-3 bg-[#111111]/90 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5">
-        <MapPin size={11} className="text-blue-400" />
-        <span>Davangere</span>
+      {/* Dashed Crosshairs intersecting at location */}
+      <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-[#2bb8ff]/20 pointer-events-none" />
+      <div className="absolute inset-y-0 left-1/2 border-l border-dashed border-[#2bb8ff]/20 pointer-events-none" />
+
+      {/* Corner HUD Reticle Brackets */}
+      <div className="absolute top-2.5 left-2.5 size-2 border-t-2 border-l-2 border-[#2bb8ff]/60 pointer-events-none" />
+      <div className="absolute top-2.5 right-2.5 size-2 border-t-2 border-r-2 border-[#2bb8ff]/60 pointer-events-none" />
+      <div className="absolute bottom-2.5 left-2.5 size-2 border-b-2 border-l-2 border-[#2bb8ff]/60 pointer-events-none" />
+      <div className="absolute bottom-2.5 right-2.5 size-2 border-b-2 border-r-2 border-[#2bb8ff]/60 pointer-events-none" />
+
+      {/* Top HUD Bar */}
+      <div className="absolute top-3 inset-x-3.5 flex items-center justify-between pointer-events-none z-10">
+        <div className="flex items-center gap-2">
+          <img
+            src="/spidey/tracker_logo.png"
+            alt="Spidey Tracker"
+            className="h-4 sm:h-4.5 object-contain drop-shadow-[0_0_10px_rgba(43,184,255,0.45)]"
+          />
+        </div>
+        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#050c18]/85 border border-[#2bb8ff]/30 text-[9px] sm:text-[10px] font-mono text-[#a8e1fe] backdrop-blur-md shadow-md">
+          <span className="size-1.5 rounded-full bg-red-500 animate-ping" />
+          <span className="tracking-wider uppercase font-semibold text-red-400">ACTIVE SIGHTING</span>
+        </div>
+      </div>
+
+      {/* Center Target: Spider-Man Emblem Pin with Radar Pulse */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none z-10">
+        {/* Target Tooltip Callout */}
+        <div className="mb-1.5 bg-[#050c18]/90 border border-[#2bb8ff]/50 px-2 py-0.5 rounded text-[8px] sm:text-[9px] font-mono text-[#7dd3fc] tracking-wider whitespace-nowrap shadow-lg backdrop-blur-sm animate-pulse">
+          <span className="text-red-400 font-bold">● TARGET:</span> DAVANAGERE // 14.46°N 75.92°E
+        </div>
+
+        {/* Reticle + Spider Pin */}
+        <div className="relative flex items-center justify-center">
+          <span className="absolute size-14 rounded-full border border-[#2bb8ff]/30 animate-ping pointer-events-none" />
+          <span className="absolute size-9 rounded-full border border-red-500/40 animate-pulse pointer-events-none" />
+          <img
+            src="/spidey/red_pin.png"
+            alt="Spider-Man Pin"
+            className="size-7 sm:size-8 relative z-10 drop-shadow-[0_0_12px_rgba(239,68,68,0.95)]"
+          />
+        </div>
+      </div>
+
+      {/* Bottom HUD Bar */}
+      <div className="absolute bottom-3 inset-x-3.5 flex items-center justify-between z-10">
+        <div className="flex items-center gap-2 bg-[#050c18]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#2bb8ff]/25 text-white text-[11px] font-mono shadow-xl">
+          <MapPin size={12} className="text-[#38bdf8]" />
+          <span className="font-semibold text-white tracking-wide">Davanagere, IN</span>
+          <span className="text-white/40 text-[10px] hidden sm:inline">14.46° N, 75.92° E</span>
+        </div>
+
+        <a
+          href="https://spideytracker.net/intl/in/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 bg-[#091a38]/90 hover:bg-[#0e2754] text-[#7dd3fc] hover:text-white px-3 py-1.5 rounded-xl border border-[#2bb8ff]/40 text-[10px] font-mono transition-all shadow-xl group"
+        >
+          <span className="tracking-wider">SPIDEY TRACKER</span>
+          <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#38bdf8]" />
+        </a>
       </div>
     </div>
   );
