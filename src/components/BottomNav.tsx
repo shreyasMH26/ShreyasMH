@@ -97,13 +97,14 @@ export default function BottomNav({ isIdCardOpen = false, onToggleIdCard }: Bott
         break;
       }
       case 'finder': {
-        const heroEl = document.getElementById('hero');
-        if (heroEl) {
-          heroEl.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
         }
-        setOpenApps((prev) => (prev.includes('finder') ? prev : [...prev, 'finder']));
+        window.scrollTo(0, 0);
+        if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname);
+        }
+        window.location.reload();
         break;
       }
       case 'xtich': {
