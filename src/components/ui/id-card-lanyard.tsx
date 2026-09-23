@@ -195,7 +195,7 @@ const CSS = `
   transition:border-color .15s ease, color .15s ease, transform .15s ease;
 }
 .idcl-connect-icons a:hover{ border-color:var(--idcl-accent); color:var(--idcl-accent); transform:translateY(-1px); }
-.idcl-connect-icons svg{ width:9px; height:9px;
+.idcl-connect-icons svg{ width:9px; height:9px; }
 
 .idcl-sig{ margin-top:6px; }
 .idcl-sig .idcl-script{ font-family:var(--idcl-font-script); font-size:18px; color:var(--idcl-card-ink); line-height:1; }
@@ -782,7 +782,7 @@ export function IDCardLanyard({
 
         {showHint && (
           <div className={`idcl-hint ${interacted ? "idcl-hint-hidden" : ""}`}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ width: 13, height: 13, flexShrink: 0 }}>
               <path d="M12 3v18M7 8l-4 4 4 4M17 8l4 4-4 4" />
             </svg>
             Drag to swing · Click to flip
