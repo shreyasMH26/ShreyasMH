@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { ArrowUpRight, ArrowRight, MapPin, Heart } from 'lucide-react';
 import { GithubIcon, type GithubIconHandle } from '@/components/ui/github-icon';
 import { NewTwitterIcon, type NewTwitterIconHandle } from '@/components/ui/new-twitter-icon';
+import peerlistLogo from '@/assets/peerlist.webp';
 
 /* ── Inline Brand Icons ── */
 
@@ -590,7 +591,7 @@ export default function BentoPage() {
               >
                 <div className="flex flex-col justify-between h-full pr-4">
                   <img
-                    src="/icons/peerlist.webp"
+                    src={peerlistLogo}
                     alt="Peerlist"
                     className="size-7 rounded-lg object-cover shadow-sm"
                   />
@@ -602,15 +603,14 @@ export default function BentoPage() {
                   </div>
                 </div>
                 <div className="w-[124px] h-[114px] bg-white rounded-2xl flex flex-col items-center justify-center text-black p-3 shrink-0 shadow-md">
-                  <span className="text-2xl">📖</span>
+                  <img
+                    src={peerlistLogo}
+                    alt="Peerlist"
+                    className="size-8 rounded-lg object-cover shadow-sm"
+                  />
                   <span className="font-serif font-bold text-[13px] mt-1">Books</span>
                   <span className="text-[8px] text-neutral-500">collection by Shreyas</span>
                   <div className="flex items-center gap-1 mt-1 text-[9px] text-[#22c55e] font-bold">
-                    <img
-                      src="/icons/peerlist.webp"
-                      alt="Peerlist"
-                      className="size-3 rounded-[3px] object-cover"
-                    />
                     <span>Peerlist</span>
                   </div>
                 </div>
