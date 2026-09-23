@@ -138,22 +138,12 @@ function MapVisual() {
       </div>
 
       {/* Bottom HUD Bar */}
-      <div className="absolute bottom-3 inset-x-3.5 flex items-center justify-between z-10">
+      <div className="absolute bottom-3 left-3.5 z-10">
         <div className="flex items-center gap-2 bg-[#050c18]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-[#2bb8ff]/25 text-white text-[11px] font-mono shadow-xl">
           <MapPin size={12} className="text-[#38bdf8]" />
           <span className="font-semibold text-white tracking-wide">Davanagere, IN</span>
           <span className="text-white/40 text-[10px] hidden sm:inline">14.46° N, 75.92° E</span>
         </div>
-
-        <a
-          href="https://spideytracker.net/intl/in/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 bg-[#091a38]/90 hover:bg-[#0e2754] text-[#7dd3fc] hover:text-white px-3 py-1.5 rounded-xl border border-[#2bb8ff]/40 text-[10px] font-mono transition-all shadow-xl group"
-        >
-          <span className="tracking-wider">SPIDEY TRACKER</span>
-          <ArrowUpRight size={11} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-[#38bdf8]" />
-        </a>
       </div>
     </div>
   );
