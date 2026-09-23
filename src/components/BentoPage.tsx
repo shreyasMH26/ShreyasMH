@@ -319,7 +319,7 @@ export default function BentoPage() {
                   <p className="text-[11px] text-white/45 mt-0.5">@shreyasMH26</p>
                   <div className="mt-2.5">
                     <span className="inline-block bg-[#0070f3] hover:bg-[#0060df] text-white text-[11px] font-semibold px-4 py-1 rounded-full transition-colors shadow-sm">
-                      Follow 28
+                      Follow MH!
                     </span>
                   </div>
                 </div>
