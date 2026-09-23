@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import MacOSDock, { DockApp } from './ui/mac-os-dock';
 
-const portfolioApps: DockApp[] = [
+interface BottomNavProps {
+  isIdCardOpen?: boolean;
+  onToggleIdCard?: () => void;
+}
+
+const getPortfolioApps = (isIdCardOpen: boolean): DockApp[] => [
   {
     id: 'finder',
     name: 'Home',
@@ -37,9 +42,14 @@ const portfolioApps: DockApp[] = [
     name: 'GitHub (@shreyasMH26)',
     icon: '/icons/dock/github.svg',
   },
+  {
+    id: 'id-card',
+    name: isIdCardOpen ? 'Close ID Card' : 'ID Card Badge',
+    icon: '/icons/dock/id-card.svg',
+  },
 ];
 
-export default function BottomNav() {
+export default function BottomNav({ isIdCardOpen = false, onToggleIdCard }: BottomNavProps) {
   const [openApps, setOpenApps] = useState<string[]>(['finder']);
 
   // Scroll spy to reflect active sections in the macOS dock
@@ -81,10 +91,11 @@ export default function BottomNav() {
   }, []);
 
   const handleAppClick = (appId: string) => {
-    // Add to open apps
-    setOpenApps((prev) => (prev.includes(appId) ? prev : [...prev, appId]));
-
     switch (appId) {
+      case 'id-card': {
+        onToggleIdCard?.();
+        break;
+      }
       case 'finder': {
         const heroEl = document.getElementById('hero');
         if (heroEl) {
@@ -92,6 +103,7 @@ export default function BottomNav() {
         } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        setOpenApps((prev) => (prev.includes('finder') ? prev : [...prev, 'finder']));
         break;
       }
       case 'xtich': {
@@ -103,6 +115,7 @@ export default function BottomNav() {
         if (projEl) {
           projEl.scrollIntoView({ behavior: 'smooth' });
         }
+        setOpenApps((prev) => (prev.includes('projects') ? prev : [...prev, 'projects']));
         break;
       }
       case 'soundtrack': {
@@ -110,6 +123,7 @@ export default function BottomNav() {
         if (musicEl) {
           musicEl.scrollIntoView({ behavior: 'smooth' });
         }
+        setOpenApps((prev) => (prev.includes('soundtrack') ? prev : [...prev, 'soundtrack']));
         break;
       }
       case 'resume': {
@@ -130,15 +144,20 @@ export default function BottomNav() {
     }
   };
 
+  const apps = getPortfolioApps(isIdCardOpen);
+  const effectiveOpenApps = isIdCardOpen
+    ? Array.from(new Set([...openApps, 'id-card']))
+    : openApps.filter((id) => id !== 'id-card');
+
   return (
     <nav
       aria-label="macOS Dock Navigation"
       className="fixed bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-w-[95vw]"
     >
       <MacOSDock
-        apps={portfolioApps}
+        apps={apps}
         onAppClick={handleAppClick}
-        openApps={openApps}
+        openApps={effectiveOpenApps}
         theme="dark"
       />
     </nav>

@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export interface IDCardLanyardProps {
+  /** Optional callback to close/dismiss the ID card overlay. */
+  onClose?: () => void;
   /** Full name shown on the card and used for the back-face signature. */
   name?: string;
   /** Job title / role line under the name. */
@@ -215,11 +217,45 @@ const CSS = `
   transition:opacity .4s ease;
   white-space:nowrap;
 }
+
+.idcl-close-btn{
+  position:fixed;
+  top:16px;
+  right:16px;
+  z-index:calc(var(--idcl-z, 60) + 5);
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(18,20,26,.88);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  color:#f3f0e9;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;
+  padding:6px 14px;
+  font-family:var(--idcl-font-mono);
+  font-size:11px;
+  letter-spacing:.04em;
+  cursor:pointer;
+  pointer-events:auto;
+  transition:all .2s ease;
+  box-shadow:0 4px 16px rgba(0,0,0,.5);
+}
+.idcl-close-btn:hover{
+  background:rgba(30,34,44,.95);
+  border-color:rgba(255,255,255,.3);
+  transform:translateY(-1px);
+}
+.idcl-close-btn:active{
+  transform:scale(.96);
+}
+
 .idcl-hint.idcl-hint-hidden{ opacity:0; }
 .idcl-hint svg{ width:13px; height:13px; opacity:.75; flex-shrink:0; }
 `;
 
 export function IDCardLanyard({
+  onClose,
   name = "Shreyas MH",
   role = "Co-Founder & COO @ XTICH",
   brand = "XTICH",
@@ -304,6 +340,9 @@ export function IDCardLanyard({
     // "calc(100% - 130px)" to hang the card from the right edge) against the window
     function resolveAnchorX() {
       const rect = scene!.getBoundingClientRect();
+      if (rect.width < 640) {
+        return rect.width / 2;
+      }
       const v = anchorX.trim();
       const calcMatch = v.match(/^calc\(\s*100%\s*-\s*([\d.]+)px\s*\)$/);
       if (calcMatch) return rect.width - parseFloat(calcMatch[1]);
@@ -619,6 +658,21 @@ export function IDCardLanyard({
       {/* fixed, full-viewport, click-through except on the card itself —
           drop this component anywhere in your tree and it floats over the whole page */}
       <div className="idcl-stage" ref={sceneRef}>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="idcl-close-btn"
+            aria-label="Close ID Card"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" style={{ width: 12, height: 12, flexShrink: 0 }}>
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            <span>Close</span>
+          </button>
+        )}
+
         <canvas className="idcl-rope" ref={canvasRef} />
         <div className="idcl-rail" ref={railRef} />
 

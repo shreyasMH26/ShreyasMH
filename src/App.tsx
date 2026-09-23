@@ -6,6 +6,7 @@ import Loader from "./components/ui/loader-6";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [showIdCard, setShowIdCard] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,14 +43,19 @@ export default function App() {
         </div>
       )}
 
-      {/* Floating Interactive Physics ID Card Lanyard */}
-      <IDCardLanyard />
+      {/* Floating Interactive Physics ID Card Lanyard - only shown when opened */}
+      {showIdCard && (
+        <IDCardLanyard onClose={() => setShowIdCard(false)} />
+      )}
 
       {/* Exact Bento Portfolio (Cards and Sections from reference) */}
       <BentoPage />
 
       {/* Floating macOS Interactive Dock */}
-      <BottomNav />
+      <BottomNav
+        isIdCardOpen={showIdCard}
+        onToggleIdCard={() => setShowIdCard((prev) => !prev)}
+      />
     </div>
   );
 }
