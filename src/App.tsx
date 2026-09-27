@@ -149,7 +149,7 @@ function ShreyasCardFront() {
       <div
         className="relative overflow-hidden rounded-lg mb-2 flex-shrink-0"
         style={{
-          height: 104,
+          height: 88,
           border: "1px solid rgba(255,255,255,0.14)",
           background: "#08090d",
           boxShadow: "inset 0 2px 8px rgba(0,0,0,0.6)",
@@ -157,10 +157,10 @@ function ShreyasCardFront() {
         }}
       >
         <img
-          src="/photos/shreyas-id-card.jpg"
+          src="/photos/shreyas-id-card.png"
           alt="Shreyas MH"
           className="w-full h-full object-cover block"
-          style={{ objectPosition: "20% 32%" }}
+          style={{ objectPosition: "center" }}
         />
         {/* Verified Badge */}
         <div
