@@ -157,7 +157,7 @@ function ShreyasCardFront() {
         }}
       >
         <img
-          src="/photos/shreyas-id-card.png"
+          src="/photos/shreyas-id-card.jpg?v=2"
           alt="Shreyas MH"
           className="w-full h-full object-cover block"
           style={{ objectPosition: "center" }}
