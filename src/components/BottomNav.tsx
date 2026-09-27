@@ -108,7 +108,7 @@ export default function BottomNav({ isIdCardOpen = false, onToggleIdCard }: Bott
         break;
       }
       case 'xtich': {
-        window.open('https://xtich.in', '_blank', 'noopener,noreferrer');
+        window.open('https://xtich.onrender.com', '_blank', 'noopener,noreferrer');
         break;
       }
       case 'projects': {

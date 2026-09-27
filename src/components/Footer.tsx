@@ -63,7 +63,7 @@ export default function Footer() {
               <ArrowUpRight size={15} />
             </a>
             <a
-              href="https://xtich.in"
+              href="https://xtich.onrender.com"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 hover:opacity-70 transition-opacity"

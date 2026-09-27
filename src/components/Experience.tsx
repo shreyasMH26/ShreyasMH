@@ -10,7 +10,7 @@ const experiences = [
     description:
       'Building a B2C premium clothing brand focused on student culture, product, branding and digital experiences. Leading brand strategy, e-commerce platform development, and business operations.',
     skills: ['Product Planning', 'Brand Strategy', 'Web Development', 'Digital Commerce', 'Operations'],
-    link: 'https://xtich.in',
+    link: 'https://xtich.onrender.com',
     logo: '/xtich-logo.png',
   },
 ];

@@ -314,7 +314,7 @@ export default function AryanKarmaPortfolio({ onSwitchToBento }: { onSwitchToBen
             </span>
             . Co-founded{' '}
             <a
-              href="https://xtich.in"
+              href="https://xtich.onrender.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-200 underline underline-offset-4 decoration-zinc-600 hover:text-white"
@@ -341,7 +341,7 @@ export default function AryanKarmaPortfolio({ onSwitchToBento }: { onSwitchToBen
               role="Co-Founder & COO"
               period="2025 - Present"
               description="Contemporary student apparel brand. Co-founded the venture, leading brand strategy, product design, website and digital presence, and day-to-day business operations."
-              href="https://xtich.in"
+              href="https://xtich.onrender.com"
             />
           </div>
         </section>
@@ -398,7 +398,7 @@ export default function AryanKarmaPortfolio({ onSwitchToBento }: { onSwitchToBen
               title="XTICH"
               description="Student-focused contemporary apparel brand. Digital commerce, brand positioning, and community operations."
               tags={['E-Commerce', 'Brand Strategy', 'Web Dev', 'Operations']}
-              href="https://xtich.in"
+              href="https://xtich.onrender.com"
               image="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&auto=format&fit=crop&q=80"
             />
             <ProjectCardItem

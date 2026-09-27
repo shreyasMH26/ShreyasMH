@@ -136,7 +136,7 @@ export default function Timeline() {
                     </h3>
                     <p className="text-zinc-300 text-sm sm:text-[14px] leading-relaxed">{item.desc}</p>
                     <a
-                      href="https://xtich.in"
+                      href="https://xtich.onrender.com"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"

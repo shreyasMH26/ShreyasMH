@@ -1,15 +1,16 @@
 {
   "name": "Shreyas MH",
-  "title": "Shreyas MH — Founder · Builder · CSE Student",
-  "description": "Shreyas MH — Co-Founder & COO at XTICH, CSE student at JIT Davanagere. Building software, AI experiments, and real-world products.",
+  "title": "Shreyas MH | CSE Student & Co-Founder @ XTICH",
+  "description": "Shreyas MH is a Computer Science Engineering student, software and AI builder, and Co-Founder & COO at XTICH.",
   "url": "https://shreyasmh.in/",
   "role": "Co-Founder & COO",
   "company": "XTICH",
-  "companyUrl": "https://xtich.in",
+  "companyUrl": "https://xtich.in/",
   "location": "Davanagere, Karnataka, India",
   "socials": {
     "github": "https://github.com/shreyasMH26",
     "linkedin": "https://www.linkedin.com/in/shreyasmh/",
+    "twitter": "https://x.com/shreyasMH26",
     "instagram": "https://www.instagram.com/shreyasm.h/"
   }
 }
