@@ -917,34 +917,19 @@ export default function BentoPage() {
               </a>
 
               {/* Media Photo Tile: XTICH Night Waterfront */}
-              <a
-                href="https://xtich.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="XTICH Studios - Co-Founder & COO"
+              <div
                 className="
                   col-span-2 xl:col-span-4 h-[160px] sm:h-[180px]
-                  rounded-[24px] overflow-hidden border border-white/[0.08] hover:border-white/20
-                  relative group bg-[#0a0a0c] block cursor-pointer transition-all duration-300
+                  rounded-[24px] overflow-hidden border border-white/[0.08]
+                  relative group bg-[#0a0a0c]
                 "
               >
                 <img
                   src="/photos/shreyas-xtich-night.png"
-                  alt="Shreyas MH - XTICH"
+                  alt="Shreyas XTICH"
                   className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5 opacity-90 group-hover:opacity-100 transition-opacity">
-                  <div className="flex items-center justify-between w-full">
-                    <div>
-                      <p className="text-[11px] font-mono text-white/50 uppercase tracking-widest">Flagship Venture</p>
-                      <p className="text-[14px] sm:text-[15px] font-bold text-white tracking-tight">XTICH · Co-Founder &amp; COO</p>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-white/90 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 group-hover:bg-white/20 transition-colors">
-                      Visit XTICH <ArrowUpRight size={13} />
-                    </span>
-                  </div>
-                </div>
-              </a>
+              </div>
 
               {/* ── Giant Apple Music Lyrics Card: Starboy (The Weeknd) ── */}
               <a
