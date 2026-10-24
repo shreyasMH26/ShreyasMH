@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="notesPaper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFDF0"/>
+      <stop offset="100%" stop-color="#F5F0D0"/>
+    </linearGradient>
+    <linearGradient id="notesHeader" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- Background squircle -->
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="url(#notesPaper)" filter="url(#shadow)"/>
+  <rect x="8" y="8" width="112" height="112" rx="26" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1.5"/>
+  
+  <!-- Yellow/Orange leather top header -->
+  <path d="M 8 34 C 8 19.64 19.64 8 34 8 L 94 8 C 108.36 8 120 19.64 120 34 L 120 36 L 8 36 Z" fill="url(#notesHeader)"/>
+  
+  <!-- Ruled horizontal note lines -->
+  <line x1="24" y1="52" x2="104" y2="52" stroke="#E2D9B8" stroke-width="2"/>
+  <line x1="24" y1="68" x2="104" y2="68" stroke="#E2D9B8" stroke-width="2"/>
+  <line x1="24" y1="84" x2="104" y2="84" stroke="#E2D9B8" stroke-width="2"/>
+  <line x1="24" y1="100" x2="80" y2="100" stroke="#E2D9B8" stroke-width="2"/>
+
+  <!-- Handwritten note strokes / signature motif -->
+  <path d="M 28 49 Q 38 46 54 48 Q 72 49 88 47" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 28 65 Q 46 63 68 64 Q 82 66 96 63" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 28 81 Q 40 79 60 81" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+</svg>
