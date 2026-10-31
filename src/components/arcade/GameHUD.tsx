@@ -1,0 +1,114 @@
+import React from 'react';
+import { DifficultyTier, MemeToast } from './types';
+import { Volume2, VolumeX, Pause, Play } from 'lucide-react';
+
+interface GameHUDProps {
+  score: number;
+  highScore: number;
+  tier: DifficultyTier;
+  hasShield: boolean;
+  coffeeTimer: number;
+  toast: MemeToast | null;
+  isMuted: boolean;
+  isPaused: boolean;
+  onToggleMute: () => void;
+  onTogglePause: () => void;
+}
+
+export const GameHUD: React.FC<GameHUDProps> = ({
+  score,
+  highScore,
+  tier,
+  hasShield,
+  coffeeTimer,
+  toast,
+  isMuted,
+  isPaused,
+  onToggleMute,
+  onTogglePause,
+}) => {
+  const padScore = (num: number, size: number = 5) => {
+    let s = String(Math.floor(num));
+    while (s.length < size) s = '0' + s;
+    return s;
+  };
+
+  return (
+    <div className="absolute inset-x-0 top-0 p-3 sm:p-5 pointer-events-none select-none z-20 flex flex-col gap-2">
+      {/* Top HUD Bar */}
+      <div className="flex items-center justify-between gap-2">
+        {/* Left: Semester Badge & Shield */}
+        <div className="flex items-center gap-2">
+          <div className="px-3 py-1.5 rounded-lg bg-black/80 border border-white/20 backdrop-blur-md shadow-md flex items-center gap-2">
+            <span className="size-2 rounded-full bg-orange-500 animate-ping" />
+            <span className="text-[10px] sm:text-[11px] font-mono font-bold text-white tracking-wider uppercase">
+              {tier.semester}: {tier.name}
+            </span>
+          </div>
+
+          {hasShield && (
+            <div className="px-2.5 py-1.5 rounded-lg bg-sky-950/80 border border-sky-400/40 text-sky-300 text-[10px] font-mono font-bold flex items-center gap-1.5 backdrop-blur-md shadow-lg animate-pulse">
+              <span>🛡️</span>
+              <span className="hidden sm:inline">SHIELD</span>
+            </div>
+          )}
+        </div>
+
+        {/* Center / Right: Digital Score Counter & High Score */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 font-mono text-xs sm:text-sm bg-black/80 border border-white/20 px-3 py-1.5 rounded-lg backdrop-blur-md shadow-md">
+            <span className="text-white/40 text-[10px] sm:text-xs tracking-wider">HI {padScore(highScore)}</span>
+            <span className="text-white font-bold tracking-widest text-sm sm:text-base">
+              {padScore(score)}
+            </span>
+          </div>
+
+          {/* Sound & Pause Controls */}
+          <div className="flex items-center gap-1.5 pointer-events-auto">
+            <button
+              onClick={onTogglePause}
+              className="p-1.5 rounded-lg bg-black/80 border border-white/20 hover:border-white/40 text-white/80 hover:text-white backdrop-blur-md transition-all active:scale-95"
+              aria-label={isPaused ? 'Resume Game' : 'Pause Game'}
+              title="Pause (P)"
+            >
+              {isPaused ? <Play size={14} /> : <Pause size={14} />}
+            </button>
+            <button
+              onClick={onToggleMute}
+              className="p-1.5 rounded-lg bg-black/80 border border-white/20 hover:border-white/40 text-white/80 hover:text-white backdrop-blur-md transition-all active:scale-95"
+              aria-label={isMuted ? 'Unmute Sound' : 'Mute Sound'}
+              title="Mute Sound"
+            >
+              {isMuted ? <VolumeX size={14} className="text-red-400" /> : <Volume2 size={14} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Coffee Boost Progress Bar */}
+      {coffeeTimer > 0 && (
+        <div className="w-48 max-w-full bg-black/80 border border-orange-500/50 p-1.5 rounded-lg backdrop-blur-md shadow-lg animate-pulse">
+          <div className="flex justify-between text-[9px] font-mono text-orange-400 font-bold mb-1">
+            <span>☕ CAFFEINE BOOST</span>
+            <span>{Math.ceil(coffeeTimer / 60)}s</span>
+          </div>
+          <div className="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden">
+            <div
+              className="bg-gradient-to-r from-amber-400 to-orange-500 h-full transition-all duration-100"
+              style={{ width: `${(coffeeTimer / 240) * 100}%` }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Meme Toast Banner Notification */}
+      {toast && (
+        <div className="self-center mt-2 px-4 py-2 rounded-xl bg-neutral-950/95 border-2 border-orange-500/80 shadow-2xl backdrop-blur-md animate-bounce text-center max-w-md">
+          <p className="text-[11px] sm:text-xs font-mono font-bold text-orange-400 tracking-wide">
+            {toast.message}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+};

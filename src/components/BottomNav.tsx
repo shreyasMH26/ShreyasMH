@@ -23,6 +23,11 @@ const getPortfolioApps = (isIdCardOpen: boolean): DockApp[] => [
     icon: '/icons/dock/terminal.svg',
   },
   {
+    id: 'arcade',
+    name: 'ESCAPE THE VTU 💀',
+    icon: '/icons/dock/arcade.png',
+  },
+  {
     id: 'soundtrack',
     name: 'Apple Music (after 2 : 17)',
     icon: '/icons/dock/music.svg',
@@ -138,6 +143,16 @@ export default function BottomNav({ isIdCardOpen = false, onToggleIdCard }: Bott
       case 'github':
       case 'safari': {
         window.open('https://github.com/shreyasMH26', '_blank', 'noopener,noreferrer');
+        break;
+      }
+      case 'arcade': {
+        window.location.hash = '#arcade';
+        try {
+          history.pushState(null, '', '/arcade');
+        } catch {
+          // ignore
+        }
+        window.dispatchEvent(new Event('popstate'));
         break;
       }
       default:

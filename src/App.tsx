@@ -5,13 +5,25 @@ import LanyardBadge from "./components/ui/lanyard-badge";
 import Loader from "./components/ui/loader-6";
 import ContributionSkylineDemo from "./components/ui/contribution-skyline-demo";
 import LiquidSculptureHeroDemo from "./components/ui/liquid-sculpture-hero-demo";
+import ArcadePage from "./components/arcade/ArcadePage";
 
-type DemoMode = 'none' | 'skyline' | 'sculpture';
+type DemoMode = 'none' | 'skyline' | 'sculpture' | 'arcade';
 
 function getDemoMode(): DemoMode {
   if (typeof window === 'undefined') return 'none';
+  const pathname = window.location.pathname;
   const hash = window.location.hash;
   const search = window.location.search;
+
+  if (
+    pathname === '/arcade' ||
+    hash === '#arcade' ||
+    hash === '#escape-the-vtu' ||
+    hash === '#game' ||
+    search.includes('demo=arcade')
+  ) {
+    return 'arcade';
+  }
 
   if (
     hash === '#skyline' ||
@@ -597,6 +609,22 @@ export default function App() {
         </a>
         <LiquidSculptureHeroDemo />
       </div>
+    );
+  }
+
+  if (demoMode === 'arcade') {
+    return (
+      <ArcadePage
+        onBackToPortfolio={() => {
+          try {
+            history.pushState(null, '', '/');
+          } catch {
+            // ignore
+          }
+          window.location.hash = '';
+          setDemoMode('none');
+        }}
+      />
     );
   }
 
