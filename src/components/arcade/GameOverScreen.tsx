@@ -64,6 +64,26 @@ const FAILURE_MEMES: FailureMeme[] = [
     tag: 'VIVA DEFENSE',
     caption: 'When external examiner asks: "What exactly was your contribution to this group project?" 🎤',
   },
+  {
+    image: '/memes/akshay-kumar-pose.jpg',
+    tag: 'RAJU SCHEME',
+    caption: 'Don\'t worry bro: Raju scheme says 21 din mein supplementary pass! 😎',
+  },
+  {
+    image: '/memes/alakh-fleming-rule.jpg',
+    tag: 'FLEMINS RULE',
+    caption: 'Alakh Sir demonstrating Fleming\'s Left Hand Rule to the VTU exam system 🖕😂',
+  },
+  {
+    image: '/memes/modi-hearts.jpg',
+    tag: 'FALSE HOPE',
+    caption: 'Me smiling after writing 4 pages of random stories expecting step marking 🥰',
+  },
+  {
+    image: '/memes/winking-monkey.jpg',
+    tag: 'VIVA PARTNER',
+    caption: 'When you and your bench partner both give opposite answers during external viva 😉🐵',
+  },
 ];
 
 export const GameOverScreen: React.FC<GameOverScreenProps> = ({

@@ -116,6 +116,11 @@ export const ArcadePage: React.FC<ArcadePageProps> = ({ onBackToPortfolio }) => 
               { img: '/memes/arjun-kapoor.jpg', name: 'Viva Defense', trigger: 'Viva Question' },
               { img: '/memes/screaming-cat.jpg', name: 'Viva Examiner', trigger: 'Exam Detained' },
               { img: '/memes/ravi-kishan.jpg', name: 'Revaluation Pass', trigger: 'Attendance Card' },
+              { img: '/memes/akshay-kumar-pose.jpg', name: 'Raju Scheme', trigger: '21 Din Pass' },
+              { img: '/memes/alakh-fleming-rule.jpg', name: 'Fleming Rule', trigger: 'VTU Grading' },
+              { img: '/memes/modi-hearts.jpg', name: 'Step Marking', trigger: 'Internal 20/20' },
+              { img: '/memes/eureka-monkey.jpg', name: 'Eureka Moment', trigger: 'Last 2 Mins' },
+              { img: '/memes/winking-monkey.jpg', name: 'Viva Partner', trigger: 'Eye Contact' },
               { img: '/memes/ah-shit-here-we-go-again.jpg', name: 'Here We Go Again', trigger: 'Restart Run' },
               { img: '/memes/to-be-continued.jpg', name: 'Supplementary', trigger: 'Semester End' },
             ].map((m) => (

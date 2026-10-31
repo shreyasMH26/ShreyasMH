@@ -96,6 +96,26 @@ const MEME_PRESETS: MemePreset[] = [
     message: 'External: "Explain your exact contribution to this project" 🎤',
     image: '/memes/arjun-kapoor.jpg',
   },
+  {
+    message: 'Raju Scheme: "21 din mein backlogs clear!" 😎',
+    image: '/memes/akshay-kumar-pose.jpg',
+  },
+  {
+    message: 'Alakh Sir demonstrating Fleming\'s Left Hand Rule to VTU evaluation 🖕😂',
+    image: '/memes/alakh-fleming-rule.jpg',
+  },
+  {
+    message: 'When professor awards you 20/20 in internal assessment 🥰',
+    image: '/memes/modi-hearts.jpg',
+  },
+  {
+    message: 'Remembering the formula 2 minutes before exam paper submission ☝️🐵',
+    image: '/memes/eureka-monkey.jpg',
+  },
+  {
+    message: 'Making eye contact with topper across the exam hall 😉🐵',
+    image: '/memes/winking-monkey.jpg',
+  },
 ];
 
 const DIFFICULTY_TIERS: DifficultyTier[] = [
