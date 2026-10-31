@@ -331,26 +331,23 @@ export default function BentoPage() {
                 Entrepreneur &amp; Co-Founder of XTICH
               </p>
 
-              {/* Supporting description (Exact requirement) */}
-              <div className="mt-4 space-y-3 text-[13px] xl:text-[14px] text-white/60 leading-relaxed max-w-[290px] xl:max-w-none">
+              {/* Punchy Bio */}
+              <div className="mt-6 space-y-4 text-[14px] xl:text-[15px] text-white/55 leading-relaxed max-w-[280px] xl:max-w-none">
                 <p>
-                  I build ventures, develop digital products, and explore technology-driven solutions. As Co-Founder of XTICH, I work at the intersection of entrepreneurship, product development, and innovation.
+                  I don't need gravity, I just need growth.
                 </p>
-                <p className="text-white/40 text-[12.5px] italic">
+                <p>
                   Missionary, not mercenary.
                 </p>
               </div>
 
               {/* Sub-identity pills */}
-              <div className="mt-5 flex flex-wrap gap-2 justify-center xl:justify-start">
-                <span className="text-[11px] font-medium text-white/80 bg-white/[0.08] border border-white/15 px-3 py-1 rounded-full">
+              <div className="mt-6 flex flex-wrap gap-2 justify-center xl:justify-start">
+                <span className="text-[11px] font-medium text-white/40 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full">
                   Co-Founder &amp; COO @ XTICH
                 </span>
-                <span className="text-[11px] font-medium text-white/50 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full">
-                  Venture Builder
-                </span>
-                <span className="text-[11px] font-medium text-white/50 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full">
-                  Digital Products &amp; AI
+                <span className="text-[11px] font-medium text-white/40 bg-white/[0.04] border border-white/[0.06] px-3 py-1 rounded-full">
+                  Entrepreneur
                 </span>
               </div>
             </div>
@@ -605,92 +602,6 @@ export default function BentoPage() {
                 </div>
               </a>
 
-              {/* ── XTICH Flagship Venture & Experience Card ── */}
-              <a
-                href="https://xtich.onrender.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  col-span-2 xl:col-span-2 min-h-[380px] xl:min-h-[460px] relative overflow-hidden
-                  bg-gradient-to-br from-[#151515] via-[#111111] to-[#0b0b0b]
-                  hover:from-[#1a1a1a] hover:via-[#141414] hover:to-[#0f0f0f]
-                  rounded-[24px] border border-white/[0.08] hover:border-white/20
-                  p-6 sm:p-7 xl:p-8 flex flex-col justify-between
-                  transition-all duration-300 cursor-pointer group shadow-2xl shadow-black/60
-                "
-              >
-                {/* Subtle ambient lighting glows */}
-                <div className="absolute -top-12 -right-12 size-52 bg-white/[0.04] rounded-full blur-3xl pointer-events-none group-hover:bg-white/[0.07] transition-all duration-500" />
-                <div className="absolute -bottom-10 -left-10 size-48 bg-blue-600/[0.05] rounded-full blur-3xl pointer-events-none" />
-
-                {/* Top Header: Badge + Arrow */}
-                <div className="flex items-center justify-between relative z-10">
-                  <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white/80 text-[11px] font-mono font-medium tracking-wider uppercase">
-                      Venture · 2025 — Present
-                    </span>
-                  </div>
-                  <div className="size-8 rounded-full bg-white/10 flex items-center justify-center text-white/40 group-hover:text-white transition-colors">
-                    <ArrowUpRight size={16} />
-                  </div>
-                </div>
-
-                {/* Body Content */}
-                <div className="relative z-10 my-auto py-3">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[11px] font-mono tracking-widest uppercase text-white/40">
-                      Co-Founder &amp; COO
-                    </span>
-                    <span className="size-1 rounded-full bg-white/30" />
-                    <span className="text-[11px] font-mono text-white/50">
-                      xtich.onrender.com
-                    </span>
-                  </div>
-
-                  <h3 className="text-[26px] sm:text-[30px] xl:text-[34px] font-bold text-white tracking-tight leading-none mb-1">
-                    XTICH
-                  </h3>
-                  <p className="text-[13px] sm:text-[14px] text-white/70 font-medium">
-                    Co-Founder &amp; Chief Operating Officer (COO)
-                  </p>
-
-                  <ul className="mt-4 space-y-2 text-[12px] sm:text-[13px] text-white/60 leading-relaxed font-normal">
-                    <li className="flex items-start gap-2">
-                      <span className="text-white/40 mt-0.5 shrink-0">✦</span>
-                      <span>Building and scaling the XTICH brand, operations, and digital ecosystem.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-white/40 mt-0.5 shrink-0">✦</span>
-                      <span>Leading product development, digital platforms, and e-commerce initiatives.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-white/40 mt-0.5 shrink-0">✦</span>
-                      <span>Driving operational strategy, execution, and team coordination.</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-white/40 mt-0.5 shrink-0">✦</span>
-                      <span>Exploring technology-driven efficiencies in business operations.</span>
-                    </li>
-                  </ul>
-
-                  <p className="mt-3 text-[11px] text-white/40 font-mono">
-                    * Includes Versity by XTICH — student-focused community initiative under the venture.
-                  </p>
-                </div>
-
-                {/* Footer Tag Pills */}
-                <div className="relative z-10 pt-3 border-t border-white/[0.06] flex flex-wrap gap-1.5 items-center">
-                  {['Venture Building', 'Digital Platform', 'Brand Strategy', 'Operations'].map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] sm:text-[10.5px] font-mono text-white/45 bg-white/[0.03] border border-white/[0.06] px-2.5 py-0.5 rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </a>
-
               <WorkPill
                 title="come say hi."
                 href={whatsappUrl}
@@ -699,17 +610,6 @@ export default function BentoPage() {
                     size={21}
                     strokeWidth={2.2}
                     className="text-white/90 -rotate-6 group-hover:scale-115 group-hover:-rotate-12 group-hover:text-white transition-all duration-300 ease-out drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
-                  />
-                }
-              />
-
-              <WorkPill
-                title="XTICH Studios · Official Platform"
-                href="https://xtich.onrender.com/"
-                icon={
-                  <ArrowUpRight
-                    size={20}
-                    className="text-white/90 group-hover:scale-110 transition-transform"
                   />
                 }
               />
