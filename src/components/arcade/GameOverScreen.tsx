@@ -44,6 +44,26 @@ const FAILURE_MEMES: FailureMeme[] = [
     tag: 'REVALUATION',
     caption: 'VTU Revaluation committee taking your ₹1500 and giving 0 marks change 😘',
   },
+  {
+    image: '/memes/baburao.jpg',
+    tag: 'HERA PHERI',
+    caption: 'Baburao: "Utha le re deva, utha le... is 4 backlogs wale engineering student ko utha le!" 💀',
+  },
+  {
+    image: '/memes/modi-pigtails.jpg',
+    tag: 'HOD REACTION',
+    caption: 'HOD laughing when you request 1% attendance concession so you don\'t get detained 💀',
+  },
+  {
+    image: '/memes/thinking-monkey.jpg',
+    tag: 'EXAM REFLECTION',
+    caption: 'Sitting in the exam hall staring at question 1(a) pondering why you chose engineering 🤔',
+  },
+  {
+    image: '/memes/arjun-kapoor.jpg',
+    tag: 'VIVA DEFENSE',
+    caption: 'When external examiner asks: "What exactly was your contribution to this group project?" 🎤',
+  },
 ];
 
 export const GameOverScreen: React.FC<GameOverScreenProps> = ({

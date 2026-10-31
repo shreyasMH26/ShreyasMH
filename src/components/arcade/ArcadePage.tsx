@@ -104,14 +104,20 @@ export const ArcadePage: React.FC<ArcadePageProps> = ({ onBackToPortfolio }) => 
             </div>
             <span className="text-[10px] font-mono text-white/40 hidden sm:inline">In-Game Dynamic Easter Eggs</span>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             {[
               { img: '/memes/alakh-pandey.jpg', name: 'Physics Wallah', trigger: 'Topper Notes' },
               { img: '/memes/i-saw-that.jpg', name: 'Invigilator', trigger: 'Slide Dodge' },
               { img: '/memes/buff-mona-lisa.png', name: 'Exam Prep Beast', trigger: 'Coffee Boost' },
+              { img: '/memes/baburao.jpg', name: 'Baburao Apte', trigger: 'Backlog Alert' },
+              { img: '/memes/thinking-monkey.jpg', name: 'Exam Crisis', trigger: 'Internal Exams' },
+              { img: '/memes/modi-pigtails.jpg', name: 'HOD Reaction', trigger: 'Low Attendance' },
+              { img: '/memes/modi-lays.jpg', name: 'Canteen Chill', trigger: 'Caffeine Rush' },
+              { img: '/memes/arjun-kapoor.jpg', name: 'Viva Defense', trigger: 'Viva Question' },
               { img: '/memes/screaming-cat.jpg', name: 'Viva Examiner', trigger: 'Exam Detained' },
               { img: '/memes/ravi-kishan.jpg', name: 'Revaluation Pass', trigger: 'Attendance Card' },
               { img: '/memes/ah-shit-here-we-go-again.jpg', name: 'Here We Go Again', trigger: 'Restart Run' },
+              { img: '/memes/to-be-continued.jpg', name: 'Supplementary', trigger: 'Semester End' },
             ].map((m) => (
               <div key={m.name} className="flex flex-col items-center p-2.5 rounded-xl bg-neutral-900 border border-white/5 text-center">
                 <img src={m.img} alt={m.name} className="h-12 w-12 object-contain rounded-lg border border-white/10 mb-1.5 bg-black/40" />

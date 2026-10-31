@@ -76,6 +76,26 @@ const MEME_PRESETS: MemePreset[] = [
     message: 'One night before exam: "Guys which unit has 20 marks question?"',
     image: '/memes/alakh-pandey.jpg',
   },
+  {
+    message: 'Baburao: "Utha le re deva, is backlog wale ko utha le!" 💀',
+    image: '/memes/baburao.jpg',
+  },
+  {
+    message: 'Me in exam hall staring at question 1(a) for 45 minutes... 🤔',
+    image: '/memes/thinking-monkey.jpg',
+  },
+  {
+    message: 'HOD when you request 1% attendance concession to write exams 💀',
+    image: '/memes/modi-pigtails.jpg',
+  },
+  {
+    message: 'Chilling at college canteen while 4 assignments are due at 9 AM 🍟',
+    image: '/memes/modi-lays.jpg',
+  },
+  {
+    message: 'External: "Explain your exact contribution to this project" 🎤',
+    image: '/memes/arjun-kapoor.jpg',
+  },
 ];
 
 const DIFFICULTY_TIERS: DifficultyTier[] = [
