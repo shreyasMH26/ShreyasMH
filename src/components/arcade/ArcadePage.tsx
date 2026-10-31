@@ -94,6 +94,33 @@ export const ArcadePage: React.FC<ArcadePageProps> = ({ onBackToPortfolio }) => 
             </div>
           </div>
         </section>
+
+        {/* ── Engineering Meme Sticker Roll ── */}
+        <section className="w-full mt-4 p-5 rounded-2xl bg-neutral-950 border border-white/10 shadow-xl text-left">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2 text-orange-400 font-mono text-xs font-bold uppercase tracking-wider">
+              <span>🎭</span>
+              <span>VTU Survival Memes & Relics</span>
+            </div>
+            <span className="text-[10px] font-mono text-white/40 hidden sm:inline">In-Game Dynamic Easter Eggs</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+            {[
+              { img: '/memes/alakh-pandey.jpg', name: 'Physics Wallah', trigger: 'Topper Notes' },
+              { img: '/memes/i-saw-that.jpg', name: 'Invigilator', trigger: 'Slide Dodge' },
+              { img: '/memes/buff-mona-lisa.png', name: 'Exam Prep Beast', trigger: 'Coffee Boost' },
+              { img: '/memes/screaming-cat.jpg', name: 'Viva Examiner', trigger: 'Exam Detained' },
+              { img: '/memes/ravi-kishan.jpg', name: 'Revaluation Pass', trigger: 'Attendance Card' },
+              { img: '/memes/ah-shit-here-we-go-again.jpg', name: 'Here We Go Again', trigger: 'Restart Run' },
+            ].map((m) => (
+              <div key={m.name} className="flex flex-col items-center p-2.5 rounded-xl bg-neutral-900 border border-white/5 text-center">
+                <img src={m.img} alt={m.name} className="h-12 w-12 object-contain rounded-lg border border-white/10 mb-1.5 bg-black/40" />
+                <span className="text-[11px] font-mono font-bold text-white leading-tight line-clamp-1">{m.name}</span>
+                <span className="text-[9px] font-mono text-orange-400/80">{m.trigger}</span>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* ── Footer ── */}

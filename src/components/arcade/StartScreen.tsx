@@ -48,6 +48,16 @@ export const StartScreen: React.FC<StartScreenProps> = ({ onStart, onBack }) => 
           />
         </div>
 
+        {/* Meme Sticker Teaser */}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 my-1 shadow-sm">
+          <img
+            src="/memes/ah-shit-here-we-go-again.jpg"
+            alt="GTA meme"
+            className="h-5 w-auto object-contain rounded"
+          />
+          <span className="text-[10px] font-mono text-white/60">Sem 1 Edition · Enter at your own risk</span>
+        </div>
+
         {/* [ START SUFFERING ] Action Button */}
         <button
           onClick={onStart}

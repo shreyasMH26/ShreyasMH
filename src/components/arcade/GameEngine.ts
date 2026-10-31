@@ -10,22 +10,72 @@ import {
 } from './types';
 import { sounds } from './SoundEffects';
 
-const MEME_MESSAGES = [
-  'Bro, assignment submission is TODAY! 💀',
-  'Your attendance is 64%. Detained alert! 🚨',
-  'M1 (Maths) has entered the chat.',
-  'Surprise Internal Exam tomorrow. Good luck.',
-  'Professor spotted! Act busy!',
-  'New Backlog Unlocked: Electronic Circuits!',
-  'Even ChatGPT cannot solve this question.',
-  'VTU servers are down again. (504 Gateway)',
-  'Photocopy shop line is 2 kilometres long.',
-  'Viva external examiner woke up angry today.',
-  'Scheme 2022 shock incoming!',
-  'Fast-track re-evaluation fee: ₹1500 per subject 💸',
-  'Bro did you write the lab manual index?!',
-  'CIE marks uploaded on ERP... check at your own risk.',
-  'One day before exam: "Guys which unit is easy?"',
+interface MemePreset {
+  message: string;
+  image?: string;
+}
+
+const MEME_PRESETS: MemePreset[] = [
+  {
+    message: 'Bro, assignment submission is TODAY! 💀',
+    image: '/memes/ashish-haircut.jpg',
+  },
+  {
+    message: 'Invigilator spotting you: "I saw that" 👀',
+    image: '/memes/i-saw-that.jpg',
+  },
+  {
+    message: 'Alakh Sir: Hello Bachhoooon! Engineering Physics pass karwa dunga!',
+    image: '/memes/alakh-pandey.jpg',
+  },
+  {
+    message: 'Studying syllabus at 3 AM the night before exam 💪🗿',
+    image: '/memes/buff-mona-lisa.png',
+  },
+  {
+    message: 'POV: External asks you to explain line 1 of your project 🫵😹',
+    image: '/memes/screaming-cat.jpg',
+  },
+  {
+    message: 'VTU Valuation passing you with exactly 35 marks! 😘',
+    image: '/memes/ravi-kishan.jpg',
+  },
+  {
+    message: 'Your attendance is 64%. Detained alert! 🚨',
+    image: '/memes/ashish-haircut.jpg',
+  },
+  {
+    message: 'M1 (Maths) has entered the chat. 💀',
+    image: '/memes/screaming-cat.jpg',
+  },
+  {
+    message: 'Surprise Internal Exam tomorrow. Good luck.',
+    image: '/memes/i-saw-that.jpg',
+  },
+  {
+    message: 'Ah shit... here we go again. Backlog edition.',
+    image: '/memes/ah-shit-here-we-go-again.jpg',
+  },
+  {
+    message: 'VTU servers are down again. (504 Gateway Timeout)',
+    image: '/memes/screaming-cat.jpg',
+  },
+  {
+    message: 'Fast-track re-evaluation fee: ₹1500 per subject 💸',
+    image: '/memes/ravi-kishan.jpg',
+  },
+  {
+    message: 'Degree progress: TO BE CONTINUED in 5th year! 💀',
+    image: '/memes/to-be-continued.jpg',
+  },
+  {
+    message: 'Photocopy shop line is 2 kilometres long outside college.',
+    image: '/memes/ashish-haircut.jpg',
+  },
+  {
+    message: 'One night before exam: "Guys which unit has 20 marks question?"',
+    image: '/memes/alakh-pandey.jpg',
+  },
 ];
 
 const DIFFICULTY_TIERS: DifficultyTier[] = [
@@ -185,7 +235,7 @@ export class GameEngine {
     this.player.init(this.groundY);
     sounds.startMusic();
 
-    this.showMemeToast('ESCAPE THE VTU: Surviving Sem 1! 🏃‍♂️💨', 160);
+    this.showMemeToast('Sem 1: Ah shit, here we go again! 🏃‍♂️💨', 160, '/memes/ah-shit-here-we-go-again.jpg');
     if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
     this.loop();
   }
@@ -298,9 +348,9 @@ export class GameEngine {
     // ── Random Meme Toasts ──
     this.memeCooldown--;
     if (this.memeCooldown <= 0) {
-      const msg = MEME_MESSAGES[Math.floor(Math.random() * MEME_MESSAGES.length)];
-      this.showMemeToast(msg, 180);
-      this.memeCooldown = 280 + Math.floor(Math.random() * 180);
+      const preset = MEME_PRESETS[Math.floor(Math.random() * MEME_PRESETS.length)];
+      this.showMemeToast(preset.message, 190, preset.image);
+      this.memeCooldown = 300 + Math.floor(Math.random() * 200);
     }
 
     // Toast Timer
@@ -342,6 +392,9 @@ export class GameEngine {
 
       if (obs.x + obs.width < playerHitbox.x && !obs.passedPlayer) {
         obs.passedPlayer = true;
+        if (obs.isOverhead && this.player.state === 'SLIDING' && Math.random() < 0.35) {
+          this.showMemeToast('Invigilator peeking at your bench: "I saw that" 👀', 130, '/memes/i-saw-that.jpg');
+        }
       }
     }
 
@@ -435,18 +488,19 @@ export class GameEngine {
     if (item.type === 'coffee') {
       this.player.coffeeTimer = 240; // ~4 seconds of caffeine boost!
       this.addFloatingText('CAFFEINE RUSH! ⚡', item.x, item.y, '#f97316');
-      this.showMemeToast('☕ 4 SECONDS OF INVINCIBLE SPEED!', 120);
+      this.showMemeToast('☕ 4 SECONDS OF INVINCIBLE SPEED!', 130, '/memes/buff-mona-lisa.png');
     } else if (item.type === 'notes') {
       this.score += 150;
       this.addFloatingText('+150 TOPPER NOTES!', item.x, item.y, '#facc15');
+      this.showMemeToast('📚 Hello Bachhoooon! Engineering Notes Secured!', 130, '/memes/alakh-pandey.jpg');
     } else if (item.type === 'laptop') {
       this.player.hasShield = true;
       this.addFloatingText('STACKOVERFLOW SHIELD! 🛡️', item.x, item.y, '#38bdf8');
-      this.showMemeToast('💻 SHIELD ACTIVATED: Absorbs 1 Backlog Hit!', 140);
+      this.showMemeToast('💻 SHIELD ACTIVATED: Absorbs 1 Backlog Hit!', 140, '/memes/buff-mona-lisa.png');
     } else if (item.type === 'attendance') {
       this.score += 200;
       this.addFloatingText('+200 (85% ATTENDANCE!)', item.x, item.y, '#4ade80');
-      this.showMemeToast('🎓 ATTENDANCE 85%: Hall ticket secured!', 130);
+      this.showMemeToast('🎓 ATTENDANCE 85%: Hall ticket secured! 😘', 130, '/memes/ravi-kishan.jpg');
     }
 
     this.addSparkles(item.x + 16, item.y + 16, 8);
@@ -471,12 +525,13 @@ export class GameEngine {
     );
   }
 
-  public showMemeToast(message: string, duration: number = 180) {
+  public showMemeToast(message: string, duration: number = 180, image?: string) {
     this.activeToast = {
       id: Math.random().toString(),
       message,
       duration,
       age: 0,
+      image,
     };
     this.onToast?.(this.activeToast);
   }

@@ -49,4 +49,5 @@ export interface MemeToast {
   message: string;
   duration: number; // in frames
   age: number;
+  image?: string;
 }

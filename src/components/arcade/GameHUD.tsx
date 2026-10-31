@@ -87,24 +87,38 @@ export const GameHUD: React.FC<GameHUDProps> = ({
 
       {/* Coffee Boost Progress Bar */}
       {coffeeTimer > 0 && (
-        <div className="w-48 max-w-full bg-black/80 border border-orange-500/50 p-1.5 rounded-lg backdrop-blur-md shadow-lg animate-pulse">
-          <div className="flex justify-between text-[9px] font-mono text-orange-400 font-bold mb-1">
-            <span>☕ CAFFEINE BOOST</span>
-            <span>{Math.ceil(coffeeTimer / 60)}s</span>
-          </div>
-          <div className="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden">
-            <div
-              className="bg-gradient-to-r from-amber-400 to-orange-500 h-full transition-all duration-100"
-              style={{ width: `${(coffeeTimer / 240) * 100}%` }}
-            />
+        <div className="w-56 max-w-full bg-black/90 border border-orange-500/70 p-2 rounded-xl backdrop-blur-md shadow-[0_0_20px_rgba(249,115,22,0.3)] animate-pulse flex items-center gap-2.5">
+          <img
+            src="/memes/buff-mona-lisa.png"
+            alt="Buff Mona Lisa"
+            className="w-8 h-8 object-contain rounded-md border border-orange-400/40 bg-neutral-900 shrink-0"
+          />
+          <div className="flex-1">
+            <div className="flex justify-between text-[9px] font-mono text-orange-400 font-bold mb-1">
+              <span>☕ INVINCIBLE FOCUS</span>
+              <span>{Math.ceil(coffeeTimer / 60)}s</span>
+            </div>
+            <div className="w-full bg-neutral-900 h-1.5 rounded-full overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-amber-400 to-orange-500 h-full transition-all duration-100"
+                style={{ width: `${(coffeeTimer / 240) * 100}%` }}
+              />
+            </div>
           </div>
         </div>
       )}
 
       {/* Meme Toast Banner Notification */}
       {toast && (
-        <div className="self-center mt-2 px-4 py-2 rounded-xl bg-neutral-950/95 border-2 border-orange-500/80 shadow-2xl backdrop-blur-md animate-bounce text-center max-w-md">
-          <p className="text-[11px] sm:text-xs font-mono font-bold text-orange-400 tracking-wide">
+        <div className="self-center mt-2 px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl bg-neutral-950/95 border-2 border-orange-500 shadow-[0_0_30px_rgba(249,115,22,0.4)] backdrop-blur-md animate-bounce flex items-center gap-3 max-w-lg pointer-events-auto">
+          {toast.image && (
+            <img
+              src={toast.image}
+              alt="Meme alert"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg border border-white/20 bg-black/60 shrink-0 shadow-md"
+            />
+          )}
+          <p className="text-[11px] sm:text-xs font-mono font-bold text-orange-400 tracking-wide text-left">
             {toast.message}
           </p>
         </div>
