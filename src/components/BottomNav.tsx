@@ -4,9 +4,11 @@ import MacOSDock, { DockApp } from './ui/mac-os-dock';
 interface BottomNavProps {
   isIdCardOpen?: boolean;
   onToggleIdCard?: () => void;
+  isAgentsOpen?: boolean;
+  onToggleAgents?: () => void;
 }
 
-const getPortfolioApps = (isIdCardOpen: boolean): DockApp[] => [
+const getPortfolioApps = (isIdCardOpen: boolean, isAgentsOpen: boolean): DockApp[] => [
   {
     id: 'finder',
     name: 'Home',
@@ -21,6 +23,11 @@ const getPortfolioApps = (isIdCardOpen: boolean): DockApp[] => [
     id: 'projects',
     name: 'Vibe Coding',
     icon: '/icons/dock/terminal.svg',
+  },
+  {
+    id: 'agents',
+    name: isAgentsOpen ? 'Close AI Rebuild' : 'AI Swarm Rebuild 🤖',
+    icon: '/icons/dock/agents.svg',
   },
   {
     id: 'arcade',
@@ -54,7 +61,12 @@ const getPortfolioApps = (isIdCardOpen: boolean): DockApp[] => [
   },
 ];
 
-export default function BottomNav({ isIdCardOpen = false, onToggleIdCard }: BottomNavProps) {
+export default function BottomNav({
+  isIdCardOpen = false,
+  onToggleIdCard,
+  isAgentsOpen = false,
+  onToggleAgents,
+}: BottomNavProps) {
   const [openApps, setOpenApps] = useState<string[]>(['finder']);
 
   // Scroll spy to reflect active sections in the macOS dock
@@ -155,15 +167,25 @@ export default function BottomNav({ isIdCardOpen = false, onToggleIdCard }: Bott
         window.dispatchEvent(new Event('popstate'));
         break;
       }
+      case 'agents': {
+        onToggleAgents?.();
+        break;
+      }
       default:
         break;
     }
   };
 
-  const apps = getPortfolioApps(isIdCardOpen);
-  const effectiveOpenApps = isIdCardOpen
+  const apps = getPortfolioApps(isIdCardOpen, isAgentsOpen);
+  let effectiveOpenApps = isIdCardOpen
     ? Array.from(new Set([...openApps, 'id-card']))
     : openApps.filter((id) => id !== 'id-card');
+
+  if (isAgentsOpen) {
+    effectiveOpenApps = Array.from(new Set([...effectiveOpenApps, 'agents']));
+  } else {
+    effectiveOpenApps = effectiveOpenApps.filter((id) => id !== 'agents');
+  }
 
   return (
     <nav

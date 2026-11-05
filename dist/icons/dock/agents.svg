@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e17" />
+      <stop offset="100%" stop-color="#151d2f" />
+    </linearGradient>
+    <linearGradient id="cursor1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0088FF" />
+    </linearGradient>
+    <linearGradient id="cursor2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF007F" />
+      <stop offset="100%" stop-color="#9900FF" />
+    </linearGradient>
+    <linearGradient id="cursor3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800" />
+      <stop offset="100%" stop-color="#FF5500" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#bgGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+
+  <!-- Blueprint Grid Overlay -->
+  <path d="M 24 24 L 96 24 M 24 48 L 96 48 M 24 72 L 96 72 M 24 96 L 96 96 M 24 24 L 24 96 M 48 24 L 48 96 M 72 24 L 72 96 M 96 24 L 96 96" stroke="rgba(0,240,255,0.12)" stroke-width="1" stroke-dasharray="2,2" />
+
+  <!-- Selection Box (Figma Style) -->
+  <rect x="36" y="38" width="48" height="42" fill="rgba(0,136,255,0.12)" stroke="#00F0FF" stroke-width="1.5" stroke-dasharray="3,2" rx="3" />
+  <rect x="34" y="36" width="4" height="4" fill="#00F0FF" />
+  <rect x="82" y="36" width="4" height="4" fill="#00F0FF" />
+  <rect x="34" y="78" width="4" height="4" fill="#00F0FF" />
+  <rect x="82" y="78" width="4" height="4" fill="#00F0FF" />
+
+  <!-- Cursor 1 (Cyan Leader) -->
+  <g transform="translate(32, 34)" filter="url(#glow)">
+    <path d="M 0 0 L 0 20 L 5 15 L 10 24 L 14 22 L 9 13 L 16 13 Z" fill="url(#cursor1)" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round" />
+  </g>
+
+  <!-- Cursor 2 (Magenta Agent) -->
+  <g transform="translate(68, 58)" filter="url(#glow)">
+    <path d="M 0 0 L 0 16 L 4 12 L 8 19 L 11 18 L 7 11 L 13 11 Z" fill="url(#cursor2)" stroke="#ffffff" stroke-width="1" stroke-linejoin="round" />
+  </g>
+
+  <!-- Cursor 3 (Amber Agent) -->
+  <g transform="translate(50, 20)">
+    <path d="M 0 0 L 0 14 L 3 10 L 7 16 L 10 15 L 6 9 L 11 9 Z" fill="url(#cursor3)" stroke="#ffffff" stroke-width="0.8" stroke-linejoin="round" />
+  </g>
+</svg>

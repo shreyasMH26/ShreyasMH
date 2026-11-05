@@ -6,6 +6,7 @@ import Loader from "./components/ui/loader-6";
 import ContributionSkylineDemo from "./components/ui/contribution-skyline-demo";
 import LiquidSculptureHeroDemo from "./components/ui/liquid-sculpture-hero-demo";
 import ArcadePage from "./components/arcade/ArcadePage";
+import AgentSwarmOverlay from "./components/ui/AgentSwarmOverlay";
 
 type DemoMode = 'none' | 'skyline' | 'sculpture' | 'arcade';
 
@@ -526,11 +527,20 @@ export default function App() {
   const [demoMode, setDemoMode] = useState<DemoMode>(getDemoMode);
   const [loading, setLoading] = useState(true);
   const [showIdCard, setShowIdCard] = useState(false);
+  const [showAgentSwarm, setShowAgentSwarm] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    const h = window.location.hash;
+    return h === '#agents' || h === '#rebuild' || h === '#inspect';
+  });
   const flipCardRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     const handleLocationChange = () => {
       setDemoMode(getDemoMode());
+      const h = window.location.hash;
+      if (h === '#agents' || h === '#rebuild' || h === '#inspect') {
+        setShowAgentSwarm(true);
+      }
     };
     window.addEventListener("hashchange", handleLocationChange);
     window.addEventListener("popstate", handleLocationChange);
@@ -744,10 +754,38 @@ export default function App() {
       {/* Exact Bento Portfolio (Cards and Sections from reference) */}
       <BentoPage />
 
+      {/* Autonomous AI Multi-Agent Swarm Rebuild Animation (Figma Inspector Overlays) */}
+      <AgentSwarmOverlay
+        isOpen={showAgentSwarm}
+        onClose={() => {
+          setShowAgentSwarm(false);
+          const h = window.location.hash;
+          if (h === '#agents' || h === '#rebuild' || h === '#inspect') {
+            history.replaceState(null, '', window.location.pathname);
+          }
+        }}
+      />
+
+      {/* Floating Quick Trigger Pill for 44 Agents Rebuild Animation */}
+      {!loading && !showAgentSwarm && demoMode === 'none' && (
+        <button
+          onClick={() => setShowAgentSwarm(true)}
+          className="fixed top-5 right-5 z-40 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white/80 hover:text-white border border-cyan-500/35 hover:border-cyan-400/70 shadow-[0_0_20px_rgba(0,240,255,0.18)] backdrop-blur-md text-xs font-mono tracking-wider transition-all active:scale-95 cursor-pointer group"
+          title="Watch 44 AI Agents inspect and rebuild the portfolio"
+        >
+          <span className="size-2 rounded-full bg-cyan-400 group-hover:animate-ping" />
+          <span className="text-cyan-300 font-bold">44 AGENTS</span>
+          <span className="text-white/30">|</span>
+          <span className="text-white/70 group-hover:text-white">REBUILD TOUR</span>
+        </button>
+      )}
+
       {/* Floating macOS Interactive Dock */}
       <BottomNav
         isIdCardOpen={showIdCard}
         onToggleIdCard={() => setShowIdCard((prev) => !prev)}
+        isAgentsOpen={showAgentSwarm}
+        onToggleAgents={() => setShowAgentSwarm((prev) => !prev)}
       />
     </div>
   );
