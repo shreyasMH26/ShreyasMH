@@ -26,7 +26,7 @@ const getPortfolioApps = (isIdCardOpen: boolean, isAgentsOpen: boolean): DockApp
   },
   {
     id: 'agents',
-    name: isAgentsOpen ? 'Close Swarm Rebuild' : 'Swarm Rebuild ⚔️',
+    name: isAgentsOpen ? 'Close Bots With Benefits' : 'Bots With Benefits 🐹',
     icon: '/icons/dock/agents.png',
   },
   {
