@@ -800,12 +800,12 @@ export default function App() {
         <button
           onClick={triggerSwarmRebuild}
           className="fixed top-5 right-5 z-40 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/85 hover:bg-black text-white/80 hover:text-white border border-cyan-500/35 hover:border-cyan-400/70 shadow-[0_0_20px_rgba(0,240,255,0.18)] backdrop-blur-md text-xs font-mono tracking-wider transition-all active:scale-95 cursor-pointer group"
-          title="Watch AI Swarm inspect and rebuild the portfolio"
+          title="Watch Swarm Rebuild reconstruct the portfolio"
         >
-          <span className="size-2 rounded-full bg-cyan-400 group-hover:animate-ping" />
-          <span className="text-cyan-300 font-bold">AI SWARM</span>
+          <img src="/icons/dock/agents.png" alt="Swarm" className="w-4 h-4 rounded-full object-cover" />
+          <span className="text-cyan-300 font-bold">SWARM REBUILD</span>
           <span className="text-white/30">|</span>
-          <span className="text-white/70 group-hover:text-white">REBUILD TOUR</span>
+          <span className="text-white/70 group-hover:text-white">TOUR</span>
         </button>
       )}
 

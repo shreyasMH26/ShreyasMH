@@ -26,8 +26,8 @@ const getPortfolioApps = (isIdCardOpen: boolean, isAgentsOpen: boolean): DockApp
   },
   {
     id: 'agents',
-    name: isAgentsOpen ? 'Close AI Rebuild' : 'AI Swarm Rebuild 🤖',
-    icon: '/icons/dock/agents.svg',
+    name: isAgentsOpen ? 'Close Swarm Rebuild' : 'Swarm Rebuild ⚔️',
+    icon: '/icons/dock/agents.png',
   },
   {
     id: 'arcade',
